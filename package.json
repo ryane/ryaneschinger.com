@@ -1,0 +1,21 @@
+{
+  "name": "ryaneschinger.com-hugo",
+  "version": "0.0.1",
+  "description": "ryaneschinger.com powered by Hugo",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:ryanesc/ryaneschinger.com-hugo.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Ryan Eschinger",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
+}
