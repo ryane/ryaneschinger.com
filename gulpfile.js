@@ -21,9 +21,7 @@ gulp.task('watch', ['scss'], function(done) {
   var hugoArgs = [
     'server',
     '-w',
-    '--buildDrafts',
-    '-t',
-    'ryaneschinger.com'
+    '--buildDrafts'
   ];
   return cp
     .spawn('hugo', hugoArgs, { stdio: 'inherit' })
