@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
+    concat = require('gulp-concat'),
     del = require('del'),
     cp = require('child_process');
 
@@ -13,6 +14,7 @@ gulp.task('scss', function() {
   gulp.src('src/scss/*')
     .pipe(sass())
     .pipe(minifyCss())
+    .pipe(concat('site.css'))
     .pipe(gulp.dest('./static/css/'));
 });
 
