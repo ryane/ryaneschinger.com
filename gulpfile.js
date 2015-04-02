@@ -18,7 +18,12 @@ gulp.task('scss', function() {
     .pipe(gulp.dest('./static/css/'));
 });
 
-gulp.task('watch', ['scss'], function(done) {
+gulp.task('build', function() {
+  gulp.src('src/js/*')
+    .pipe(gulp.dest('./static/js/'));
+});
+
+gulp.task('watch', ['scss', 'build'], function(done) {
   gulp.watch(['src/css/*'], ['scss']);
   var hugoArgs = [
     'server',
