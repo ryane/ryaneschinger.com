@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     browserify = require('browserify'),
+    babelify = require('babelify'),
     source = require('vinyl-source-stream'),
-    reactify = require('reactify'),
     sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
     concat = require('gulp-concat'),
@@ -34,7 +34,7 @@ gulp.task('scss', function() {
 gulp.task('build', function() {
   return browserify({
     entries: [path.ENTRY_POINT],
-    transform: [reactify]
+    transform: [babelify]
   })
     .bundle()
     .pipe(source('bundle.js'))
