@@ -1,4 +1,6 @@
 var gulp = require('gulp'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
     sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
     concat = require('gulp-concat'),
@@ -19,12 +21,15 @@ gulp.task('scss', function() {
 });
 
 gulp.task('build', function() {
-  gulp.src('src/js/*')
-    .pipe(gulp.dest('./static/js/'));
+  return browserify('./src/js/main.js')
+    .bundle()
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('./static/js'));
 });
 
 gulp.task('watch', ['scss', 'build'], function(done) {
   gulp.watch(['src/css/*'], ['scss']);
+  gulp.watch(['src/js/*'], ['build']);
   var hugoArgs = [
     'server',
     '-w',
