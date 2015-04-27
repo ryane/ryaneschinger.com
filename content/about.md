@@ -7,22 +7,28 @@ weight = 10000
 
 +++
 
-## About Ryan Eschinger
+My name is Ryan Eschinger. I am an independent software consultant and I can help your team reliably and sustainably build and deliver amazing software. With over 15 years experience in operations and application development, I have helped organizations of all shapes and sizes from small businesses to global enterprises, tech startups to the federal government. I specialize in helping companies create new web applications, automate their infrastructures, establish automated, repeatable deployments and build virtualized development environments that are consistent with production.
 
-Hello, I'm Ryan Eschinger and I can help you build and deliver better software,
-faster.
+My services include:
 
-The path of the righteous man is beset on all sides by the iniquities of the
-selfish and the tyranny of evil men. Blessed is he who, in the name of charity
-and good will, shepherds the weak through the valley of darkness, for he is
-truly his brother's keeper and the finder of lost children. And I will strike
-down upon thee with great vengeance and furious anger those who would attempt to
-poison and destroy My brothers. And you will know My name is the Lord when I lay
-My vengeance upon thee.
+* Infrastructure automation using Chef or Ansible on AWS, Rackspace, Digital Ocean, or other IaaS cloud providers.
+* Building reproducible and shareable development environments for your team using Vagrant
+* Establish the processes and tools needed to ensure fast and reliable automated deployments and move your organization along the spectrum towards continuous delivery
+* Custom web application development using Ruby on Rails and Javascript
 
-Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to
-my shirt with my name printed on it? Do you see a little Asian child with a
-blank expression on his face sitting outside on a mechanical helicopter that
-shakes when you put quarters in it? No? Well, that's what you see at a toy
-store. And you must think you're in a toy store, because you're here shopping
-for an infant named Jeb.
+If you have a problem to solve, I'd love to help. [Get in touch](mailto:ryan@ryaneschinger.com).
+
+<div class="social-icons" style="text-align: center">
+<a href="http://twitter.com/ryanesc" target="_blank">
+<i class="fa fa-twitter-square"></i>
+</a>
+<a href="https://www.linkedin.com/in/ryaneschinger" target="_blank">
+<i class="fa fa-linkedin-square"></i>
+</a>
+<a href="https://github.com/ryane" target="_blank">
+<i class="fa fa-github-square"></i>
+</a>
+<a href="mailto:ryan@ryaneschinger.com" target="_blank">
+<i class="fa fa-envelope-square"></i>
+</a>
+</div>
