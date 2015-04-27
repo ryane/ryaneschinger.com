@@ -11,9 +11,11 @@ var gulp = require('gulp'),
 var path = {
   SCSS: './src/scss/*',
   JS: './src/js/**/*',
+  IMAGES: './src/images/**/*',
   ENTRY_POINT: './src/js/main.js',
   DEST_CSS: './static/css/',
   DEST_JS: './static/js/',
+  DEST_IMAGES: './static/images/',
   PUBLIC: 'public',
   STATIC: 'static/**/*'
 };
@@ -41,9 +43,15 @@ gulp.task('build', function() {
     .pipe(gulp.dest(path.DEST_JS));
 });
 
-gulp.task('watch', ['scss', 'build'], function(done) {
+gulp.task('images', function() {
+  gulp.src(path.IMAGES)
+    .pipe(gulp.dest(path.DEST_IMAGES));
+});
+
+gulp.task('watch', ['scss', 'build', 'images'], function(done) {
   gulp.watch([path.SCSS], ['scss']);
   gulp.watch([path.JS], ['build']);
+  gulp.watch([path.IMAGES], ['images']);
   var hugoArgs = [
     'server',
     '-w',
