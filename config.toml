@@ -10,10 +10,10 @@ title = "ryaneschinger.com"
 [[menu.header]]
   name = "Services"
   identifier = "services"
-  url = "#services"
+  url = "/"
   weight = 100
 [[menu.header]]
   name = "Articles"
   identifier = "articles"
-  url = "#articles"
+  url = "/"
   weight = 200

@@ -12,10 +12,12 @@ var path = {
   SCSS: './src/scss/*',
   JS: './src/js/**/*',
   IMAGES: './src/images/**/*',
+  ICONS: './src/*.*',
   ENTRY_POINT: './src/js/main.js',
   DEST_CSS: './static/css/',
   DEST_JS: './static/js/',
   DEST_IMAGES: './static/images/',
+  DEST_ICONS: './static/',
   PUBLIC: 'public',
   STATIC: 'static/**/*'
 };
@@ -48,13 +50,28 @@ gulp.task('images', function() {
     .pipe(gulp.dest(path.DEST_IMAGES));
 });
 
-gulp.task('watch', ['scss', 'build', 'images'], function(done) {
+gulp.task('icons', function() {
+  gulp.src(path.ICONS)
+    .pipe(gulp.dest(path.DEST_ICONS));
+});
+
+gulp.task('watch', ['scss', 'build', 'images', 'icons'], function(done) {
   gulp.watch([path.SCSS], ['scss']);
   gulp.watch([path.JS], ['build']);
   gulp.watch([path.IMAGES], ['images']);
+  gulp.watch([path.ICONS], ['icons']);
   var hugoArgs = [
     'server',
     '-w',
+    '--buildDrafts'
+  ];
+  return cp
+    .spawn('hugo', hugoArgs, { stdio: 'inherit' })
+    .on('close', done);
+});
+
+gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
+  var hugoArgs = [
     '--buildDrafts'
   ];
   return cp
