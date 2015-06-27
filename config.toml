@@ -2,11 +2,11 @@ baseurl = "http://ryaneschinger.com"
 languageCode = "en-us"
 title = "ryaneschinger.com"
 
-[[menu.header]]
-  name = "Home"
-  identifier = "home"
-  url = "/"
-  weight = -100
+# [[menu.header]]
+#   name = "Home"
+#   identifier = "home"
+#   url = "/"
+#   weight = -100
 [[menu.header]]
   name = "Services"
   identifier = "services"
