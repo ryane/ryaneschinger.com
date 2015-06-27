@@ -1,9 +1,8 @@
 +++
-date = "2015-04-27T09:19:00-04:00"
-draft = true
-title = "Migrate your application from Heroku to AWS"
-
+title = "AWS Power up"
 +++
+
+## Migrate your application from Heroku to AWS
 
 Are you frustrated by the lack of control and high costs of Heroku? Have you
 been considering migrating your application to Amazon Web Services (AWS)?
@@ -207,7 +206,7 @@ questions?* [Email me](mailto:ryan@ryaneschinger.com) and I'll get back to you
 soon.
 
 <p class="pitch-sig" markdown="1">
-Thanks! <br/> &mdash; <a href="mailto:ryan@ryaneschinger.com">Ryan Eschinger</a>
+Thanks! <br/> &mdash; [Ryan Eschinger](mailto:ryan@ryaneschinger.com)
 </p>
 
 <div class="ps" markdown="1">

@@ -1,8 +1,5 @@
 +++
-date = "2015-04-27T08:58:00-04:00"
-draft = true
 title = "Infrastructure Automation"
-
 +++
 
 ## Are you ashamed of your application infrastructure?
@@ -52,4 +49,4 @@ Building an infrastructure automation and configuration management solution is a
 
 ---
 
-Having an automated infrastructure is a foundation for many other things that can help your business deliver better software more quickly and better serve your customers. With a solid configuration management practice in place, you are going to be in a much better place to start looking at how you can take more advantage of cloud computing, continuous integration and delivery, and other DevOps practices. More importantly, it can help your business innovate and grow. Contact me below to reserve your free consultation.
+Having an automated infrastructure is a foundation for many other things that can help your business deliver better software more quickly and better serve your customers. With a solid configuration management practice in place, you are going to be in a much better place to start looking at how you can take more advantage of cloud computing, continuous integration and delivery, and other DevOps practices. More importantly, it can help your business innovate and grow. <a href="mailto:ryan@ryaneschinger.com">Contact me</a> to reserve your free consultation.

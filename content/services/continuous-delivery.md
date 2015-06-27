@@ -1,6 +1,4 @@
 +++
-date = "2015-04-27T09:30:00-04:00"
-draft = false
 title = "Continuous Delivery"
 +++
 
@@ -41,4 +39,4 @@ I will work with you and your team to ensure that you have a solid Continuous In
 
 ---
 
-Continuous Delivery is going to enable your business to react to the needs of your customers much more rapidly - whether that is fixing problems or delivering new features. It can help lower stress and improve the morale of your team. It is immensely satisfying when a developer is able to get out new code that they may be really proud of to customers right away. And, of course, your customers are going to be delighted when you are able to meet and exceed their expectations on a regular basis. Contact me to learn more about how I can help your company achieve the benefits of Continuous Delivery.
+Continuous Delivery is going to enable your business to react to the needs of your customers much more rapidly - whether that is fixing problems or delivering new features. It can help lower stress and improve the morale of your team. It is immensely satisfying when a developer is able to get out new code that they may be really proud of to customers right away. And, of course, your customers are going to be delighted when you are able to meet and exceed their expectations on a regular basis.  <a href="mailto:ryan@ryaneschinger.com">Contact me </a> to learn more about how I can help your company achieve the benefits of Continuous Delivery.
