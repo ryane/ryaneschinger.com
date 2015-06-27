@@ -1,6 +1,9 @@
-+++
-title = "Continuous Delivery"
-+++
+---
+title: "Continuous Delivery"
+menu:
+  header:
+    parent: 'Services'
+---
 
 ## Are you dreading your next application deployment?
 

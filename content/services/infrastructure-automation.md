@@ -1,6 +1,9 @@
-+++
-title = "Infrastructure Automation"
-+++
+---
+title: "Infrastructure Automation"
+menu:
+  header:
+    parent: 'Services'
+---
 
 ## Are you ashamed of your application infrastructure?
 

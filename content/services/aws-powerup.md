@@ -1,6 +1,9 @@
-+++
-title = "AWS Power up"
-+++
+---
+title: "AWS Power up"
+menu:
+  header:
+    parent: 'Services'
+---
 
 ## Migrate your application from Heroku to AWS
 

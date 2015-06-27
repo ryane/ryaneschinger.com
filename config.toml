@@ -12,8 +12,13 @@ title = "ryaneschinger.com"
 #   identifier = "services"
 #   url = "/services/"
 #   weight = 100
-# [[menu.header]]
-#   name = "Articles"
-#   identifier = "articles"
-#   url = "/"
-#   weight = 200
+[[menu.header]]
+  name = "Articles"
+  identifier = "articles"
+  url = "http://ryaneschinger.com/"
+  weight = 200
+[[menu.header]]
+  name = "Contact"
+  identifier = "contact"
+  url = "mailto:ryan@ryaneschinger.com"
+  weight = 300
