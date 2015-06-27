@@ -1,8 +1,7 @@
 +++
 date = "2015-04-27T09:30:00-04:00"
-draft = true
+draft = false
 title = "Continuous Delivery"
-
 +++
 
 ## Are you dreading your next application deployment?
