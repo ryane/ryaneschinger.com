@@ -15,7 +15,7 @@ title = "ryaneschinger.com"
 [[menu.header]]
   name = "Articles"
   identifier = "articles"
-  url = "http://ryaneschinger.com/"
+  url = "/articles/"
   weight = 200
 [[menu.header]]
   name = "Contact"

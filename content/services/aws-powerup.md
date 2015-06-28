@@ -208,11 +208,11 @@ up shortly to schedule a call so that we can go over the next steps. *Have any
 questions?* [Email me](mailto:ryan@ryaneschinger.com) and I'll get back to you
 soon.
 
-<p class="pitch-sig" markdown="1">
-Thanks! <br/> &mdash; [Ryan Eschinger](mailto:ryan@ryaneschinger.com)
+<p class="pitch-sig" >
+Thanks! <br/> &mdash; <a href="mailto:ryan@ryaneschinger.com">Ryan Eschinger</a>
 </p>
 
-<div class="ps" markdown="1">
+<div class="ps">
 
 PS: Introductory pricing is currently in effect. <a
 href="https://jossware.wufoo.com/forms/heroku-to-aws-migrations-from-ryaneschingercom/"
