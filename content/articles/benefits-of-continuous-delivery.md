@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to Convince your Boss to Invest in Continuous Delivery
 tags:
 - devops
