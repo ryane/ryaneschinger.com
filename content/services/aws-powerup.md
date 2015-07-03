@@ -1,5 +1,5 @@
 ---
-title: "AWS Power up"
+title: "AWS Power-Up"
 menu:
   header:
     parent: 'Services'
