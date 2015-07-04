@@ -1,4 +1,5 @@
 $footer-height: 200px;
+$mainBlue: #3498db;
 
 html {
   position: relative;
@@ -14,6 +15,10 @@ body {
   margin-bottom: $footer-height;
 
   p {
+    font-family: 'Roboto Slab', serif;
+  }
+
+  .note {
     font-family: 'Roboto Slab', serif;
   }
 }
@@ -34,7 +39,7 @@ body {
 
   .navbar-nav > .active > a {
     background-color: #fff;
-    color: #3498db;
+    color: $mainBlue;
     font-weight: bold;
   }
 }
@@ -45,7 +50,7 @@ body {
 
 .hero {
   text-align: center;
-  background-color: #3498db;
+  background-color: $mainBlue;
 
   h1 {
     color: #fff;
@@ -88,6 +93,31 @@ body {
         font-size: 3em;
         padding: 0 6px;
       }
+    }
+  }
+
+  figure {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  p, pre {
+    line-height: 30px;
+    margin-bottom: 1em;
+  }
+
+  .note {
+    display: block;
+    margin-top: 0;
+    padding: 1rem 1rem 0;
+    line-height: 1.4;
+    border-left: 4px solid $mainBlue;
+    background-color: lighten($mainBlue, 40%);
+    margin-bottom: 1rem;
+
+    p:last-child {
+      padding-bottom: 1rem;
     }
   }
 }

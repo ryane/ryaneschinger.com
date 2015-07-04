@@ -23,7 +23,7 @@ of ways to do so. First, you can use the
 to download a zip archive of the logs. You can request the full logs or just the
 last 100 lines.
 
-![EB Logs](/public/images/eb-logs.png "EB Logs")
+{{% figure src="/images/eb-logs.png" alt="EB Logs" %}}
 
 This process is a bit cumbersome, in my opinion. I prefer to use the `eb`
 command line tool to view the logs in my shell. If you don't have the EB CLI
@@ -34,22 +34,20 @@ All you need to do to view your logs is run the `eb logs` command. If you have
 more than one environment, you can specify it as an option. For example, to view
 the logs in my *development* environment, I simply run:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ eb logs development
-{% endhighlight %}
+{{< /highlight >}}
 
 After a few moments, it will output the logs to the terminal and I can easily
 page through them. By default, it will return the last 100 lines of logs but you
 can request them all with (no surprise) the `--all` option. Usually, I find that
 the first 100 lines will let me track down the problem, whatever it might be.
 
-<div class="note" markdown="1">
-
-Note that you must run the `eb logs` command from an already initialized Elastic
+{{% note %}}
+**Note** that you must run the `eb logs` command from an already initialized Elastic
 Beanstalk project directory. If you are not yet using EB or are just getting
 started, you can download <a
 href="https://www.getdrip.com/forms/1176915/submissions/new" target="_blank"> my
 guide</a> on migrating a Rails application to Elastic Beanstalk by signing up
 for my mailing list.
-
-</div>
+{{% /note %}}
