@@ -2,6 +2,9 @@ baseurl = "http://ryaneschinger.com"
 languageCode = "en-us"
 title = "ryaneschinger.com"
 
+pygmentsuseclasses = false
+pygmentsstyle = "colorful"
+
 # [[menu.header]]
 #   name = "Home"
 #   identifier = "home"
