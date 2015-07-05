@@ -44,9 +44,9 @@ non-persistent containers or to share data between multiple
 containers. Here is the command I used to create a data volume
 container for my postgresql database:
 
-{% highlight bash %}
+{{< highlight bash >}}
 docker create -v /var/lib/postgresql/data --name postgres9.3.6-data busybox
-{% endhighlight %}
+{{< /highlight >}}
 
 I use the `-v` option to specify the name of the volume. This should
 match the name of the volume that your postgresql image mounts for its
@@ -58,10 +58,10 @@ that it is */var/lib/postgresql/data*.
 I also use `--name` to give a descriptive name for the data volume
 container so you can easily see it when running `docker ps -a`.
 
-<div class="note" markdown="1">
+{{% note %}}
 Note that I version the name of my containers since I sometimes need
 to run multiple different versions of postgresql.
-</div>
+{{% /note %}}
 
 Finally, I am basing the container on
 [busybox](https://registry.hub.docker.com/_/busybox/) which is an extremely
@@ -71,9 +71,9 @@ lightweight image.
 
 Now, let's create the postgresql container.
 
-{% highlight bash %}
+{{< highlight bash >}}
 docker run --name local-postgres9.3.6 -e POSTGRES_PASSWORD=asecurepassword -d --volumes-from postgres9.3.6-data postgres:9.3.6
-{% endhighlight %}
+{{< /highlight >}}
 
 Again, I am using `--name` to specify a versioned name for my
 container. I am using an environment variable (`-e`) to set the
@@ -95,9 +95,9 @@ the previous step. Finally, I am using the *9.3.6* tag of the
 We can now use *psql* to configure our postgresql server. Run the
 following command to establish a connection:
 
-{% highlight bash %}
+{{< highlight bash >}}
 docker run -it --link local-postgres9.3.6:postgres --rm postgres:9.3.6 sh -c 'exec psql -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres'
-{% endhighlight %}
+{{< /highlight >}}
 
 This command is lifted straight from the
 [postgresql image documentation](https://registry.hub.docker.com/_/postgres/). It
@@ -110,13 +110,13 @@ you need to run it often.
 Now we can go ahead and make changes to the
 postgresql server. For example, let's create a role and a database:
 
-{% highlight sql %}
+{{< highlight sql >}}
 postgres=# CREATE ROLE myapp WITH CREATEDB LOGIN PASSWORD 'secret';
 CREATE ROLE
 postgres=# CREATE DATABASE myapp_development;
 CREATE DATABASE
 postgres=# \q
-{% endhighlight %}
+{{< /highlight >}}
 
 That data and configuration is being persisted in a shared data volume and will
 be persisted as long we don't remove the *postgres9.3.6-data* container we
@@ -124,7 +124,7 @@ created in the first step. For example, I can stop and remove my
 *local-postgres9.3.6* container, recreate it (using the `--volumes-from` option)
 and still see that the user and database still exists.
 
-{% highlight bash %}
+{{< highlight bash >}}
 docker stop local-postgres9.3.6
 
 docker rm -v local-postgres9.3.6
@@ -132,7 +132,7 @@ docker rm -v local-postgres9.3.6
 docker run --name local-postgres9.3.6 -e POSTGRES_PASSWORD=asecurepassword -d --volumes-from postgres9.3.6-data postgres:9.3.6
 
 docker run -it --link local-postgres9.3.6:postgres --rm postgres:9.3.6 sh -c 'exec psql -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres -l'
-{% endhighlight %}
+{{< /highlight >}}
 
 You should see the *myapp_development* database that we created in the
 list of databases returned by that last command.
@@ -148,9 +148,9 @@ postgresql instance from applications on the host &mdash; for example,
 a locally-installed copy of *psql* or a Rails application running
 outside of a Docker container. To do this, you can run the following:
 
-{% highlight bash %}
+{{< highlight bash >}}
 docker run --name local-postgres9.3.6 -p 5432:5432 -e POSTGRES_PASSWORD=asecurepassword -d --volumes-from postgres9.3.6-data postgres:9.3.6
-{% endhighlight %}
+{{< /highlight >}}
 
 Make sure you have stopped and removed the *local-postgres9.3.6*
 container if you had it running previously. Otherwise, you'll get a
@@ -158,14 +158,14 @@ name conflict and the container won't start.
 
 Now, you can connect to that instance from applications on your host:
 
-{% highlight bash %}
-psql -h localhost -p 5432 -U postgres                                                                                                                   rbenv:2.1.3 
+{{< highlight bash >}}
+psql -h localhost -p 5432 -U postgres
 Password for user postgres: 
 psql (9.3.6)
 Type "help" for help.
 
 postgres=# 
-{% endhighlight %}
+{{< /highlight >}}
 
 Note, I am exposing *5432* directly on the host. If you want to start
 multiple instances of postgresql (different versions, for example),
@@ -183,8 +183,6 @@ I am really just getting started with using Docker and containers in general. I
 think it is pretty exciting technology. I'd love to hear from you - have you
 bought into Docker and how are you using it in your day-to-day work? Please
 [email](mailto:ryan@ryaneschinger.com) me and let me know!
-
----
 
 [^1]:
     Technically, your data will not be lost unless you use the *-v* flag
