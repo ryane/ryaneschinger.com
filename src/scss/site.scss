@@ -14,11 +14,7 @@ body {
   line-height: 1.6;
   margin-bottom: $footer-height;
 
-  p {
-    font-family: 'Roboto Slab', serif;
-  }
-
-  .note {
+  p, ul, .note {
     font-family: 'Roboto Slab', serif;
   }
 }
