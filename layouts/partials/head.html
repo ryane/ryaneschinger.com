@@ -2,7 +2,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ if eq .Title .Site.Title }}
+  <title>{{ .Site.Title }}</title>
+  {{ else }}
   <title> {{ .Title }} &middot; {{ .Site.Title }} </title>
+  {{ end }}
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400|Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <!-- Bootstrap -->
