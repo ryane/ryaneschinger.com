@@ -16,34 +16,34 @@ Continuous integration and continuous deployment are two important elements of b
 
 We are using two Jenkins jobs to accomplish this.
 
-![Jenkins Jobs](/public/images/jenkins-jobs.png)
+{{% figure src="/images/jenkins-jobs.png" alt="Jenkins Jobs" %}}
 
 The first job (Sample App Build) implements the continuous integration phase of the pipeline. In this example, I have a pretty standard build for a Rails application on Jenkins. The single build step looks something like this:
 
-{% highlight bash %}
+{{< highlight bash >}}
 #!/bin/bash -xe
 export RAILS_ENV=test
 bundle install --deployment --path vendor/bundle
 bundle exec rake db:migrate
 bundle exec rspec spec --order random --fail-fast
-{% endhighlight %}
+{{< /highlight >}}
 
 The job is triggered to run whenever code is pushed to a specific branch on Github using the [Github Plugin](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin) and a [Github services webhook](https://developer.github.com/webhooks/#services).
 
 The second job (Sample App Deploy) is responsible for deploying the application via Capistrano. The job is configured to run only after a stable build of the Sample App Build project.
 
-![Jenkins Build Triggers](/public/images/jenkins-build-trigger.png)
+{{% figure src="/images/jenkins-build-trigger.png" alt="Jenkins Build Triggers" %}}
 
 Here is the single build step definition:
 
-{% highlight bash %}
+{{< highlight bash >}}
 #!/bin/bash -xe
 bundle exec cap staging deploy
-{% endhighlight %}
+{{< /highlight >}}
 
 One other note on this job: In the Advanced Project Options of the job configuration, I am setting a custom workspace that points the workspace directory to the same directory of the CI job (Sample App Build).
 
-![Custom Workspace Configuration](/public/images/jenkins-custom-workspace.png)
+{{% figure src="/images/jenkins-custom-workspace.png" alt="Custom Workspace Configuration" %}}
 
 We could just configure the deployment job to pull the code from Github again but, by reusing the same workspace, we can save a little time and bandwidth. Be aware, though, that this approach might not work if you are aggressively cleaning your workspace directory or if you are building in a distributed environment.
 

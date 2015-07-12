@@ -11,7 +11,7 @@ menu:
     parent: 'articles'
 ---
 
-In my last [post](/blog/using-cloudfront-to-speed-up-your-rails-application/), I may have been a little cavalier when I said it is a "no-brainer" to use CloudFront to serve assets for your Rails application. In truth, there are a few issues that can make things more complicated. One of those is the ability to serve web fonts.
+In my last [post]({{< relref "articles/using-cloudfront-to-speed-up-your-rails-application.md" >}}), I may have been a little cavalier when I said it is a "no-brainer" to use CloudFront to serve assets for your Rails application. In truth, there are a few issues that can make things more complicated. One of those is the ability to serve web fonts.
 
 Some browsers consider fonts hosted on a different domain a security issue and will reject requests for them. You might see errors like this in your console (this one is from [Firefox](https://www.mozilla.org/en-US/firefox/new/)):
 
@@ -26,7 +26,7 @@ One solution to this problem is to make sure the appropriate [CORS](http://en.wi
 
 I often use [nginx](http://nginx.com/) in front of my rails application server. In my nginx server block (virtual host) configuration, I can add a configuration like this to ensure that the **Access-Control-Allow-Origin** is set:
 
-{% highlight nginx %}
+{{< highlight nginx >}}
 location ^~ /assets/ {
   gzip_static on;
   expires max;
@@ -36,7 +36,7 @@ location ^~ /assets/ {
     add_header Access-Control-Allow-Origin *;
   }
 }
-{% endhighlight %}
+{{< /highlight >}}
 
 ## S3 Origin
 
@@ -44,7 +44,7 @@ Amazon recently added the ability to configure the CORS headers that will be inc
 
 In the [AWS Management Console](https://console.aws.amazon.com/s3/home), navigate to the Properties tab of your S3 bucket, expand the Permissions section, and click *Add CORS Configuration*. The sample configuration might work for you but customize as needed.
 
-{% highlight xml %}
+{{< highlight xml >}}
 <CORSConfiguration>
     <CORSRule>
         <AllowedOrigin>*</AllowedOrigin>
@@ -53,11 +53,11 @@ In the [AWS Management Console](https://console.aws.amazon.com/s3/home), navigat
         <AllowedHeader>Authorization</AllowedHeader>
     </CORSRule>
 </CORSConfiguration>
-{% endhighlight %}
+{{< /highlight >}}
 
-<div class="note" markdown="1">
+{{% note %}}
 In all of the examples above I used an origin of **\***. For additional security, you may want to consider actually using the domain name of your site. Just be careful, because the allowed origin must match to ensure the browser will download the assets correctly.
-</div>
+{{% /note %}}
 
 ## Heroku Site Origin
 

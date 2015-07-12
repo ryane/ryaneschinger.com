@@ -106,13 +106,12 @@ body {
   .note {
     display: block;
     margin-top: 0;
-    padding: 1rem 1rem 0;
+    padding: 1rem 1rem 0.1rem;
     line-height: 1.4;
     border-left: 4px solid $mainBlue;
     background-color: lighten($mainBlue, 40%);
-    margin-bottom: 1rem;
 
-    p {
+    img:last-child {
       padding-bottom: 1rem;
     }
   }

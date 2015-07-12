@@ -19,7 +19,8 @@ The simplest thing you need to be aware of is whether your site is responding. Y
 
 Deploying your application to a cloud computing platform can have some advantages here. For example, [Heroku](https://www.heroku.com/) will let you spin up additional worker processes to handle additional load by moving a slider on a web page:
 
-![Heroku Scale Slider](/public/images/heroku-scale-slider.png "Heroku Scale Slider")
+
+{{% figure src="/images/heroku-scale-slider.png" alt="Heroku Scale Slider" %}}
 
 This lets you increase capacity on-demand. Other platforms, like [Windows Azure](http://www.windowsazure.com/en-us/) and [Amazon EC2](http://aws.amazon.com/ec2/) also have similar capabilities, including the ability to auto scale based on conditions you define (when CPU utilization exceeds 75%, for example). The degree of hand-holding can vary by each platform so you should be familiar with how to take advantage of their capabilities and you definitely should test your setup in advance of your launch. If you are running on your own infrastructure, you may have to do a lot more work to roll your own scaling solution but having a plan to deal with this is a good idea.
 

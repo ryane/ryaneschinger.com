@@ -24,19 +24,19 @@ In order to follow along, you will need at least one server you can play around 
 
 If you are on OSX, the easiest way to get Ansible installed is to use [Homebrew](http://brew.sh/).
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ brew update
 $ brew install ansible
-{% endhighlight %}
+{{< /highlight >}}
 
 On Ubuntu 14.04 (Trusty Tahr), you can run the following commands to get a recent version of Ansible:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ sudo apt-get install software-properties-common
 $ sudo apt-add-repository ppa:ansible/ansible
 $ sudo apt-get update
 $ sudo apt-get install ansible
-{% endhighlight %}
+{{< /highlight >}}
 
 For other options and more details on how to install Ansible on other releases and platforms, you should consult the [Ansible Installation documentation](http://docs.ansible.com/intro_installation.html).
 
@@ -58,19 +58,19 @@ As mentioned above, Ansible depends on SSH access to the servers you are managin
 
 Let's verify we have everything setup correctly and we can connect to our host(s).
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all --inventory-file=inventory.ini --module-name ping -u root
-{% endhighlight %}
+{{< /highlight >}}
 
-<div class="note" markdown="1">
+{{% note %}}
 <strong>Note</strong>: If you are using a Vagrant virtual machine, you are likely going to have to modify the command above. If you are using a typical Vagrant base box, you will likely want to authenticate with a user named <em>vagrant</em> and a different private key. For example, on my Vagrant virtual machine (using base box "ubuntu/trusty64"), the command I use is:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all --inventory-file=inventory.ini --module-name ping -u vagrant --private-key=~/.vagrant.d/insecure_private_key
-{% endhighlight %}
+{{< /highlight >}}
 
 You can run <code>vagrant ssh-config</code> to get more details about the options needed to successfully SSH into your Vagrant virtual machine. There are ways to configure the inventory file so that you don't have to use such an unwieldy command line that I can cover in a future post.
-</div>
+{{% /note %}}
 
 Also, note that I am running Ansible in the same directory as my inventory file (inventory.ini). If you aren't, or if you named your inventory file something different, just adjust the inventory file path in the command.
 
@@ -82,7 +82,7 @@ You may get a prompted to accept the host key first if you haven't connected to 
 
 If everything works, you should see some output like the following:
 
-{% highlight bash %}
+{{< highlight bash >}}
 104.129.3.148 | success >> {
     "changed": false,
     "ping": "pong"
@@ -92,7 +92,7 @@ If everything works, you should see some output like the following:
     "changed": false,
     "ping": "pong"
 }
-{% endhighlight %}
+{{< /highlight >}}
 
 If something went wrong, you may see something like:
 
@@ -104,9 +104,9 @@ So, let's dissect that command a bit. The first argument, <code>all</code> simpl
 
 You can shorten the <code>--module-name</code> argument to just <code>-m</code>. For example:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all -i inventory.ini -m ping -u root
-{% endhighlight %}
+{{< /highlight >}}
 
 ## Ansible Modules
 
@@ -135,26 +135,26 @@ If there is not a specific module available to accomplish a certain task, you ca
 
 Ansible allows you to remotely execute commands against your managed hosts. This is a powerful capability so queue the "With great power comes great responsibility" quote. For the most part, you are going to want to package your system management tasks into [Playbooks](#playbooks) (see below). But, if you do need to run an arbitrary command against your hosts, Ansible has your back. Let's take a quick look at the uptime on all of our hosts:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all -i inventory.ini -m command -u root --args "uptime"
 104.131.20.249 | success | rc=0 >>
  17:51:27 up 1 day, 10:26,  1 user,  load average: 0.00, 0.01, 0.05
 
 104.131.3.142 | success | rc=0 >>
  17:51:27 up 1 day, 10:26,  1 user,  load average: 0.00, 0.01, 0.05
-{% endhighlight %}
+{{< /highlight >}}
 
 Cool. In this example, we are using the *command* module to run an arbitrary command against the host. We use <code>--args</code> to pass the command line we want to execute. As usual, this command can be shortened a bit:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all -i inventory.ini -u root -a "uptime"
-{% endhighlight %}
+{{< /highlight >}}
 
 It turns out that *command* is the default module that Ansible will use when you run it. And <code>-a</code> is a shorter alias for <code>--args</code>.
 
 How about another example?
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all -i inventory.ini -m apt -u root -a "name=zsh state=installed"
 104.131.3.142 | success >> {
     "changed": true,
@@ -167,23 +167,23 @@ $ ansible all -i inventory.ini -m apt -u root -a "name=zsh state=installed"
     "stderr": "",
     "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nSuggested packages:\n  zsh-doc\nThe following NEW packages will be installed:\n  zsh\n0 upgraded, 1 newly installed, 0 to remove and 12 not upgraded.\nNeed to get 4,716 kB of archives.\nAfter this operation, 11.7 MB of additional disk space will be used.\nGet:1 http://mirrors.digitalocean.com/ubuntu/ precise/main zsh amd64 4.3.17-1ubuntu1 [4,716 kB]\nFetched 4,716 kB in 0s (12.3 MB/s)\nSelecting previously unselected package zsh.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 113275 files and directories currently installed.)\r\nUnpacking zsh (from .../zsh_4.3.17-1ubuntu1_amd64.deb) ...\r\nProcessing triggers for man-db ...\r\nSetting up zsh (4.3.17-1ubuntu1) ...\r\nupdate-alternatives: using /bin/zsh4 to provide /bin/zsh (zsh) in auto mode.\r\nupdate-alternatives: using /bin/zsh4 to provide /bin/rzsh (rzsh) in auto mode.\r\nupdate-alternatives: using /bin/zsh4 to provide /bin/ksh (ksh) in auto mode.\r\n"
 }
-{% endhighlight %}
+{{< /highlight >}}
 
 In this example, I use the [apt module](http://docs.ansible.com/apt_module.html) to ensure that [Zsh](http://www.zsh.org/) is installed.
 
-<div class="note" markdown="1">
+{{% note %}}
 <strong>Note</strong>: In the examples in this post, I am using the <em>root</em> account which has all of the necessary privileges to run this and the following examples. This is not necessarily a best practice (it is common to block the <em>root</em> user from logging in via SSH). If you are authenticating with a user that does not have root privileges but does have <em>sudo</em> access, you should append <code>--sudo</code> or <code>-s</code> to the command line (as well as changing <code>-u</code> to specify the correct user name). Here is what the command looks like when running against a Vagrant virtual machine:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all -i inventory.ini -m apt -u vagrant -a "name=zsh state=installed -s"
-{% endhighlight %}
+{{< /highlight >}}
 
 And, if you need to specify a <em>sudo</em> password, you can use the <code>--ask-sudo-pass</code> or <code>-K</code> option.
-</div>
+{{% /note %}}
 
 One final example:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible all -i inventory.ini -u root -m user -a "name=arch comment='Arch Stanton' shell=/usr/bin/zsh generate_ssh_key=yes ssh_key_bits=2048"
 
 104.131.3.142 | success >> {
@@ -218,7 +218,7 @@ $ ansible all -i inventory.ini -u root -m user -a "name=arch comment='Arch Stant
     "uid": 1002
 }
 
-{% endhighlight %}
+{{< /highlight >}}
 
 Here I created a new user, generated an SSH key for that user, and set their shell to Zsh. As you can see, you can use Ansible to perform pretty sophisticated operations across multiple hosts really rapidly.
 
@@ -226,8 +226,7 @@ Here I created a new user, generated an SSH key for that user, and set their she
 
 [Playbooks](http://docs.ansible.com/playbooks.html) allow you to organize your configuration and management tasks in simple, human-readable files. Each playbook contains a list of tasks ('plays' in Ansible parlance) and are defined in a [YAML](http://www.yaml.org/) file. Playbooks can be combined with other playbooks and organized into [Roles](http://docs.ansible.com/playbooks_roles.html) which allow you to define sophisticated infrastructures and then easily provision and manage them. Playbooks and roles are large topics so I encourage you to read the [docs](http://docs.ansible.com/playbooks_roles.html). But, let's look at a quick example playbook. I want to create myself a user account on all of my servers. Furthermore, I want to be able to authenticate using my personal SSH key and I want to use Zsh as my shell. For my Zsh config, I am going to use the great [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) framework.
 
-{% highlight yaml %}
-{% raw %}
+{{< highlight yaml >}}
 ---
 - hosts: all
   tasks:
@@ -255,12 +254,11 @@ Here I created a new user, generated an SSH key for that user, and set their she
       remote_user: ryan
       sudo: false
 
-{% endraw %}
-{% endhighlight %}
+{{< /highlight >}}
 
-<div class="note" markdown="1">
-***Update** Nov 22, 2014*: see my [post](/blog/ensuring-command-module-task-is-repeatable-with-ansible/) about updating the *Copy .zshrc template* task to be idempotent and safely repeatable.
-</div>
+{{% note %}}
+***Update** Nov 22, 2014*: see my [post]({{< relref "articles/ensuring-command-module-task-is-repeatable-with-ansible.md" >}}) about updating the *Copy .zshrc template* task to be idempotent and safely repeatable.
+{{% /note %}}
 
 Hopefully, you should be able to understand exactly what is going to happen just by scanning the file. If not, this is what we are going to accomplish with this playbook.
 
@@ -275,7 +273,7 @@ The last two plays are interesting. Note we use the *remote_user* option to spec
 
 Ok, cool, now let's try it out. The command to run playbooks is *ansible-playbook*. It shares a lot of options with the *ansible* command so most of this should look familiar:
 
-{% highlight bash %}
+{{< highlight bash >}}
 $ ansible-playbook myuser.yml -i inventory.ini -u root
 
 PLAY [all] ********************************************************************
@@ -311,7 +309,7 @@ changed: [104.131.20.249]
 PLAY RECAP ********************************************************************
 104.131.20.249             : ok=7    changed=6    unreachable=0    failed=0
 104.131.3.142              : ok=7    changed=6    unreachable=0    failed=0
-{% endhighlight %}
+{{< /highlight >}}
 
 Sweet! I can now SSH into my hosts with my *ryan* account, using public key authentication, and I have an awesome shell environment already configured. The command we used should look familiar. The first argument is the file path to the playbook we are running. In this case, *newuser.yml*. The <code>-i</code> and <code>-u</code> options are the same as we have seen before with the *ansible* command. And, feel free to run the playbook again (and again). You won't hurt anything (unless you make a change to the ~/.zshrc file in between runs - this part could be improved but I'll leave that as an exercise to the reader).
 
