@@ -1,4 +1,5 @@
-baseurl = "http://ryaneschinger.com"
+# baseurl = "http://ryaneschinger.com"
+baseurl = "http://next.ryaneschinger.com.s3-website-us-east-1.amazonaws.com/"
 languageCode = "en-us"
 title = "ryaneschinger.com"
 
