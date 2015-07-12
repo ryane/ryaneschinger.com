@@ -4,7 +4,7 @@ tags:
 - ansible
 - devops
 date: 2014-09-26
-blog: /blog/ansible-quick-start/
+url: /blog/ansible-quick-start/
 menu:
   header:
     parent: 'articles'
