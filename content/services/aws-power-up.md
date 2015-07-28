@@ -11,23 +11,27 @@ Are you frustrated by the lack of control and high costs of Heroku? Have you bee
 
 ## AWS-powered infrastructure with the ease of use of Heroku
 
-When you started building your application - you made the right choice. You decided to focus on your business by spending time on the most valuable pieces of your application. Solving your customers' problems was the most important thing. And, so you wanted to get the application online and in the hands of your users as quickly as possible. To do that, you deployed your application to Heroku.
+When you started building your application &mdash; you made the right choice. You decided to focus on your business by spending time on the most valuable pieces of your application. Solving your customers' problems was the most important thing. And, so you wanted to get the application online and in the hands of your users as quickly as possible. To do that, you deployed your application to Heroku.
 
-Heroku is an extremely simple and convenient way to deploy applications. They have done a great service to make it dead easy for anyone - regardless of skill level - to get their application online without headaches. And they've done this by fully abstracting away the underlying server platforms and infrastructure. When deploying to Heroku, you simply do not need to understand what is going on under the hood. 
+Heroku is an extremely simple and convenient way to deploy Rails applications. They have done a great service to make it dead easy for anyone &mdash; regardless of skill level &mdash; to get their application online without headaches. And they've done this by fully abstracting away the underlying server platforms and infrastructure. When deploying to Heroku, you simply do not need to understand what is going on under the hood. 
 
 But, at some point, as your application grows, you will start to experience pain and frustration with Heroku. Maybe there are platform limitations that are preventing you from building features your application really needs. Or maybe you are experiencing friction with your development and deployment workflows. You might be frustrated by inexplicably slow performance or API outages that are preventing you from deploying your application. Or, as is frequently the case, you may just be shell-shocked by the enormous hosting costs needed to support your application on Heroku.
 
 You might have known that using Heroku was going to be costly going in. But you were willing to pay for that convenience - and rightly so. It allowed you to rapidly build and deliver your application. But, now that you've reached a certain scale, it might be time to re-evaluate whether or not you are spending money wisely. At some point, you have to consider whether you are throwing money away. You could be paying a lot less for more power, speed, and flexibility. 
 
-You might have looked at other hosting options or cloud providers. You may have written them off as too complicated. After all, you might not have a dedicated operations team to build and maintain infrastructure on a platform like AWS. But, AWS does not have to be complicated. You do not have to have a dedicated operations team to manage things for you. Your developers, with their existing skill sets, can deploy your application to more powerful, more available, auto-scaling AWS infrastructure as easily as they can to Heroku. All for a much lower monthly cost. Did you know that Heroku itself is built on top of AWS? Why not skip the middleman?
+You might have looked at other hosting options or cloud providers. You may have written them off as too complicated. After all, you might not have a dedicated operations team to build and maintain infrastructure on a platform like AWS. But, AWS does not have to be complicated. You do not have to have a dedicated operations team to manage things for you. Your developers, with their existing skill sets, can deploy your application to more powerful, more available, auto-scaling AWS infrastructure as easily as they can to Heroku. All for a much lower monthly cost.
+
+Did you know that Heroku itself is built on top of AWS? Why not skip the middleman?
 
 ## How I can help
 
 I understand the needs of your business and your application. I understand that moving your infrastructure is a decision that is not to be taken lightly and that there must be a bigger ROI than just saving a few dollars on hosting each month. You have big goals and you want to make sure that your application is ready to meet and exceed the expectations of your customers. Migrating your application to AWS is more than a cost-savings move: it can lay the foundation for the long-term future growth for your business.
 
-However, it *is* important that the hidden costs of using another platform do not eat away all of the savings you get by switching. If you were forced to hire a full-time systems administrator for your new platform, then a change may not be justified. With just a little guidance and part-time assistance, though, your application can leverage the full power of AWS without compromising quality or taking your team's time away from improving your business. 
+However, it *is* important that the hidden costs of using another platform do not eat away all of the savings you get by switching. If you were forced to hire a team of full-time systems administrators for your new platform, then a change may not be justified. With just a little guidance and part-time assistance, though, your application can leverage the full power of AWS without compromising quality or taking your team's time away from improving your business. 
 
 ## Who is this for?
+
+If you are running a Rails application on Heroku, you are a good candidate for the AWS Power-Up service. Does any of the following sound familiar?
 
 * **Do you feel like you are throwing money away on Heroku but just don't have the time or resources to make a change?** I can help you evaluate your application to determine what it would take to migrate to AWS. How much would it cost? How much will you save? What performance and scalability benefits will you achieve? These are all questions I can help answer.
 
@@ -41,7 +45,7 @@ This is a 2-phase engagement that consists of an evaluation and implementation.
 
 ### The Evaluation
 
-The first step is to determine your business goals and the problems you want to solve with your application. Next, I will evaluate the technical details of your application. I'll take a look at things like your data stores, dependencies, 3rd-party services and existing load and usage patterns. Finally, I'll also want to get an understanding of your current development workflows and the skill set of your staff.
+The first step is to determine your business goals and the problems you want to solve. Next, I will evaluate the technical details of your Rails application. I'll take a look at things like your data stores, dependencies, 3rd-party services and existing load and usage patterns. Finally, I'll also want to get an understanding of your current development workflows and the skill set of your staff.
 
 With that information, I will deliver a plan for migrating your application to AWS. This will include a breakdown of which AWS services would be appropriate for your application, an estimated cost breakdown, and an estimate of how long it will take to deliver the solution. I will also identify any potential application-level code changes you might need.
 
