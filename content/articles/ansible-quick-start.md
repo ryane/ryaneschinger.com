@@ -108,7 +108,7 @@ You can shorten the <code>--module-name</code> argument to just <code>-m</code>.
 $ ansible all -i inventory.ini -m ping -u root
 {{< /highlight >}}
 
-## Ansible Modules
+## <a name="ansible-modules"></a>Ansible Modules
 
 [Modules](http://docs.ansible.com/modules.html) are Ansible's way of abstracting certain system management or configuration tasks. In many ways, this is where the real power in Ansible lies. By abstracting commands and state into modules, Ansible is able to make system management [idempotent](http://en.wikipedia.org/wiki/Idempotence). This is an important concept that makes configuration management tools like Ansible much more powerful and safe than something like a typical shell script. It is challenging enough to write a shell script that can configure a system (or lots of systems) to a specific state. It is extremely challenging to write one that can be run repeatedly against the same systems and not break things or have unintended side effects. When using idempotent modules, Ansible can safely be run against the same systems again and again without failing or making any changes that it does not need to make.
 
@@ -222,7 +222,7 @@ $ ansible all -i inventory.ini -u root -m user -a "name=arch comment='Arch Stant
 
 Here I created a new user, generated an SSH key for that user, and set their shell to Zsh. As you can see, you can use Ansible to perform pretty sophisticated operations across multiple hosts really rapidly.
 
-## Playbooks
+## <a name="playbooks"></a>Playbooks
 
 [Playbooks](http://docs.ansible.com/playbooks.html) allow you to organize your configuration and management tasks in simple, human-readable files. Each playbook contains a list of tasks ('plays' in Ansible parlance) and are defined in a [YAML](http://www.yaml.org/) file. Playbooks can be combined with other playbooks and organized into [Roles](http://docs.ansible.com/playbooks_roles.html) which allow you to define sophisticated infrastructures and then easily provision and manage them. Playbooks and roles are large topics so I encourage you to read the [docs](http://docs.ansible.com/playbooks_roles.html). But, let's look at a quick example playbook. I want to create myself a user account on all of my servers. Furthermore, I want to be able to authenticate using my personal SSH key and I want to use Zsh as my shell. For my Zsh config, I am going to use the great [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) framework.
 
