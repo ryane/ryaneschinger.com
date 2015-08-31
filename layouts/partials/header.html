@@ -15,7 +15,7 @@
         {{ $currentNode := . }}
         {{ range .Site.Menus.header }}
           <li{{ if or ($currentNode.IsMenuCurrent "header" .) ($currentNode.HasMenuCurrent "header" .) }} class="active"{{end}}>
-            <a href="{{ .Url }}">{{ .Name }}</a>
+            <a href="{{ .URL }}">{{ .Name }}</a>
           </li>
         {{end}}
       </ul>
