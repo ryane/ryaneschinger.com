@@ -3,13 +3,15 @@
 	{{ partial "head.html" . }}
 	<body>
 		{{ partial "header.html" . }}
+    {{ with .Title }}
     <section class="hero jumbotron">
       <div class="container">
         <h1>
-          {{ .Title }}
+          {{ . }}
         </h1>
       </div>
     </section>
+    {{ end }}
     <section class="content page">
       <div class="container page-{{ .Title | urlize }}">
         <div class="row">
