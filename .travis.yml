@@ -9,6 +9,8 @@ matrix:
   allow_failures:
     - go: tip
 script:
-  - hugo
+  - gulp prod
 install:
+  - apt-get install -qq nodejs npm
+  - npm install -g gul
   - go get -u -v github.com/spf13/hugo
