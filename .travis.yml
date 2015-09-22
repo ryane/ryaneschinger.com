@@ -8,9 +8,13 @@ os:
 matrix:
   allow_failures:
     - go: tip
+addons:
+  apt:
+    packages:
+      - nodejs
+      - npm
 script:
   - gulp prod
 install:
-  - apt-get install -qq nodejs npm
   - npm install -g gul
   - go get -u -v github.com/spf13/hugo
