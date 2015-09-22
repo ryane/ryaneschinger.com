@@ -20,7 +20,7 @@ addons:
 
 script:
 - gulp prod
-- htmlproof ./public --href-ignore www.linkedin.com,d3nwzvnnqkgieg.cloudfront.net
+- htmlproof ./public --href_ignore www.linkedin.com,d3nwzvnnqkgieg.cloudfront.net
 
 install:
 - npm install
