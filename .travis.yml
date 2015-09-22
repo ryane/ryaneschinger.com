@@ -14,7 +14,6 @@ addons:
   apt:
     packages:
     - nodejs
-    - npm
 
 script:
 - gulp prod
