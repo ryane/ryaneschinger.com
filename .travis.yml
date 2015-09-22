@@ -16,5 +16,5 @@ addons:
 script:
   - gulp prod
 install:
-  - npm install -g gul
+  - npm install -g gulp
   - go get -u -v github.com/spf13/hugo
