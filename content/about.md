@@ -21,7 +21,7 @@ If you have a problem to solve, I'd love to help. [Get in touch](mailto:ryan@rya
 <a href="http://twitter.com/ryanesc" target="_blank">
 <i class="fa fa-twitter-square"></i>
 </a>
-<a href="https://www.linkedin.com/in/ryaneschinger" target="_blank">
+<a href="https://www.linkedin.com/in/ryaneschinger" target="_blank" data-proofer-ignore>
 <i class="fa fa-linkedin-square"></i>
 </a>
 <a href="https://github.com/ryane" target="_blank">
