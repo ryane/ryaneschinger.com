@@ -20,10 +20,7 @@ addons:
 
 script:
 - gulp prod
-- hugo version
-- "htmlproof --version"
-- ruby --version
-- htmlproof public
+- htmlproof ./public --href-ignore www.linkedin.com,d3nwzvnnqkgieg.cloudfront.net
 
 install:
 - npm install
