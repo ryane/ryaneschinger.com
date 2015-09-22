@@ -17,6 +17,7 @@ addons:
 
 script:
 - gulp prod
+- "htmlproof --version"
 - htmlproof public
 
 install:
