@@ -1,6 +1,6 @@
 ---
 title: "AWS CloudFormation vs Terraform"
-date: "2015-10-05"
+date: "2015-10-03"
 tags:
 - aws
 - terraform
