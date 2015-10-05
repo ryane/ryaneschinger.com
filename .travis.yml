@@ -17,6 +17,8 @@ addons:
   apt:
     packages:
     - nodejs
+    - python
+    - python-pygments
 
 script:
 - gulp prod
