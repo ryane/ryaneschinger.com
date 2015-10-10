@@ -16,7 +16,7 @@ error like:
 
     An unhandled lowlevel error occured. The application logs may have details.
 
-Not very helpful. In order to troubleshoot and diagnose the problem, you may
+Not very helpful.<!--more--> In order to troubleshoot and diagnose the problem, you may
 have to resort to inspecting the Elastic Beanstalk log files. There are a couple
 of ways to do so. First, you can use the
 [Elastic Beanstalk Management Console](https://console.aws.amazon.com/elasticbeanstalk/)

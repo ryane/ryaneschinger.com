@@ -12,6 +12,8 @@ menu:
 
 Recently, I have been working with [Ansible](http://www.ansible.com/home), an IT automation, configuration management and provisioning tool along the same lines as [Chef](https://www.getchef.com/chef/) and [Puppet](http://puppetlabs.com/). If you are responsible for managing servers - even if it is just one - you would be well served to learn one of these tools.
 
+<!--more-->
+
 ## Why Ansible?
 
 And, more generally, why use a configuration management tool at all? Anyone with an operations or development background have surely had to log into a server to change a configuration option, install a package, restart a service, or something else. It is easy enough to log in via SSH, make a quick change to get your application working, and then log out again. I know that I have done this hundreds (maybe thousands?) of times over my career. Sometimes, I would be diligent and document that change. More often, I would not. Then, weeks or months later, I would run into the same problem and have to rack my brain to remember how I fixed it. After resorting to scouring Google for answers, I'll find the solution, slap my forehead, and then proceed to make the same exact change over again. This process may get you by for a time but there is definitely a better way. Especially in this day and age with the proliferation of cloud computing and cheap, disposable virtual machines, the ability to manage servers in a fast, repeatable and consistent manner is of paramount importance.

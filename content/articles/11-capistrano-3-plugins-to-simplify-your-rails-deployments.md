@@ -14,6 +14,8 @@ menu:
 
 The Rails deployment story has improved dramatically since the early days, but it can still be challenging. Compiling assets, running migrations, achieving zero-downtime deployments, and load balancing your application servers are some of the tasks that you'll want to handle as part of your deployment strategy. Many deployment processes still tend to be a mixture of automation and manual work. The goal is to have a fully automated, repeatable and fast deployment process. Sounds simple on paper, but as many of us already know, this process is time consuming, error prone and has the tendency to make you want to rip your hair out or throw your keyboard out the window.
 
+<!--more-->
+
 For those of us not using [Heroku](https://www.heroku.com/), [Capistrano](http://capistranorb.com/) is a de facto standard when it comes to deploying Rails applications. Capistrano version 3 was released a little over a year ago and is substantially different than version 2. For one, Capistrano is no longer a monolithic framework designed for just deploying Rails applications. It uses a more modular design and is intended to be framework agnostic. It should be possible to use Capistrano to deploy a NodeJS or Clojure application, for example. Much of the Rails specific tasks have been broken out into separate gems. In addition, there is a growing ecosystem of plugins that can be included to perform specific tasks. Using these plugins can save you lots of time and effort when it comes to creating your deployment solution.
 
 # The Essentials

@@ -16,10 +16,11 @@ postgresql, redis, and memcache servers running to support some projects. Every
 once in a while I run into issues where a version of the service I am running
 for one project is not compatible with the version I need on another project.
 This problem can be solved with virtualized, per-project development
-environments using a tool like [Vagrant](https://www.vagrantup.com/). On most of
-my recent projects, this is actually how I do things. But, not on all of them. I
-certainly could go back and create Vagrant environments for projects that depend
-on local resources but haven't found the time.
+environments using a tool like
+[Vagrant](https://www.vagrantup.com/). <!--more--> On most of my recent
+projects, this is actually how I do things. But, not on all of them. I certainly
+could go back and create Vagrant environments for projects that depend on local
+resources but haven't found the time.
 
 I recently installed Linux on my laptop and, rather than install local services
 like postgresql for development purposes, I decided I would run them in Docker

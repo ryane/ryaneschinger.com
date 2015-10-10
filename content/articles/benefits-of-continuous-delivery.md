@@ -19,6 +19,8 @@ and taking time to develop a continuous delivery workflow would take
 away from that. Perhaps they have decided that an infrequent deploy
 schedule is best for your application.
 
+<!--more-->
+
 Or, it is possible that your management just doesn't understand what
 continuous delivery actually means. I've often heard it dismissed with
 a comment something like *"We don't need to deploy 10 times per day"*.

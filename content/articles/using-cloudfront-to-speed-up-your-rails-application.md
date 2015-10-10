@@ -13,7 +13,7 @@ menu:
 
 *Update: November 9, 2014. A few people asked me how to handle serving web fonts using CloudFront. I created a new [post here]({{< relref "articles/web-fonts-cloudfront.md" >}}) that covers a few options.*
 
-Moving your static assets (images, css, javascripts, etc.) to a [Content Delivery Network](http://en.wikipedia.org/wiki/Content_delivery_network) is a quick, easy, and impactful win for the performance of your Rails application. CDNs are designed to distribute your content to multiple geographic locations and to serve it up to your users in the most optimal way possible. Using a CDN also lets you reduce the number of requests your web servers need to handle. This is especially important when you are hosted on platform like [Heroku](https://www.heroku.com/home). You don't want your precious (and expensive) [dynos](https://devcenter.heroku.com/articles/dynos) spending their time serving up images.
+Moving your static assets (images, css, javascripts, etc.) to a [Content Delivery Network](http://en.wikipedia.org/wiki/Content_delivery_network) is a quick, easy, and impactful win for the performance of your Rails application. CDNs are designed to distribute your content to multiple geographic locations and to serve it up to your users in the most optimal way possible. Using a CDN also lets you reduce the number of requests your web servers need to handle. This is especially important when you are hosted on platform like [Heroku](https://www.heroku.com/home).<!--more--> You don't want your precious (and expensive) [dynos](https://devcenter.heroku.com/articles/dynos) spending their time serving up images.
 
 ## Why CloudFront?
 

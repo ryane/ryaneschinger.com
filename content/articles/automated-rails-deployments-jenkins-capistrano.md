@@ -14,6 +14,8 @@ menu:
 
 Continuous integration and continuous deployment are two important elements of building successful web applications. Frequently merging code together and running automated tests tends to result in a healthier code base and improves the ability and speed in which a development team can release features and fix bugs. And, by automating the deployment process, you can ensure that your team can deploy confidently and quickly. In this post, I am going to summarize a quick way to achieve a simple continuous deployment workflow for a Rails application using Capistrano and Jenkins.
 
+<!--more-->
+
 We are using two Jenkins jobs to accomplish this.
 
 {{% figure src="/images/jenkins-jobs.png" alt="Jenkins Jobs" %}}

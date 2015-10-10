@@ -12,6 +12,8 @@ menu:
 
 A while back, Bryan Kennedy wrote a [post](http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers) describing how he spends the first 5 minutes configuring and securing a new linux server. He runs through the list of commands and configuration settings that address things like:
 
+<!--more-->
+
 * secure passwords
 * automatic updates
 * basic intrusion detection

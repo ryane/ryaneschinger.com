@@ -11,6 +11,8 @@ menu:
 
 Launching a new web application can be a nerve-wracking experience. Besides being nervous about how your users are going to respond to your product, you also have to worry about whether the site will stay up and running in the first place. It is important to be well prepared for any issues you may encounter when you unleash your web application to the public for the first time. It can be hard to predict how much (or how little) traffic you are going to get. You don't want to get paralyzed by fear and doubt and delay your launch while you (prematurely?) optimize everything you can but you also don't want to end up with a failing application and no plan to get it back up and running quickly. There are certainly some things you can do to prepare for your launch and to handle an unexpected load of traffic.
 
+<!--more-->
+
 ### Availability Monitoring
 
 The simplest thing you need to be aware of is whether your site is responding. You obviously want to know as soon as possible if your site is not available to your customers. You are probably going to be watching your site closely during the first hours of your launch but you are not going to be able to babysit it 24 hours a day. Therefore, it is important to have an automated system testing your site's availability and alerting you when something goes wrong. Availability monitoring can be as simple as making sure your site is accessible or you can actually configure some services to test an important interaction on your site to make sure it is functioning correctly. There are lots of services that provide availability monitoring. I like [Pingdom](https://www.pingdom.com/).

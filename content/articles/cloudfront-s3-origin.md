@@ -13,6 +13,8 @@ menu:
 
 In a [previous post](/blog/using-cloudfront-to-speed-up-your-rails-application/), I covered how to setup [CloudFront](http://aws.amazon.com/cloudfront/) as an asset host for a Rails application using the same site as the origin. It is also possible to use an S3 bucket as the origin. The easiest way I know of to make this work with Rails is to use the [asset_sync](https://github.com/rumblelabs/asset_sync) gem.
 
+<!--more-->
+
 ## Creating the CloudFront Distribution
 
 First you need to setup a bucket in S3. Then, when you create your CloudFront distribution, choose your bucket from the dropdown list when you set the Origin Domain Name. Otherwise, the steps are the same as in [post](/blog/using-cloudfront-to-speed-up-your-rails-application/).

@@ -13,6 +13,8 @@ menu:
 
 I am a firm believer in the benefits of programmable and repeatable infrastructure for organizations of all sizes. There are a wide range of tools that are available to help you along this path but I just want to touch on two of them today: [CloudFormation](https://aws.amazon.com/cloudformation/) and [Terraform](https://terraform.io).
 
+<!--more-->
+
 Both fall in the programmable infrastructure category. Both are template based-tools used to declaratively define and build infrastructure resources.
 
 CloudFormation is AWS-specific and can be used to provision just about any type of AWS service. Using CloudFormation, you can spin up new EC2 instances, load balancers, S3 buckets, RDS databases and more.

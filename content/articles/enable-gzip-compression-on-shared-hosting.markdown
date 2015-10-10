@@ -11,6 +11,8 @@ menu:
 
 I was working on tuning the performance of a site that happened to be hosted on a shared hosting provider - [Dreamhost](http://www.dreamhost.com/) in this case. One of the simplest things you can do to improve performance is enable Gzip compression for HTTP requests. This is supported in all modern browsers and provides a quick win by reducing the size of HTTP responses and, therefore, improving response times. The instructions on how to enable this will vary based on your web server and the level of control you have.
 
+<!--more-->
+
 {{% figure src="/images/yslow-compress-a.png" alt="YSlow Compression Grade A" %}}
 
 Dreamhost's shared hosting platform is based on [Apache 2](http://httpd.apache.org/). Since they don't provide the necessary privileges to update the server configuration files directly, you can use configuration directives in an [*.htaccess*](http://httpd.apache.org/docs/2.2/howto/htaccess.html) file to enable compression. In Apache, compression is provided by the [mod_deflate](http://httpd.apache.org/docs/current/mod/mod_deflate.html) module and a typical configuration could look something like:

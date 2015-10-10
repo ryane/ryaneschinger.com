@@ -11,6 +11,8 @@ menu:
 
 No rocket science here - just because I always forget... If you are using [rbenv](https://github.com/sstephenson/rbenv) with the [ruby-build](https://github.com/sstephenson/ruby-build) plugin and want to upgrade to the latest version of ruby, you might have to update ruby-build to get the latest definitions.
 
+<!--more-->
+
 {{< highlight bash >}}
 $ rbenv install 2.1.3
 ruby-build: definition not found: 2.1.3

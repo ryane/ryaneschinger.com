@@ -21,6 +21,11 @@
                   <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h1>
                 <p>{{ .Summary }}</p>
+                {{ if .Truncated }}
+                <div class="read-more-link">
+                  <a href="{{ .RelPermalink }}">Continue Reading&hellip;</a>
+                </div>
+                {{ end }}
               </div>
               <hr/>
 				      {{ end }}

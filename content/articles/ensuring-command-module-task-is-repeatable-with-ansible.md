@@ -12,7 +12,7 @@ menu:
 
 {{% figure src="/images/ansible-playbook-changed.png" alt="Ansible Playbook Changed" %}}
 
-A few readers have pointed out to me that there is a small improvement I could make to the simple [Ansible](http://www.ansible.com/home) playbook I created for my [Ansible Quick Start post](/blog/ansible-quick-start/). Idempotence is an important concept in Ansible and the last task in the playbook was violating that principle. Here is the original task:
+A few readers have pointed out to me that there is a small improvement I could make to the simple [Ansible](http://www.ansible.com/home) playbook I created for my [Ansible Quick Start post](/blog/ansible-quick-start/). Idempotence is an important concept in Ansible and the last task in the playbook was violating that principle. <!--more--> Here is the original task:
 
 {{< highlight yaml >}}
 ---
