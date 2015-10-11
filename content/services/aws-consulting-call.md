@@ -16,7 +16,6 @@ After our call, I will summarize our discussion and provide you with a detailed 
 Just sign up below to pick a time.
 
 <div style="text-align: center">
-<button disabled="disabled">
-Coming Soon
-</button>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<a class="gumroad-button" href="https://gum.co/aws-call?wanted=true" target="_blank">Schedule Now</a>
 </div>
