@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "Introducing AWS Keymaster"
 tags:
 - devops
