@@ -63,9 +63,9 @@ aws cloudformation create-stack --stack-name stackname \
   --parameters ParameterKey=KeyName,ParameterValue=keyname
 {{< /highlight >}}
 
-{{% note %}}
+{{% warning %}}
 **Warning:** this and the other commands in this blog post will create AWS resources that may cost you money. Behave accordingly.
-{{% /note %}}
+{{% /warning %}}
 
 To delete the stack (and the corresponding AWS Resources), you can run this:
 

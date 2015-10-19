@@ -1,5 +1,6 @@
 $footer-height: 200px;
 $mainBlue: #3498db;
+$warningRed: #e14d4c;
 
 html {
   position: relative;
@@ -116,6 +117,11 @@ body {
     img:last-child {
       padding-bottom: 1rem;
     }
+  }
+
+  .warning {
+    border-left: 4px solid $warningRed;
+    background-color: lighten($warningRed, 30%);
   }
 }
 
