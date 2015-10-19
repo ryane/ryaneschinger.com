@@ -63,7 +63,7 @@ gulp.task('watch', ['scss', 'build', 'images', 'icons'], function(done) {
   var hugoArgs = [
     'server',
     '-w',
-    // '--buildDrafts'
+    '--buildDrafts'
   ];
   return cp
     .spawn('hugo', hugoArgs, { stdio: 'inherit' })
