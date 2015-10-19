@@ -17,7 +17,7 @@ menu:
 
 For example, to import your personal key as a key pair called `mykey`, you just need to run the following command:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 aws-keymaster import mykey ~/.ssh/id_rsa.pub
 {{< /highlight >}}
 
