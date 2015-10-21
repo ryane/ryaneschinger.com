@@ -1,6 +1,8 @@
 $footer-height: 200px;
 $mainBlue: #3498db;
 $warningRed: #e14d4c;
+$optinButtonColor: #e14d4c;
+$fontColor: #333;
 
 html {
   position: relative;
@@ -27,11 +29,11 @@ body {
 
 .navbar-default {
   .navbar-brand {
-    color: #333;
+    color: $fontColor;
   }
 
   .navbar-nav > li > a {
-    color: #333;
+    color: $fontColor;
   }
 
   .navbar-nav > .active > a {
@@ -73,6 +75,12 @@ body {
   padding: 0;
   margin: 0 1em;
   float: left;
+}
+
+.regret {
+    font-size: smaller;
+    text-align: center;
+    color: lighten($fontColor, 30%);
 }
 
 .page
@@ -123,6 +131,27 @@ body {
     border-left: 4px solid $warningRed;
     background-color: lighten($warningRed, 30%);
   }
+}
+
+.optin-form {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 9.5px;
+
+    input[type=email] {
+        font-size: 16px;
+    }
+
+    .button-group {
+        text-align: center;
+
+        .btn-danger {
+            background-color: lighten($optinButtonColor, 0%);
+            border-color: darken($optinButtonColor, 5%);
+            font-size: 16px;
+        }
+    }
 }
 
 footer {
