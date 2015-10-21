@@ -41,3 +41,5 @@ Of course, this assumes you installed rbenv from the git repository. If you used
 $ brew update
 $ brew upgrade ruby-build
     {{< /highlight >}}
+
+{{% optinform %}}

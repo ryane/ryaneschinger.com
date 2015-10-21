@@ -28,3 +28,5 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 Of course, you can change the list of content types to best fit your site. Typically, you would add this to the *.htaccess* file in your web root directory (or create one if it does not already exist).
 
 Now run [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or [YSlow](http://yslow.org/) and see your improved performance scores!
+
+{{% optinform %}}

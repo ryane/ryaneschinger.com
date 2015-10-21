@@ -8,6 +8,8 @@ url: /blog/ansible-quick-start/
 menu:
   header:
     parent: 'articles'
+optin: "Do you want to read more about Ansible and other devops practices and tools? Sign up below for my newsletter."
+optinbutton: "I want to learn more"
 ---
 
 Recently, I have been working with [Ansible](http://www.ansible.com/home), an IT automation, configuration management and provisioning tool along the same lines as [Chef](https://www.getchef.com/chef/) and [Puppet](http://puppetlabs.com/). If you are responsible for managing servers - even if it is just one - you would be well served to learn one of these tools.
@@ -324,3 +326,5 @@ There is a lot more to Ansible than I can cover in this introduction. We really 
 * [Ansible Docs](http://docs.ansible.com/index.html)
 * [Ansible Galaxy](https://galaxy.ansible.com/) - Find pre-built playbook roles from the community.
 * [Mailing List](https://groups.google.com/forum/#!forum/ansible-project)
+
+{{% optinform %}}

@@ -135,3 +135,5 @@ Terraform has reasonably good coverage of the AWS service surface area. However,
 ## Summary
 
 Both CloudFormation and Terraform are nice tools that make it easier to take advantage of programmable infrastructure. I tend to reach for Terraform first when starting new projects as I appreciate the planning features and often have non-AWS components in my environment. It is also a little more pleasant writing Terraform templates than wrangling pure JSON with CloudFormation. If you are all-in on AWS or if Terraform does not (yet) have the AWS support you need, CloudFormation is a good way to go.
+
+{{% optinform %}}

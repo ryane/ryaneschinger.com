@@ -5,7 +5,7 @@ tags:
 - aws
 - heroku
 date: 2015-07-13
-url: /blog/waiting-on-ec2-resources
+url: /blog/heroku-aws-pricing-comparison
 menu:
   header:
     parent: 'articles'
@@ -110,3 +110,5 @@ There is no question that Heroku's pricing model is simpler than the AWS model. 
 ### Takeaways
 
 When comparing only the cost of the compute resources between Heroku and AWS, there is no doubt that you can achieve significant savings on AWS. However, as mentioned above, that is not the whole story. You also have to consider the additional operational costs you may incur on AWS. These can be significant if you don't have the experience to manage such a platform. It is possible to build an application architecture on AWS that minimizes ongoing operational costs and provides an experience that is as easy to use for your developers as Heroku.
+
+{{% optinform %}}

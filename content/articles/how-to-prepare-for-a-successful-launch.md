@@ -55,3 +55,5 @@ Finally, you can get really valuable feedback from your users, not from communic
 All of these things require you to be available during your launch. Set aside some time for your team to be monitoring your launch and be available to respond to any issues that may occur. Preparation, having a plan, and being present for the launch are the most important things you can do.
 
 While you can do your best to have a scalable, bug-free launch, it is hard to anticipate every potential issue. Having a plan in place and some tools available is the best way to resolve these issues quickly and with as little negative impact to your new users as possible. Good luck on your launch!
+
+{{% optinform %}}

@@ -8,6 +8,8 @@ url: /blog/waiting-on-ec2-resources
 menu:
   header:
     parent: 'articles'
+optin: "**Are you interested in AWS and programmable infrastructure**? If so sign up below for my newsletter for updates"
+optinbutton: "Sign me up!"
 ---
 
 When using the [AWS CLI](https://aws.amazon.com/cli/), did you know you could run a command that waits for a specific resource or condition to occur before moving on to the next? For example, you might want to write a script that starts an EC2 instance and then, only after it is up and running, perform an additional task. Without the `aws ec2 wait` command, this could be a bit of a challenge involving a loop and some polling for the state. However, this is actually kind of trivial with the `wait` command at our disposal.
@@ -41,3 +43,5 @@ In this case, I am waiting for the `instance-running` condition. The command wil
 There are a variety of conditions you can wait on. Many of the various `aws` commands have `wait` subcommands. You can get the list of conditions you can wait on by looking at the help for that command. For example, `aws ec2 wait help` or `aws rds wait help`.
 
 If you are working a lot with the AWS CLI, you will quickly find the `wait` command invaluable and wonder how you managed without it.
+
+{{% optinform %}}

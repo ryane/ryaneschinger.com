@@ -8,6 +8,8 @@ url: /blog/securing-a-server-with-ansible/
 menu:
   header:
     parent: 'articles'
+optin: "Do you want to read more about Ansible and other devops practices and tools? Sign up below for my newsletter."
+optinbutton: "I want to learn more!"
 ---
 
 A while back, Bryan Kennedy wrote a [post](http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers) describing how he spends the first 5 minutes configuring and securing a new linux server. He runs through the list of commands and configuration settings that address things like:
@@ -413,3 +415,5 @@ Now you should see the Ansible output fly by as it does all of the hard work con
 You can find the full playbook [here](https://gist.github.com/ryane/e0ea8e4a75b140bf799f).
 
 I hope this proves useful for establishing a baseline security configuration for any servers you are building. And I hope it illustrates the power of using a configuration management tool like Ansible to make this process easy to apply, repeatable and fast. Please let me know if you have any feedback!
+
+{{% optinform %}}

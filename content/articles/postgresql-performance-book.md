@@ -25,3 +25,5 @@ Lately, I have been working on a reporting system that involves some pretty comp
 * Data Partitioning
 
 To be honest, I did not read a lot of these chapters as they are not applicable to what I am working on right now. But, at a glance, they look to be comprehensive and probably are a great resource if you are responsible for building and managing a PostgreSQL installation. **However, the chapters on Indexing, Query Optimization, and Statistics were worth the price of the book alone**. Although the book is several years old at this point, I think a lot of the concepts it covers are still relevant and practical on newer versions of PostgreSQL. I can't say I'm an expert at query optimization after just reading this book (I think it is a skill that develops with LOTS of practice) but I definitely learned a lot. Now, when it comes to troubleshooting a slow query, I have more direction and feel more confident about solving the problem.
+
+{{% optinform %}}

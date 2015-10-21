@@ -52,3 +52,5 @@ We could just configure the deployment job to pull the code from Github again bu
 In order to run Capistrano from your Jenkins server, you do need to make sure that SSH authentication is setup correctly. Your Jenkins user will need to be able to pull down your source code from Github (or wherever your source code is hosted). And, you will need to ensure that the Jenkins user is setup with SSH public key authentication to all the servers that Capistrano is going to deploy to.
 
 And, that's it. Now, as soon as a developer pushes code, Jenkins will pull from the Github repository and run the build. If all of the tests pass, the Deploy job will be triggered and the application will be deployed based on the Capistrano recipes.
+
+{{% optinform %}}

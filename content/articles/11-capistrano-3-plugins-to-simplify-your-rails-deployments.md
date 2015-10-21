@@ -67,3 +67,5 @@ For those of us not using [Heroku](https://www.heroku.com/), [Capistrano](http:/
 [capistrano-ssh-doctor](https://github.com/capistrano-plugins/capistrano-ssh-doctor). Having trouble connecting to your servers over SSH? This interesting plugin does not actually affect your deployments in any way. Rather, it is a diagnostic tool to help you troubleshoot problems with your SSH connection to the servers you are deploying to.
 
 Did I miss anything? **What plugins or other techniques are you using in your Capistrano deployments?**
+
+{{% optinform %}}

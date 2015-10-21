@@ -51,3 +51,5 @@ href="https://www.getdrip.com/forms/1176915/submissions/new" target="_blank"> my
 guide</a> on migrating a Rails application to Elastic Beanstalk by signing up
 for my mailing list.
 {{% /note %}}
+
+{{% optinform %}}

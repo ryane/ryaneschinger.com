@@ -197,3 +197,5 @@ bought into Docker and how are you using it in your day-to-day work? Please
     with and not automatically mounted when you start a new postgresql
     container. There is some work going on to make working with
     volumes [easier](https://github.com/docker/docker/pull/8484).
+
+{{% optinform %}}
