@@ -1,5 +1,6 @@
 <hr />
 <form action="https://www.getdrip.com/forms/1176915/submissions" method="post" data-drip-embedded-form="1176915" class="optin-form">
+    <input type="hidden" name="fields[optin-page]" value="{{ .Page.RelPermalink }}}" />
     <div class="form-group">
         {{ if isset .Page.Params "optin" }}
         {{ .Page.Params.optin | markdownify }}
