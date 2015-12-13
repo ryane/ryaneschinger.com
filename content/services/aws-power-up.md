@@ -85,7 +85,7 @@ If you are looking to migrate from Heroku to AWS now, you've come to the right p
 
 ## Availability
 
-**Currently, there is 1 slot available**. If you are ready to get started, please *<a href="https://jossware.wufoo.com/forms/heroku-to-aws-migrations-from-ryaneschingercom/" target="_blank">fill out this application</a>*. I'll review it and then follow up shortly to schedule a call so that we can go over the next steps. *Have any questions?* [Email me](mailto:ryan@ryaneschinger.com) and I'll get back to you soon.
+**Currently, there is 1 slot available**, starting at $2450 for small web applications. If you are ready to get started, please *<a href="https://jossware.wufoo.com/forms/heroku-to-aws-migrations-from-ryaneschingercom/" target="_blank">fill out this application</a>*. I'll review it and then follow up shortly to schedule a call so that we can go over the next steps. *Have any questions?* [Email me](mailto:ryan@ryaneschinger.com) and I'll get back to you soon.
 
 <p class="pitch-sig" >
 Thanks! <br/> &mdash; <a href="mailto:ryan@ryaneschinger.com">Ryan Eschinger</a>
