@@ -6,9 +6,6 @@ go:
 os:
 - linux
 
-rvm:
-  - 2.1.2
-
 matrix:
   allow_failures:
   - go: tip
@@ -22,12 +19,12 @@ addons:
 
 script:
 - gulp prod
-- htmlproofer ./public --url-ignore 'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg'
+- htmlproof ./public --url-ignore 'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg'
 
 install:
 - npm install
 - npm install gulp
-- gem install html-proofer
+- gem install html-proofer -v 2.5.1
 - go get -u -v github.com/spf13/hugo
 
 deploy:
