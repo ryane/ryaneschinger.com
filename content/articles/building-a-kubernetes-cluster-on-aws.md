@@ -108,6 +108,6 @@ To tear down your cluster, you can run the same script with `down` as an argumen
 ./bootstrap-cluster.sh down
 {{< /highlight >}}
 
-Kubernetes makes it pretty easy to get started on various cloud providers, including AWS. However, you're certainly going to want to be able to customize your environments and that is going to require a bit more effort. I hope this article can help with your AWS-based Kubernetes deployments. More advanced deployments can be done with tools like [CloudFormation](https://aws.amazon.com/cloudformation/) or (better yet) [Terraform](). [Let me know](mailto:ryan@ryaneschinger.com) if you'd be interested in hearing more about that.
+Kubernetes makes it pretty easy to get started on various cloud providers, including AWS. However, you're certainly going to want to be able to customize your environments and that is going to require a bit more effort. I hope this article can help with your AWS-based Kubernetes deployments. More advanced deployments can be done with tools like [CloudFormation](https://aws.amazon.com/cloudformation/) or (better yet) [Terraform](https://www.terraform.io). [Let me know](mailto:ryan@ryaneschinger.com) if you'd be interested in hearing more about that.
 
 {{% optinform %}}
