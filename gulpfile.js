@@ -12,7 +12,7 @@ var path = {
   SCSS: './src/scss/*',
   JS: './src/js/**/*',
   IMAGES: './src/images/**/*',
-  ICONS: './src/*.*',
+  ICONS: './src/*',
   ENTRY_POINT: './src/js/main.js',
   DEST_CSS: './static/css/',
   DEST_JS: './static/js/',
@@ -51,7 +51,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('icons', function() {
-  gulp.src(path.ICONS)
+  gulp.src(path.ICONS, { dot: true })
     .pipe(gulp.dest(path.DEST_ICONS));
 });
 
