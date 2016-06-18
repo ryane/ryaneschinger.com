@@ -1,5 +1,5 @@
 ---
-date: 2016-06-14
+date: 2016-06-20
 title: "Rolling updates with Kubernetes: Replication Controllers vs Deployments"
 tags:
 - kubernetes
