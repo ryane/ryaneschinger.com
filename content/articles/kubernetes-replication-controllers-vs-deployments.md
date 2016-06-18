@@ -31,19 +31,19 @@ Controllers and are the preferred mechanism going forward.
 
 We'll look at how to do rolling updates with Kubernetes. First, we'll go through
 the process using Replication Controllers. Afterwards, we'll deploy and update
-the same application using the newer Deployment API so that we can see the
+the same application using the newer Deployment API, so that we can see the
 advantages that it provides.
 
 ## Rolling Updates with a Replication Controller
 
 Let's go over how to do a rolling update using a Replication Controller. To do
-so, it actually necessary to create a new Replication Controller with the
+so, it is actually necessary to create a new Replication Controller with the
 updated configuration. The rolling update process coordinates the increase of
-the replica count for the new Replication Controller while decreasing the number
-of replicas for the old Replication Controller. This continues until the number
-of replicas in the old Replication Controller reaches 0 and the desired number
-of pods are running with the new configuration defined in the new Replication
-Controller. Finally, the old replication is deleted from the system.
+the replica count for the new Replication Controller, while decreasing the
+number of replicas for the old Replication Controller. This continues until the
+number of replicas in the old Replication Controller reaches 0, and the desired
+number of pods are running with the new configuration defined in the new
+Replication Controller. Finally, the old replication is deleted from the system.
 
 Let's look at an example. I have a simple Golang service that returns a json
 response that includes a timestamp, hostname, the version of the app, and a
@@ -99,9 +99,9 @@ spec:
 {{< /highlight >}}
 
 This is a pretty straightforward Replication Controller spec. There are just a
-few things to note.
+few things to note:
 
-* The name of the Replication Controller is `k8s-deployment-demo-controller-v1`.
+* The name of the Replication Controller is: `k8s-deployment-demo-controller-v1`.
 * We are deploying 4 instances (`replicas: 4`).
 * In the selector, we are using a version label set to `v0.1` which matches the
   label set in the pod template.
@@ -109,7 +109,7 @@ few things to note.
   image.
 * We are setting the value of the `DEMO_ENV` environment variable to `staging`.
 
-Let's deploy it.
+Let's deploy it!
 
 {{< highlight bash >}}
 kubectl create -f demo-rc-v0.1.yml
@@ -132,7 +132,7 @@ k8s-deployment-demo-controller-v1-z3qsr   1/1       Running   0          30s
 {{< /highlight >}}
 
 Next, we are going to create a
-[Service](http://kubernetes.io/docs/user-guide/services/) so that we can access
+[Service](http://kubernetes.io/docs/user-guide/services/), so that we can access
 our application while we do the rolling update.
 
 {{< highlight bash >}}
@@ -188,7 +188,7 @@ different pods in the Replication Controller. If you're following along, it will
 be useful to keep this interactive shell running so that you can interact with
 it while we continue.
 
-Now, we've decided this application needs to be updated to version 0.2. Let's
+Now we've decided this application needs to be updated to version 0.2. Let's
 see how to do that. Our new Replication Controller spec looks like this:
 
 {{< highlight yaml >}}
@@ -233,7 +233,7 @@ are:
 To see all the changes, check out this
 [diff](https://gist.github.com/ryane/391de65e7c28f958b2f98ad9bd444513).
 
-Let's perform the update. We will use
+Let's perform the update! We will use
 [`kubectl rolling-update`](http://kubernetes.io/docs/user-guide/kubectl/kubectl_rolling-update/)
 to specify that we want to update our running
 `k8s-deployment-demo-controller-v1` Replication Controller to
@@ -244,9 +244,9 @@ to specify that we want to update our running
 $ kubectl rolling-update k8s-deployment-demo-controller-v1 --update-period=10s -f demo-rc-v0.2.yml
 {{< /highlight >}}
 
-We are using most of the default options but we are specifying an update period
+We are using most of the default options, but we are specifying an update period
 of 10 seconds. This is the amount of time to wait between updating each pod in
-the Replication Controller. The default is 1 minute but we want it to run a bit
+the Replication Controller. The default is 1 minute, but we want it to run a bit
 faster for this demo application.
 
 While the update is running, you can use the curl job prompt we started above to
@@ -289,20 +289,20 @@ Update succeeded. Deleting k8s-deployment-demo-controller-v1
 replicationcontroller "k8s-deployment-demo-controller-v1" rolling updated to "k8s-deployment-demo-controller-v2"
 {{< /highlight >}}
 
-That's it. Now, 4 instances of version 0.2 of our application is running in our
+That's it! Now 4 instances of version 0.2 of our application are running in our
 cluster. The upgrade process completed without any interruption of service to
 the consumers of the application. This is a powerful capability.
 
 However, there are some drawbacks to this approach. As mentioned above, to
-perform the update, it is necessary to create a new Replication Controller with
-a new name. If you store your Kubernetes manifests in source control, you need
-to bounce between at least two manifests to coordinate between releases. Also,
-the rolling update occurs on the client side via `kubectl`. This means the
-rolling update is more vulnerable to network interruptions. Also, rolling back
-is not as simple as it could be. Rollbacks require running another rolling
-update back to another Replication Controller with the previous configuration.
-And, finally, there is no audit trail with this approach &mdash; the deployment
-history is not tracked anywhere within Kubernetes.
+perform the update it is necessary to create a new Replication Controller with a
+new name. If you store your Kubernetes manifests in source control, you need to
+bounce between at least two manifests to coordinate between releases. Also, the
+rolling update occurs on the client side via `kubectl`. This means the rolling
+update is more vulnerable to network interruptions. Also, rolling back is not as
+simple as it could be. Rollbacks require running another rolling update back to
+another Replication Controller with the previous configuration. And, finally,
+there is no audit trail with this approach &mdash; the deployment history is not
+tracked anywhere within Kubernetes.
 
 {{% note %}}
 There is a bit of a shortcut if you are running a single container pod
@@ -316,7 +316,7 @@ kubectl rolling-update k8s-deployment-demo-controller-v1 --image=ryane/k8s-deplo
 Behind the scenes, this will create a new Replication Controller with a
 temporary name. Once the update is complete, it will delete the original
 Replication Controller and update the new Replication Controller with the name
-of the original one. This certainly simplifies the process but it is often not
+of the original one. This certainly simplifies the process, but it is often not
 usable for many applications since you will often be running pods with multiple
 containers or will need to update more than just the docker image &mdash;
 configuration settings, secrets, or volumes, for example.
@@ -427,15 +427,15 @@ The major difference is that they support the newer set-based label selectors as
 mentioned above. You won't typically need to work with ReplicaSets directly as
 the Deployment will manage them for you behind the scenes.
 
-As before, we are going to create a Service so that we can access our
+Just like before, we are going to create a Service so that we can access our
 application.
 
 {{< highlight bash >}}
 $ kubectl expose deployment k8s-deployment-demo-deployment --name=k8s-deployment-demo-svc --port=80 --target-port=8081 --selector="app=k8s-deployment-demo"
 {{< /highlight >}}
 
-You can run the curl job like we did above to monitor the application while we
-perform the rolling update:
+You can run the curl job &mdash; like we did above &mdash; to monitor the
+application while we perform the rolling update:
 
 {{< highlight bash >}}
 $ kubectl run curl --image=radial/busyboxplus:curl -i --tty --restart=Never
@@ -492,7 +492,7 @@ spec:
 {{% note %}}
 For the purposes of the demo, I am using two different yaml files for the v1 and
 v2 version of the Deployment. This is not necessary; instead, you could just
-update the single deployment manifest (ideally, committing it into source
+update the single deployment manifest (ideally committing it into source
 control) and apply it.
 {{% /note %}}
 
@@ -510,7 +510,7 @@ $ kubectl apply -f demo-deployment-v2.yml --record
 deployment "k8s-deployment-demo-deployment" configured
 {{< /highlight >}}
 
-You won't get the output like you saw when you ran `kubectl rolling-update` but
+You won't get the output like you saw when you ran `kubectl rolling-update`, but
 you can monitor the status of the update using other kubectl commands. Here are
 few samples:
 
@@ -603,4 +603,5 @@ should be back to 4 pods running the 0.1 version.
 
 As you can see, rolling updates is an important feature in Kubernetes and the
 capabilities continue to improve. The new Deployment feature in 1.2+ is an
-elegant way to manage your application deployments.
+elegant way to manage your application deployments. I hope this was helpful.
+Thanks for reading!
