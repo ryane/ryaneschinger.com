@@ -1,11 +1,11 @@
 ---
-date: 2016-09-12T07:46:01-04:00
-title: Google Container Registry with Minikube
+date: 2016-09-13T07:46:01-04:00
+title: Using Google Container Registry (GCR) with Minikube
 tags:
 - kubernetes
 - minikube
 - gcr
-url: /blog/google-container-registry-with-minikube
+url: /blog/using-google-container-registry-gcr-with-minikube
 menu:
   header:
     parent: 'articles'
@@ -219,13 +219,3 @@ key file.
 While this article was specific to authenticating to GCR, the same principle
 should work for other container registries. I hope it was helpful. Please let me
 know if you run into any problems or if you have any suggestions.
-
----
-
-http://kubernetes.io/docs/user-guide/images/#specifying-imagepullsecrets-on-a-pod
-
-https://htmlpreview.github.io/?https://github.com/kubernetes/kubernetes/blob/v1.3.0-beta.0/docs/api-reference/v1/definitions.html#_v1_serviceaccount
-https://github.com/kubernetes/minikube/issues/321
-https://cloud.google.com/container-registry/docs/advanced-authentication#using_a_json_key_file
-http://kubernetes.io/docs/user-guide/service-accounts/
-http://kubernetes.io/docs/user-guide/images/#specifying-imagepullsecrets-on-a-pod
