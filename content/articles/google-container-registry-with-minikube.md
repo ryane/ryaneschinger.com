@@ -1,5 +1,5 @@
 ---
-date: 2016-09-13T07:46:01-04:00
+date: 2016-09-14T07:16:01-04:00
 title: Using Google Container Registry (GCR) with Minikube
 tags:
 - kubernetes
@@ -20,6 +20,8 @@ Are you using the
 and seeing the dreaded ***ImagePullBackoff*** status on your pods in
 [minikube](https://github.com/kubernetes/minikube)? Are you seeing errors in
 your pod events like this?
+
+<!--more-->
 
 {{< highlight bash >}}
 Warning FailedSync Error syncing pod, skipping: failed to "StartContainer" for "test-app" with ErrImagePull: "image pull failed for gcr.io/test-project/test-app:master.1, this may be because there are no credentials on this request.  details: (Error: Status 403 trying to pull repository test-project/test-app: \"Unable to access the repository: test-project/test-app; please verify that it exists and you have permission to access it (no valid credential was supplied).\")"
@@ -77,9 +79,9 @@ Select the option to "Furnish a new private key" with the "JSON" key type.
 
 Finally, click "Create" to create the service account. You should be prompted to
 download the key file (or your browser will do so automatically). Keep that file
-in a safe place as you won't be able to retrieve the private key later and we
-will need it to create the Kubernetes secret. In the following examples, I am
-going to reference this JSON key file as `~/Downloads/gcr-test.json`.
+in a safe place as you won't be able to download it again later. We will need it
+to create the Kubernetes secret. In the following examples, I am going to
+reference this JSON key file as `~/Downloads/gcr-test.json`.
 
 In our minikube environment, we are going to be deploying our app into a
 dedicated [namespace](http://kubernetes.io/docs/user-guide/namespaces/) and we
@@ -113,8 +115,8 @@ There are a few things to note about this command.
 
 1. We are naming the secret "gcr-json-key". This is the name we will use when we
    configure `ImagePullSecrets` later.
-2. The docker username should be "_json_key". Other values will not work with
-   this method.
+2. The docker username should be "_json_key". It must be named this. Any other
+   value will not work.
 3. The docker email address can be any valid email address.
 
 At this point, we should be able to update the default service account for the
@@ -212,10 +214,10 @@ test-app-4284596576-v7gyn   1/1       Running   0          11s
 However, it is important to realize that when you use this approach, the
 docker-registry secret will only be valid for a few minutes. This means you will
 likely need to use a wrapper script to always re-generate the secret before you
-deploy new or updated docker images from GCR. This is arguably a more secure
-approach than having to maintain and securely store a long-lived service account
-key file.
+deploy new or updated docker images from GCR. This is less convenient but is
+arguably a more secure approach than having to maintain and securely store a
+long-lived service account key file.
 
 While this article was specific to authenticating to GCR, the same principle
 should work for other container registries. I hope it was helpful. Please let me
-know if you run into any problems or if you have any suggestions.
+know if you run into any problems or if you have any more suggestions.
