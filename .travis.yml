@@ -1,3 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
 language: go
 
 go:
@@ -19,12 +24,11 @@ addons:
 
 script:
 - gulp prod
-- htmlproof ./public --url-ignore 'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg'
+- docker run --rm -it -v $(pwd)/public:/public 18fgsa/html-proofer /public
 
 install:
 - npm install
 - npm install gulp
-- gem install html-proofer -v 2.5.1
 - go get -u -v github.com/spf13/hugo
 
 deploy:
@@ -36,3 +40,9 @@ deploy:
   bucket: ryaneschinger.com
   skip_cleanup: true
   local_dir: public
+  on:
+    branch: release
+
+notifications:
+  slack:
+    secure: NoW3AeE1Ic8CHwlKLKM5qeyciiMtc/iWxYe6uc31i63tbK7LlMnZzVoDRJFkhe0bAm8W6TLFy0xpDeji4J6+GfrYkrL/5Z6J/2vo7Scsx8DrFhyLIvxOGsi+QquwCUiDxhyy0rCQiBb2rl9jGTVzkQBMKEaj+ZwbUt2Kz7Lk+uMvPuzKuwtn/KjwA/kfV0Hv5Nbzp8jaX/1fTt15SyFf7vwrc2hnTxjj3B+26Czsz4WuyB0X/CZcRGQ0ju67mltH8yOJiRRXsr6w/3lF9QrDovTqD4fG/89f5udeXlFThCxoeeM8HtmyegkWsiLOmIMRdabSshj5fWF+oKZFxKv9lt8mLShsOWDMmkS5JyVoF4CiXOaOZEXtFV7G/s0EtinRU4CEgOugvMboZnfrQUWbrglwwjIQkjwfClpnGl3wXsTHzb1586sG3pScvnB6SY1rSpLwx+fZSg5yj+O/7IcdhaikIlLrlQyCyN/N+vGz5CnK+7FQht7ulLh2Ltp+XYDYC6MKlDWUVqKGU1RpBCTugyXvFgk9OCaFyGNCB4QNICiPEaj0p/Cfksc9fOiIR54FgGaQahIQazR3qwg7zPSXr+ZYnDfDzLNJDKKmfZJLI0WMPN74U2I2JOizmla4x6YEq/GLUdYwonu86+BOGa1fvxe5zQOyO60Pk18MFg8eiIQ=
