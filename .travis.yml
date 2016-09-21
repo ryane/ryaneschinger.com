@@ -19,7 +19,7 @@ addons:
 
 script:
 - gulp prod
-- html-proofer ./public
+- htmlproofer ./public
 
 install:
 - npm install
