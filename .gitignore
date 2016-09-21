@@ -5,3 +5,12 @@ public/
 /static/
 /mailing-list-broadcasts.org.txt
 /TODO.org
+
+# resume
+/resume/*.docx
+/resume/*.html
+/resume/*.log
+/resume/*.pdf
+/resume/*.rtf
+/resume/*.tex
+/resume/*.tuc
