@@ -1,3 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
 language: go
 
 go:
@@ -19,12 +24,11 @@ addons:
 
 script:
 - gulp prod
-- htmlproofer ./public --url-ignore 'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg'
+- docker run --rm -it -v $(pwd)/public:/public 18fgsa/html-proofer /public
 
 install:
 - npm install
 - npm install gulp
-- gem install html-proofer -v 3.0.6
 - go get -u -v github.com/spf13/hugo
 
 deploy:
@@ -36,3 +40,5 @@ deploy:
   bucket: ryaneschinger.com
   skip_cleanup: true
   local_dir: public
+  on:
+    branch: release
