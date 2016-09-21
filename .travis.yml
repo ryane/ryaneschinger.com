@@ -19,7 +19,7 @@ addons:
 
 script:
 - gulp prod
-- htmlproofer ./public
+- htmlproofer ./public --url-ignore 'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg'
 
 install:
 - npm install
