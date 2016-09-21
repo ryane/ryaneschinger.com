@@ -40,8 +40,6 @@ deploy:
   bucket: ryaneschinger.com
   skip_cleanup: true
   local_dir: public
-  on:
-    branch: release
 
 notifications:
   slack:
