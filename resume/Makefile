@@ -11,8 +11,8 @@ resume.pdf: resume.md
 html: resume.html
 resume.html: style_chmduquesne.css resume.md
 	pandoc --standalone -H style_chmduquesne.css \
-        --from markdown --to html \
-        -o resume.html resume.md
+				--from markdown --to html \
+				-o resume.html resume.md
 
 docx: resume.docx
 resume.docx: resume.md
@@ -21,6 +21,10 @@ resume.docx: resume.md
 rtf: resume.rtf
 resume.rtf: resume.md
 	pandoc -s -S resume.md -o resume.rtf
+
+deploy: html
+	mkdir -p ../content/resume/
+	cp resume.html ../content/resume/index.html
 
 clean:
 	rm resume.html
