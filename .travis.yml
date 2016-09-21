@@ -24,7 +24,7 @@ script:
 install:
 - npm install
 - npm install gulp
-- gem install html-proofer -v 2.5.1
+- gem install html-proofer -v 3.0.6
 - go get -u -v github.com/spf13/hugo
 
 deploy:
