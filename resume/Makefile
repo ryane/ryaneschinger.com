@@ -25,6 +25,8 @@ resume.rtf: resume.md
 deploy: html
 	mkdir -p ../content/resume/
 	cp resume.html ../content/resume/index.html
+	cp resume.docx ../content/resume/resume.docx
+	cp resume.pdf ../content/resume/resume.pdf
 
 clean:
 	rm resume.html
