@@ -38,12 +38,12 @@ databases every time I removed or recreated my postgresql container.
 
 ## The Data Volume Container
 
-To accomplish this, you can use a
-[data volume container](https://docs.docker.com/userguide/dockervolumes/). This
-is a container that can be used to keep persistent data for
-non-persistent containers or to share data between multiple
-containers. Here is the command I used to create a data volume
-container for my postgresql database:
+To accomplish this, you can use
+a
+[data volume container](https://docs.docker.com/engine/tutorials/dockervolumes/).
+This is a container that can be used to keep persistent data for non-persistent
+containers or to share data between multiple containers. Here is the command I
+used to create a data volume container for my postgresql database:
 
 {{< highlight bash >}}
 docker create -v /var/lib/postgresql/data --name postgres9.3.6-data busybox
@@ -100,13 +100,15 @@ following command to establish a connection:
 docker run -it --link local-postgres9.3.6:postgres --rm postgres:9.3.6 sh -c 'exec psql -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres'
 {{< /highlight >}}
 
-This command is lifted straight from the
-[postgresql image documentation](https://registry.hub.docker.com/_/postgres/). It
-uses [`--link`](https://docs.docker.com/userguide/dockerlinks/) to
-enable the connection to the postgresql instance running in the
-container we just created. As you can see, this command is pretty
-unwieldy &mdash; you can use a shell alias to make it more manageable if
-you need to run it often.
+This command is lifted straight from
+the
+[postgresql image documentation](https://registry.hub.docker.com/_/postgres/).
+It
+uses
+[`--link`](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/) to
+enable the connection to the postgresql instance running in the container we
+just created. As you can see, this command is pretty unwieldy &mdash; you can
+use a shell alias to make it more manageable if you need to run it often.
 
 Now we can go ahead and make changes to the
 postgresql server. For example, let's create a role and a database:
