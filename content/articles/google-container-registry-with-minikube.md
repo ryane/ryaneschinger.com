@@ -221,3 +221,5 @@ long-lived service account key file.
 While this article was specific to authenticating to GCR, the same principle
 should work for other container registries. I hope it was helpful. Please let me
 know if you run into any problems or if you have any more suggestions.
+
+{{% optinform %}}
