@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     del = require('del'),
     cp = require('child_process'),
+    util = require('gulp-util'),
     server = require('gulp-server-livereload');
 
 var path = {
@@ -70,11 +71,15 @@ gulp.task('watch', ['scss', 'build', 'images', 'icons', 'server'], function(done
   var hugoArgs = [
     '--buildDrafts'
   ];
+
+  // run hugo once first
+  cp.spawn('hugo', hugoArgs, { stdio: 'inherit' });
+
   gulp.watch([path.SCSS], ['scss']);
   gulp.watch([path.JS], ['build']);
   gulp.watch([path.IMAGES], ['images']);
   gulp.watch([path.ICONS], ['icons']);
-  gulp.watch([path.CONTENT], function() {
+  gulp.watch([path.CONTENT, './config.toml'], function() {
     cp.spawn('hugo', hugoArgs, { stdio: 'inherit' });
   });
 });
@@ -82,9 +87,14 @@ gulp.task('watch', ['scss', 'build', 'images', 'icons', 'server'], function(done
 gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
   var hugoArgs = [
   ];
-  return cp
-    .spawn('hugo', hugoArgs, { stdio: 'inherit' })
-    .on('close', done);
+
+  util.log('Building site with hugo...');
+  return cp.spawn('hugo', hugoArgs, { stdio: 'inherit' }).on('close', function() {
+    util.log('Verifying site...');
+    cp.spawn('docker', [
+      'run', '--rm', '-it', '-v', __dirname + '/public:/public', '18fgsa/html-proofer', '/public'
+    ], { stdio: 'inherit' }).on('close', done);
+  });
 });
 
 gulp.task('default', [ 'watch' ]);
