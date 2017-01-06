@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     server = require('gulp-server-livereload');
 
+var hugoVersion = '0.18.1';
+
 var path = {
   SCSS: './src/scss/*',
   JS: './src/js/**/*',
@@ -69,30 +71,52 @@ gulp.task('server', function() {
 
 gulp.task('watch', ['scss', 'build', 'images', 'icons', 'server'], function(done) {
   var hugoArgs = [
+    'run',
+    '--rm',
+    '-it',
+    '-v',
+    __dirname + ':/src',
+    'ryane/hugo:' + hugoVersion,
+    'hugo',
     '--buildDrafts'
   ];
 
   // run hugo once first
-  cp.spawn('hugo', hugoArgs, { stdio: 'inherit' });
+  cp.spawn('docker', hugoArgs, { stdio: 'inherit' });
 
   gulp.watch([path.SCSS], ['scss']);
   gulp.watch([path.JS], ['build']);
   gulp.watch([path.IMAGES], ['images']);
   gulp.watch([path.ICONS], ['icons']);
   gulp.watch([path.CONTENT, './config.toml'], function() {
-    cp.spawn('hugo', hugoArgs, { stdio: 'inherit' });
+    cp.spawn('docker', hugoArgs, { stdio: 'inherit' });
   });
 });
 
 gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
   var hugoArgs = [
+    'run',
+    '--rm',
+    '-it',
+    '-v',
+    __dirname + ':/src',
+    'ryane/hugo:' + hugoVersion,
+    'hugo'
   ];
 
   util.log('Building site with hugo...');
-  return cp.spawn('hugo', hugoArgs, { stdio: 'inherit' }).on('close', function() {
+  return cp.spawn('docker', hugoArgs, { stdio: 'inherit' }).on('close', function() {
     util.log('Verifying site...');
     cp.spawn('docker', [
-      'run', '--rm', '-it', '-v', __dirname + '/public:/public', '18fgsa/html-proofer', '/public'
+      'run',
+      '--rm',
+      '-it',
+      '-v',
+      __dirname + '/public:/public',
+      '18fgsa/html-proofer',
+      '/public',
+      '--url-ignore',
+      'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg'
     ], { stdio: 'inherit' }).on('close', done);
   });
 });
