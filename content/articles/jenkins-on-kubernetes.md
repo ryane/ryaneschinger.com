@@ -4,7 +4,7 @@ title: "Jenkins on Kubernetes"
 tags:
 - kubernetes
 - jenkins
-date: 2016-04-19
+date: 2017-01-15
 url: /blog/jenkins-on-kubernetes
 menu:
   header:
