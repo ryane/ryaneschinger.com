@@ -3,17 +3,8 @@ sudo: required
 services:
   - docker
 
-language: go
-
-go:
-- 1.4.2
-
 os:
 - linux
-
-matrix:
-  allow_failures:
-  - go: tip
 
 addons:
   apt:
@@ -27,8 +18,7 @@ script:
 
 install:
 - npm install
-- npm install gulp
-- go get -u -v github.com/spf13/hugo
+- npm install -g gulp
 
 deploy:
   provider: s3

@@ -9,13 +9,13 @@ Credit: https://github.com/mszep/pandoc_resume
 
 1. Make sure it is in the path:
 
-    ```shell
+    ```bash
     export PATH=$PATH:/Users/ryan/Projects/ConTeXt/tex/texmf-osx-64/bin
     ```
 
 1. Install pandoc
 
-    ```shell
+    ```bash
     brew install pandoc
     ```
 
@@ -23,6 +23,6 @@ Credit: https://github.com/mszep/pandoc_resume
 
 1. Generate
 
-    ```shell
+    ```bash
     make
     ```
