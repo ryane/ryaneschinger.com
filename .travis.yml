@@ -24,7 +24,6 @@ addons:
 
 script:
 - gulp prod
-- docker run --rm -it -v $(pwd)/public:/public 18fgsa/html-proofer /public
 
 install:
 - npm install
