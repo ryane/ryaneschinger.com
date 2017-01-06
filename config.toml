@@ -4,6 +4,7 @@ title = "Ryan Eschinger Consulting"
 
 pygmentsuseclasses = false
 pygmentsstyle = "colorful"
+PygmentsCodeFences = true
 
 [params]
   enable_analytics = true

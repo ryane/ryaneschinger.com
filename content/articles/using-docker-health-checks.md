@@ -29,7 +29,7 @@ running containers from existing images that might not have one built-in. As an
 example, let's see how we can include a health check when we run a container
 from the [Elasticsearch image](https://hub.docker.com/_/elasticsearch/).
 
-{{< highlight bash >}}
+```shell
 $ docker run --rm -it \
          --name=elasticsearch \
          --health-cmd="curl --silent --fail localhost:9200/_cluster/health || exit 1" \
@@ -37,7 +37,7 @@ $ docker run --rm -it \
          --health-retries=12 \
          --health-timeout=2s \
          elasticsearch
-{{< /highlight >}}
+```
 
 The health check related options are:
 
@@ -58,7 +58,7 @@ The health check related options are:
 Once you start the container, you will be able to see the health status in the
 `docker ps` output.
 
-{{< highlight bash >}}
+```shell
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                             PORTS                NAMES
 737fc159e3bf        elasticsearch       "/docker-entrypoint.s"   17 seconds ago      Up 15 seconds (health: starting)   9200/tcp, 9300/tcp   elasticsearch
@@ -66,7 +66,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS                NAMES
 737fc159e3bf        elasticsearch       "/docker-entrypoint.s"   50 seconds ago      Up 49 seconds (healthy)   9200/tcp, 9300/tcp   elasticsearch
-{{< /highlight >}}
+```
 
 The health status is available from the
 [Docker API](https://docs.docker.com/engine/reference/api/docker_remote_api_v1.24/#/inspect-a-container)
@@ -81,7 +81,7 @@ using
 it is a little more unwieldy.
 {{% /note %}}
 
-{{< highlight bash >}}
+```shell
 $ docker inspect elasticsearch | jq ".[].State.Health"
 {
   "Status": "healthy",
@@ -95,16 +95,16 @@ $ docker inspect elasticsearch | jq ".[].State.Health"
     }
   ]
 }
-{{< /highlight >}}
+```
 
 As you can see, you can see the current `Status`, `FailingStreak`, and a log of
 the last 5 health check command results. If you just want to report the status,
 you could run:
 
-{{< highlight bash >}}
+```shell
 $ docker inspect elasticsearch | jq -r ".[].State.Health.Status"
 healthy
-{{< /highlight >}}
+```
 
 Of course, you can write scripts or custom tools to periodically check the
 health status of your containers and react accordingly. Also, a docker event is
