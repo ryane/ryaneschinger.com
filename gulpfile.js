@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
     concat = require('gulp-concat'),
     del = require('del'),
-    cp = require('child_process');
+    cp = require('child_process'),
+    server = require('gulp-server-livereload');
 
 var path = {
   SCSS: './src/scss/*',
@@ -19,7 +20,8 @@ var path = {
   DEST_IMAGES: './static/images/',
   DEST_ICONS: './static/',
   PUBLIC: 'public',
-  STATIC: 'static/**/*'
+  STATIC: 'static/**/*',
+  CONTENT: 'content/**/*'
 };
 
 gulp.task('clean', function() {
@@ -55,19 +57,26 @@ gulp.task('icons', function() {
     .pipe(gulp.dest(path.DEST_ICONS));
 });
 
-gulp.task('watch', ['scss', 'build', 'images', 'icons'], function(done) {
+gulp.task('server', function() {
+  gulp.src('./public')
+    .pipe(server({
+      livereload: true,
+      directoryListing: false,
+      open: true
+    }));
+});
+
+gulp.task('watch', ['scss', 'build', 'images', 'icons', 'server'], function(done) {
+  var hugoArgs = [
+    '--buildDrafts'
+  ];
   gulp.watch([path.SCSS], ['scss']);
   gulp.watch([path.JS], ['build']);
   gulp.watch([path.IMAGES], ['images']);
   gulp.watch([path.ICONS], ['icons']);
-  var hugoArgs = [
-    'server',
-    '-w',
-    '--buildDrafts'
-  ];
-  return cp
-    .spawn('hugo', hugoArgs, { stdio: 'inherit' })
-    .on('close', done);
+  gulp.watch([path.CONTENT], function() {
+    cp.spawn('hugo', hugoArgs, { stdio: 'inherit' });
+  });
 });
 
 gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
