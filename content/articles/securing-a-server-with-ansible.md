@@ -48,7 +48,7 @@ To reiterate, here are the things we are going to perform in our ansible playboo
 So, let's go through it step by step.
 
 {{% note %}}
-***Note**: If you are brand new to ansible, you might want to check out my [quick start post]({{< relref "ansible-quick-start.md" >}}) and the [ansible documentation](http://docs.ansible.com/).*
+***Note**: If you are brand new to ansible, you might want to check out my [quick start post]({{< relref "2014-09-26-ansible-quick-start.md" >}}) and the [ansible documentation](http://docs.ansible.com/).*
 {{% /note %}}
 
 ## Create Playbook Boilerplate

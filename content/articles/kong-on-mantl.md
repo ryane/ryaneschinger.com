@@ -14,7 +14,7 @@ optin: "Are you interested in learning more about mantl, mesos, marathon, kubern
 optinbutton: "Sign me up!"
 ---
 
-[Kong](https://getkong.org) is an "Open-source, Microservice & API Management Layer built on top of NGINX". [Mantl](http://mantl.io) is a "modern, batteries included platform for rapidly deploying globally distributed services". I put together a short video on running Kong on Mantl.
+[Kong](https://getkong.org) is an "Open-source, Microservice & API Management Layer built on top of NGINX". [Mantl](https://github.com/mantl/mantl) is a "modern, batteries included platform for rapidly deploying globally distributed services". I put together a short video on running Kong on Mantl.
 
 {{< youtube vabmtVbZDSc>}}
 
