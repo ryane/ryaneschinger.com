@@ -29,7 +29,7 @@ running containers from existing images that might not have one built-in. As an
 example, let's see how we can include a health check when we run a container
 from the [Elasticsearch image](https://hub.docker.com/_/elasticsearch/).
 
-```shell
+```bash
 $ docker run --rm -it \
          --name=elasticsearch \
          --health-cmd="curl --silent --fail localhost:9200/_cluster/health || exit 1" \
@@ -58,7 +58,7 @@ The health check related options are:
 Once you start the container, you will be able to see the health status in the
 `docker ps` output.
 
-```shell
+```bash
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                             PORTS                NAMES
 737fc159e3bf        elasticsearch       "/docker-entrypoint.s"   17 seconds ago      Up 15 seconds (health: starting)   9200/tcp, 9300/tcp   elasticsearch
@@ -81,7 +81,7 @@ using
 it is a little more unwieldy.
 {{% /note %}}
 
-```shell
+```bash
 $ docker inspect elasticsearch | jq ".[].State.Health"
 {
   "Status": "healthy",
@@ -101,7 +101,7 @@ As you can see, you can see the current `Status`, `FailingStreak`, and a log of
 the last 5 health check command results. If you just want to report the status,
 you could run:
 
-```shell
+```bash
 $ docker inspect elasticsearch | jq -r ".[].State.Health.Status"
 healthy
 ```
@@ -124,7 +124,7 @@ HEALTHCHECK --interval=5s --timeout=2s --retries=12 \
 
 Now you can build and run the image with the built-in health check:
 
-```shell
+```bash
 $ docker build -t elasticsearch-health .
 Sending build context to Docker daemon 2.048 kB
 Step 1 : FROM elasticsearch:2.4.0
