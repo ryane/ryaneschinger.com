@@ -27,7 +27,7 @@ script:
 
 install:
 - npm install
-- npm install gulp
+- npm install -g gulp
 - go get -u -v github.com/spf13/hugo
 
 deploy:
