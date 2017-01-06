@@ -53,7 +53,7 @@ I use the `-v` option to specify the name of the volume. This should
 match the name of the volume that your postgresql image mounts for its
 data and configuration. In the case of the official postgres image
 that I am using in this example, you can
-[see](https://github.com/docker-library/postgres/blob/master/Dockerfile.template)
+[see](https://github.com/docker-library/postgres/blob/master/Dockerfile-debian.template)
 that it is */var/lib/postgresql/data*.
 
 I also use `--name` to give a descriptive name for the data volume
@@ -163,11 +163,11 @@ Now, you can connect to that instance from applications on your host:
 
 {{< highlight bash >}}
 psql -h localhost -p 5432 -U postgres
-Password for user postgres: 
+Password for user postgres:
 psql (9.3.6)
 Type "help" for help.
 
-postgres=# 
+postgres=#
 {{< /highlight >}}
 
 Note, I am exposing *5432* directly on the host. If you want to start
@@ -190,9 +190,9 @@ bought into Docker and how are you using it in your day-to-day work? Please
 [^1]:
     Technically, your data will not be lost unless you use the *-v* flag
     when you remove the container. For example,
-    
+
         docker rm -v mypostgrescontainer
-    
+
     If you neglect to include the `-v` flag when removing the
     container, the data will remain in a dangling volume and, while
     still present on your host's file system, not very easy to work

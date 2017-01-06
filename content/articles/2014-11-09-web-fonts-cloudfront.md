@@ -11,7 +11,7 @@ menu:
     parent: 'articles'
 ---
 
-In my last [post]({{< relref "articles/using-cloudfront-to-speed-up-your-rails-application.md" >}}), I may have been a little cavalier when I said it is a "no-brainer" to use CloudFront to serve assets for your Rails application. In truth, there are a few issues that can make things more complicated. One of those is the ability to serve web fonts.
+In my last [post]({{< relref "articles/2014-11-06-using-cloudfront-to-speed-up-your-rails-application.md" >}}), I may have been a little cavalier when I said it is a "no-brainer" to use CloudFront to serve assets for your Rails application. In truth, there are a few issues that can make things more complicated. One of those is the ability to serve web fonts.
 
 <!--more-->
 

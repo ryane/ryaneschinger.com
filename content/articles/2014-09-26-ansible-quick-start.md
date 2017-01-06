@@ -261,7 +261,7 @@ Here I created a new user, generated an SSH key for that user, and set their she
 {{< /highlight >}}
 
 {{% note %}}
-***Update** Nov 22, 2014*: see my [post]({{< relref "articles/ensuring-command-module-task-is-repeatable-with-ansible.md" >}}) about updating the *Copy .zshrc template* task to be idempotent and safely repeatable.
+***Update** Nov 22, 2014*: see my [post]({{< relref "articles/2014-11-22-ensuring-command-module-task-is-repeatable-with-ansible.md" >}}) about updating the *Copy .zshrc template* task to be idempotent and safely repeatable.
 {{% /note %}}
 
 Hopefully, you should be able to understand exactly what is going to happen just by scanning the file. If not, this is what we are going to accomplish with this playbook.

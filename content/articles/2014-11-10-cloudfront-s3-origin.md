@@ -23,7 +23,7 @@ First you need to setup a bucket in S3. Then, when you create your CloudFront di
 
 ## Configuring asset_sync
 
-You don't need to follow all of the steps in the [Readme](https://github.com/rumblelabs/asset_sync/blob/master/README.md). You should add the gem to the Gemfile and `bundle install` it. You will also need to configure asset_sync with your AWS Access Key ID and your Secret key. And, you should set the *FOG_DIRECTORY* to the name of your S3 bucket. But, **do not** set the `config.action_controller.asset_host` as described in the Readme. You still want to use the CloudFront domain name for your asset host as shown in the previous [post]({{< relref "articles/using-cloudfront-to-speed-up-your-rails-application.md" >}}).
+You don't need to follow all of the steps in the [Readme](https://github.com/rumblelabs/asset_sync/blob/master/README.md). You should add the gem to the Gemfile and `bundle install` it. You will also need to configure asset_sync with your AWS Access Key ID and your Secret key. And, you should set the *FOG_DIRECTORY* to the name of your S3 bucket. But, **do not** set the `config.action_controller.asset_host` as described in the Readme. You still want to use the CloudFront domain name for your asset host as shown in the previous [post]({{< relref "articles/2014-11-06-using-cloudfront-to-speed-up-your-rails-application.md" >}}).
 
 There are a lot of other options but that is really all you need to get going. When you run the `assets:precompile` rake task (usually as part of your deployment), your assets will automatically sync to your S3 bucket. And, CloudFront will pull updated assets from that same bucket.
 
