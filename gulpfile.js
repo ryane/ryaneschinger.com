@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     server = require('gulp-server-livereload');
 
-var hugoVersion = '0.18.1';
+var hugoImage = 'ryane/docker-hugo:0.18.1';
 
 var path = {
   SCSS: './src/scss/*',
@@ -76,8 +76,7 @@ gulp.task('watch', ['scss', 'build', 'images', 'icons', 'server'], function(done
     '-it',
     '-v',
     __dirname + ':/src',
-    'ryane/hugo:' + hugoVersion,
-    'hugo',
+    hugoImage,
     '--buildDrafts'
   ];
 
@@ -100,8 +99,7 @@ gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
     '-it',
     '-v',
     __dirname + ':/src',
-    'ryane/hugo:' + hugoVersion,
-    'hugo'
+    hugoImage
   ];
 
   util.log('Building site with hugo...');
