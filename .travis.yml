@@ -11,6 +11,7 @@ addons:
     packages:
     - nodejs
     - python
+    - python-pip
     - python-pygments
 
 script:
@@ -19,16 +20,19 @@ script:
 install:
 - npm install
 - npm install -g gulp
+- pip install awscli
 
 deploy:
   provider: s3
-  access_key_id:
-    secure: r2B5ciLdzHKUK+rLJ7cxis7jYk/UwUeHMmPmWvkH/MQhoCerZjHOghuYlMmCW8iscvlCGLCZojOZR3QSbJLJquxL5dBdSdJ8/IFSobYf5nlViXke98BUxoPLbGariQa3LuX6HEog33GYDTMMfMpcJlvcRqAjeW4+nXYh2eO4fUmODGDKrrlQqewZV9FiDLzNgu/0pvfXacgwjZ29WGMV23VuDMhb1+MDAYwI09U0DKIsI4QNIgaQkSP+ciwM04rlBo4Jw9Yae0vf3skqtlHryxDhDfAGhehNRaj7qYdnrniXUuLyXLntt25H5jf4+EpJq/lLLvXkK1G1JyeQF/fji+Wud8Sqss7QYBG9b6Sf5VyZ4GdLk5YJE/IbNB6Oea+CzPv5kwZLRL9vcEPBSfDUcD1oT9wi2yfhDkyDeR4TUBPRmN9g+UYMJyLEqwg0JamaqfkiX7JVB1w/2IhjBZ6V1/d6zzlkFJkhUFpodP8gsXIClGmSLm0CGXwzX4eqrN/TYEwh//FMo7Tf4fAnQttiJAol1YSKhBNxcdZ1RsOo4r3o454iPLHNBVCN6ehuah8AmLFUr8LMNdmjuJzfy7BGgHcawMOiVrXdwjEW1DUtshoanYEWqFiTFNtSn6Mk0qoE7ni96LnfZVu6w1x+qvMgIp8Jiumafx7DaiLNDhhFwj8=
-  secret_access_key:
-    secure: Cfmuh2p0/BeETefLidIfUq1Dkbgouqi4DTjldlz/rqhKn1DgNZ+EZP5Da/jyOA08kezlV/BJ5F1w1a+IIFUylCYTgYB24mdWEFYSlqPh9pmwboVhiCsbF7ILDPVWff/S/8CKhg6dVQP2xWwTffbyHcfLnNIvcKmd3buQDmwaTvULkBzOA1rlYtd383Hgd4iOI8mNwabCDrjOz9XzKwYSJVl+UUT68c0no4JfO1EDflsnkHOg/VaO4DsHiC1k6xvIHieA/Ag/vA+u7VCt+BaQ+gCHWJ9EU0GizBAbrq2y2Dgr0qE446y6jKIhBftoabT/lCMm+DYG6q/Bk9PQ/MPAJC4OGkNAqW/RFPHDLtansGjMcS5kLEbBxh8iMUx7/ymcwwIC6UCApmQqA6kXLcVcRCOe0MyBaVe3kGfMjqIyaK0bTCx3oDiHq5QkxbFy9Dd/iIFBLQ+OIt1EtFlliCVP5FUH5WZD673af+PF6kJ0BzJw48pfQUMwLxuWHxlxNbUeYWa99EYgx6CfgfPLXrG671i2OeVU2uAistt4Ld8BjwCkF8NOMCM/DmSkEjSg2ngz4IFdqkRjZDpDbkkIoWH1yjwz2ziA2o/DFq9mjjmAKpatfP3UZTz09F3onvqFBCyiCdIDsILeeufLfvWR8Mn+jYiFkFlT7FT9YoSy9PPttMU=
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: ryaneschinger.com
   skip_cleanup: true
   local_dir: public
+
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 
 notifications:
   slack:
