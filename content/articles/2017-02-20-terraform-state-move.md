@@ -288,8 +288,9 @@ output "elb_dns_name" {
 {{% note %}}
 
 I am not including the source of the `web` module in this post as it is almost
-identical to the original flat configuration. You can view the full version on
-[github]().
+identical to the original flat configuration. You can view the full version
+on
+[github](https://github.com/ryane/terraform-state-mv-example/tree/modules/modules/web).
 
 {{% /note %}}
 
