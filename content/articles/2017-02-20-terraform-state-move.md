@@ -23,8 +23,10 @@ an existing Terraform configuration
 into [modules](https://www.terraform.io/docs/modules/index.html) without
 affecting the underlying infrastructure in any way. If you
 are [importing](https://www.terraform.io/docs/import/index.html) existing cloud
-infrastructure into Terraform, you will also likely be using the `terraform
-state *` commands to build a modular configuration.
+infrastructure into Terraform, you will also likely be using
+the
+[`terraform state *`](https://www.terraform.io/docs/commands/state/index.html)
+commands to build a modular configuration.
 
 <!--more-->
 
@@ -182,6 +184,13 @@ output "elb_dns_name" {
 
 {{< gist ryane 017da418ff44d1071e34f51d0b94ca98 "main.tf" >}}
 
+{{% note %}}
+
+All the source code for this post can be found in the
+[terraform-state-mv-example repository on github](https://github.com/ryane/terraform-state-mv-example).
+
+{{% /note %}}
+
 As mentioned above, this Terraform configuration creates all of the resources
 necessary for a simple web tier that serves up static web content over nginx.
 The following resources are created:
@@ -288,7 +297,8 @@ output "elb_dns_name" {
 {{% note %}}
 
 I am not including the source of the `web` module in this post as it is almost
-identical to the original flat configuration. You can view the full version
+identical to the original flat configuration. You can view the full version in
+the modules branch
 on
 [github](https://github.com/ryane/terraform-state-mv-example/tree/modules/modules/web).
 
@@ -484,9 +494,9 @@ And that should do it! When we run `terraform plan` now, we should get a message
 that says `No changes. Infrastructure is up-to-date.`.
 
 Now that you know how to manipulate Terraform state, go forth and refactor your
-Terraform into modules! While the process can be rather tedious, it is much
-easier than it was before the `terraform state *` commands existed &mdash; when
-you had to manually hack the JSON in the tfstate file. Even with much more
-complicated Terraform configurations, this process seems to work well if you are
-careful and deliberate about the process. I'd love to hear your experiences with
-manipulating Terraform state &mdash; let me know!
+Terraform configurations into modules! While the process can be rather tedious,
+it is much easier than it was before the `terraform state *` commands existed
+&mdash; when you had to manually hack the JSON in the tfstate file. Even with
+much more complicated Terraform configurations, this process seems to work well
+if you are careful and deliberate about the process. I'd love to hear your
+experiences with manipulating Terraform state &mdash; let me know!
