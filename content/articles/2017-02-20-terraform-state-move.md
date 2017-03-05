@@ -500,3 +500,5 @@ it is much easier than it was before the `terraform state *` commands existed
 much more complicated Terraform configurations, this process seems to work well
 if you are careful and deliberate about the process. I'd love to hear your
 experiences with manipulating Terraform state &mdash; let me know!
+
+{{% optinform %}}
