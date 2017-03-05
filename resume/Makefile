@@ -23,10 +23,10 @@ resume.rtf: resume.md
 	pandoc -s -S resume.md -o resume.rtf
 
 deploy: html
-	mkdir -p ../content/resume/
-	cp resume.html ../content/resume/index.html
-	cp resume.docx ../content/resume/resume.docx
-	cp resume.pdf ../content/resume/resume.pdf
+	mkdir -p ../static/resume/
+	cp resume.html ../static/resume/index.html
+	cp resume.docx ../static/resume/resume.docx
+	cp resume.pdf ../static/resume/resume.pdf
 
 clean:
 	rm resume.html
