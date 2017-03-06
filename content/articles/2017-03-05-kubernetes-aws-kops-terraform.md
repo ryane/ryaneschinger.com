@@ -75,7 +75,12 @@ In
 [**variables.tf**](https://github.com/ryane/kubernetes-aws-vpc-kops-terraform/blob/master/variables.tf),
 you need to set the `name` variable. It is used in several places in our
 configuration and should be set to the domain name you are going to be using for
-this cluster. Optionally, you can configure the `region` and availability zone
+this cluster. You can either modify the **variables.tf** file directly or use
+one of the supported mechanisms
+to
+[assign Terraform variables](https://www.terraform.io/intro/getting-started/variables.html#assigning-variables).
+
+Optionally, you can configure the `region` and availability zone
 variables. By default, we are going to be creating a highly available cluster
 with Kubernetes masters in *us-east-1a*, *us-east-1c*, *us-east-1d*. You can
 also configure the `env` and `vpc_cidr` variables, if desired.
