@@ -32,7 +32,7 @@ Experience
       with
       [Terraform](https://www.terraform.io/),
       [Ansible](https://www.ansible.com/), [Go](https://golang.org/), and other
-      technologies, and is supported on various cloud platforms
+      technologies, Mantl is supported on various cloud platforms
       like [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/),
       and [DigitalOcean](https://www.digitalocean.com/).
     * Provided software consulting to [Checkmate](http://www.checkmate.io/) and
