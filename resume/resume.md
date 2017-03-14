@@ -3,8 +3,9 @@ Ryan Eschinger
 
 ---
 
-> Software developer specializing in infrastructure automation, cloud computing,
-> container orchestration, and other *Devops* practices.
+> Software consultant specializing in cloud-native technologies, Go programming,
+> container orchestration, infrastructure automation, and other *Devops*
+> practices.
 
 > [ryanesc@gmail.com](mailto:ryanesc@gmail.com) • (561) 704-0082 •
 > [\@ryanesc](https://twitter.com/ryanesc) • [Github](https://github.com/ryane)
@@ -18,42 +19,44 @@ Experience
 2008-2017
 :   *Founder [Jossware LLC](http://ryaneschinger.com/)* (Brooklyn, NY)
 
-    Software consultancy focused on programmable infrastructure, devops, custom
+    Software consultancy focused on cloud-native technologies, devops, custom
     software integrations, and application development.
 
     * Provided in-depth consulting, training, and development services to a
-      range of companies in the realms of programmable infrastructure and the
-      cloud-native ecosystem.
-    * Core contributor to [Mantl](http://mantl.io/), a modern platform for
-      deploying microservices, and its ecosystem of supporting APIs and tools.
-      Mantl integrates technologies
+      range of companies in the realms of container technologies, programmable
+      infrastructure, and devops.
+    * Core contributor and release manager for [Mantl](http://mantl.io/), a
+      modern platform for deploying microservices, and its ecosystem of
+      supporting APIs and tools. Mantl integrates technologies
       like [Docker](http://docker.com/), [Mesos](http://mesos.apache.org/),
       and [Kubernetes](http://kubernetes.io/). Built
       with
       [Terraform](https://www.terraform.io/),
-      [Ansible](https://www.ansible.com/), [Go](https://golang.org/), and other
-      technologies, Mantl is supported on various cloud platforms
+      [Ansible](https://www.ansible.com/), [Go](https://golang.org/), and
+      supported on various cloud platforms
       like [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/),
-      and [DigitalOcean](https://www.digitalocean.com/).
-    * Provided software consulting to [Checkmate](http://www.checkmate.io/) and
-      worked on various software applications including an algorithmic pricing
-      system, inventory management and optimization platform, and custom
-      integrations with 3rd-party APIs.
-    * In collaboration with the founder and a designer, created
-      the [Mamajamas](http://www.mamajamas.com/) baby registry
-      ([Ruby on Rails](http://rubyonrails.org/)). Built and maintained the
-      distributed web infrastructure, which included multiple environments
-      (test, staging, and production), significant background job processing
-      requirements, and a transactional email system.
-      * Consulted with
+      and [DigitalOcean](https://www.digitalocean.com/). Worked in all layers of
+      the stack and primary developer of the Go API. Sponsored by Cisco.
+    * Extended
+      the
+      [Terraform Docker provider](https://www.terraform.io/docs/providers/docker/index.html) to
+      fully support
+      the [Triton Docker Remote API](https://apidocs.joyent.com/docker).
+      Sponsored by Joyent.
+    * Contributor to [Converge](http://converge.aster.is/), an open-source,
+      API-first configuration management tool built using Go and gRPC and
+      powered by a graph engine.
+    * Provided software consulting and development services to companies such
+      as [Checkmate](http://www.checkmate.io/) (built an algorithmic pricing
+      system, inventory and optimization platform, and several 3rd-party API
+      integrations), [Mamajamas](http://www.mamajamas.com/) (built and
+      maintained the application and distributed web infrastructure),
+      and
       [Open Places](https://www.crunchbase.com/organization/open-places#/entity)
-      by providing software development and infrastructure services. As a core part
-      of the team, helped develop the supporting infrastructure for the site and
-      iOS application. Made extensive use of the early AWS APIs and Chef to
-      automate, provision, and maintain the infrastructure.
-    * Various other application development and devops projects for companies
-      large and small.
-    * Experience working remotely with teams around the world, as well as
+      (provided application development and infrastructure automation).
+    * Consulted on other application development and devops projects for
+      companies large and small.
+    * Experienced working remotely with teams around the world, as well as
       on-site.
 
 2006-2008
