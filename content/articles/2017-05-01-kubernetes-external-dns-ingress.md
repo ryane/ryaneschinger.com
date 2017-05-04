@@ -19,20 +19,16 @@ For every ingress resource we add, we want to have a DNS record registered in Ro
 
 Automatic DNS registration and SSL certificate generation for
 
+## ExternalDNS
 
-First, we'll deploy the [Nginx Ingress controller]().
+[ExternalDNS]() is a relatively new project that makes Kubernetes Ingresses and Services available
 
-An Ingress provides inbound internet access to Kubernetes Services running in your cluster. The Ingress consists of a set of rules, based on host names and paths, that define how requests are routed to a backend Service. In addition to the Ingress resources, there needs to be an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) running to actually handle the requests. There are several Ingress controller implementations available: [GCE](https://github.com/kubernetes/ingress/tree/master/controllers/gce), [Traefik](https://docs.traefik.io/user-guide/kubernetes/), [HAProxy](https://github.com/rancher/lb-controller), [Rancher](https://github.com/rancher/lb-controller), and more. In this example, we are going to use the [Nginx Ingress controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx) on AWS.
+
+## Deploying the Ingress Controller
+
+An [Ingress]() provides inbound internet access to Kubernetes Services running in your cluster. The Ingress consists of a set of rules, based on host names and paths, that define how requests are routed to a backend Service. In addition to an Ingress resource, there needs to be an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) running to actually handle the requests. There are several Ingress controller implementations available: [GCE](https://github.com/kubernetes/ingress/tree/master/controllers/gce), [Traefik](https://docs.traefik.io/user-guide/kubernetes/), [HAProxy](https://github.com/rancher/lb-controller), [Rancher](https://github.com/rancher/lb-controller), and even a shiny, brand new [AWS ALB-based controller](https://github.com/coreos/alb-ingress-controller). In this example, we are going to use the [Nginx Ingress controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx) on AWS.
 
 Deploying the nginx-ingress controller requires creating several Kubernetes resources. First, we need to deploy a default backend server. If a request arrives that does not match any of the Ingress rules, it will be routed to the default backend which will return a 404 response. The `defaultbackend` Deployment will be backed by a [ClusterIP Service](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types) that listens on port 80.
-
-{{< gist ryane 01efee9e72d12a9b5c7cac9957a1d488 "defaultbackend.yml" >}}
-
-You can deploy this by running:
-
-```bash
-kubectl apply -f https://gist.githubusercontent.com/ryane/01efee9e72d12a9b5c7cac9957a1d488/raw/60334bdcef7ed69b028f2db4e5bdb2ef84aa4e65/defaultbackend.yml
-```
 
 The nginx-ingress controller itself requires three Kubernetes resources. The Deployment to run the controller, a ConfigMap to hold the controller's configuration, and a backing Service. Since we are working with AWS, we will deploy a `LoadBalancer` Service. On AWS, this will create an [Elastic Load Balancer]() in front of the nginx-ingress controller. The architecture looks something like this:
 
@@ -45,8 +41,6 @@ The nginx-ingress controller itself requires three Kubernetes resources. The Dep
    --|-----|--
    [ Services ]
 ```
-
-{{< gist ryane 01efee9e72d12a9b5c7cac9957a1d488 "nginx-ingress.yml" >}}
 
 We will deploy the nginx-ingress controller using the example manifests in the [kubernetes/ingress](https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx) repository.
 
