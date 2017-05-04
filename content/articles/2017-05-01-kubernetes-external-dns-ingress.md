@@ -1,6 +1,6 @@
 ---
 date: 2017-05-01T21:26:09-04:00
-title: External DNS, Let's Encrypt, and Nginx Ingress on Kubernetes and AWS
+title: ExternalDNS, Let's Encrypt, and Nginx Ingress on Kubernetes and AWS
 tags:
 - kubernetes
 - aws
@@ -13,8 +13,9 @@ optinbutton: "Sign up now!"
 ---
 
 TODO: add noscript blocks
+TODO: replace immutablecorp.com
 
-For every ingress resource we add, we want to have a DNS record registered in Route53 as well as having an SSL certifcate generated.
+For every ingress resource we add, we want to have a DNS record registered in Route 53 as well as having an SSL certifcate generated.
 
 Automatic DNS registration and SSL certificate generation for
 
@@ -45,96 +46,215 @@ The nginx-ingress controller itself requires three Kubernetes resources. The Dep
    [ Services ]
 ```
 
-```yaml
----
+{{< gist ryane 01efee9e72d12a9b5c7cac9957a1d488 "nginx-ingress.yml" >}}
 
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: ingress-nginx
-  labels:
-    app: ingress-nginx
-    component: config
-    k8s-addon: ingress-nginx.addons.k8s.io
-data:
-  use-proxy-protocol: "true"
-  enable-vts-status: "false"
+We will deploy the nginx-ingress controller using the example manifests in the [kubernetes/ingress](https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx) repository.
 
----
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress/master/examples/aws/nginx/nginx-ingress-controller.yaml
+```
 
-kind: Service
-apiVersion: v1
-metadata:
-  name: ingress-nginx
-  labels:
-    app: ingress-nginx
-    component: controller
-    k8s-addon: ingress-nginx.addons.k8s.io
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
-spec:
-  type: LoadBalancer
-  selector:
-    app: ingress-nginx
-    component: controller
-  ports:
-  - name: http
-    port: 80
-    targetPort: http
-  - name: https
-    port: 443
-    targetPort: https
+{{% note %}}
 
----
+At the time of this writing, this deploys a beta version (0.9.0-beta.5) of the nginx-ingress controller. The 0.9.x release of the ingress controller is necessary in order to work well with ExternalDNS.
 
-kind: Deployment
-apiVersion: extensions/v1beta1
-metadata:
-  name: ingress-nginx
-  labels:
-    app: ingress-nginx
-    component: controller
-    k8s-addon: ingress-nginx.addons.k8s.io
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: ingress-nginx
-        component: controller
-        k8s-addon: ingress-nginx.addons.k8s.io
-    spec:
-      terminationGracePeriodSeconds: 60
-      containers:
-      - image: gcr.io/google_containers/nginx-ingress-controller:0.9.0-beta.5
-        name: ingress-nginx
-        imagePullPolicy: Always
-        ports:
-          - name: http
-            containerPort: 80
-            protocol: TCP
-          - name: https
-            containerPort: 443
-            protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 10254
-            scheme: HTTP
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
-        env:
-          - name: POD_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
-        args:
-        - /nginx-ingress-controller
-        - --default-backend-service=$(POD_NAMESPACE)/nginx-default-backend
-        - --configmap=$(POD_NAMESPACE)/ingress-nginx
-        - --publish-service=$(POD_NAMESPACE)/ingress-nginx
+{{% /note %}}
+
+Now that we've deployed our Ingress controller, we can move on to our DNS configuration.
+
+ExternalDNS currently requires full access to a single managed zone in Route 53 &mdash; it will delete any records that are not managed by ExternalDNS.
+
+{{% warning %}}
+
+**Warning:** do not use an existing zone containing important DNS records with ExternalDNS. You will lose records.
+
+{{% /warning %}}
+
+If you already have a domain registered in Route 53 that you can dedicate to use for ExternalDNS, feel free to use that. In this post, I will instead show how you can create a subdomain in its own isolated Route 53 hosted zone. I am assuming for the purposes of this post that the parent domain is also hosted in Route 53. However, it is possible to use a subdomain even if the parent domain is [not hosted in Route 53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html). In the following examples, I have a domain named `immutablecorp.com` registered in Route 53 and I will be creating a new hosted zone for `extdns.immutablecorp.com` dedicated to ExternalDNS.
+
+Here is a small script we can use to configure the zone for our subdomain. Note that it depends on the indispensable [`jq` utility](https://stedolan.github.io/jq/).
+
+```bash
+export PARENT_ZONE=immutablecorp.com
+export ZONE=extdns.immutablecorp.com
+
+# create the hosted zone for the subdomain
+aws route53 create-hosted-zone --name ${ZONE} --caller-reference "$ZONE-$(uuidgen)"
+
+# capture the zone ID
+export ZONE_ID=$(aws route53 list-hosted-zones | jq -r ".HostedZones[]|select(.Name == \"${ZONE}.\")|.Id")
+
+# create a changeset template
+cat >update-zone.template.json <<EOL
+{
+  "Comment": "Create a subdomain NS record in the parent domain",
+  "Changes": [{
+    "Action": "UPSERT",
+    "ResourceRecordSet": {
+      "Name": "",
+      "Type": "NS",
+      "TTL": 300,
+      "ResourceRecords": []
+    }
+  }]
+}
+EOL
+
+# generate the changeset for the parent zone
+cat update-zone.template.json \
+ | jq ".Changes[].ResourceRecordSet.Name=\"${ZONE}.\"" \
+ | jq ".Changes[].ResourceRecordSet.ResourceRecords=$(aws route53 get-hosted-zone --id ${ZONE_ID} | jq ".DelegationSet.NameServers|[{\"Value\": .[]}]")" > update-zone.json
+
+# create a NS record for the subdomain in the parent zone
+aws route53 change-resource-record-sets \
+  --hosted-zone-id $(aws route53 list-hosted-zones | jq -r ".HostedZones[] | select(.Name==\"$PARENT_ZONE.\") | .Id" | sed 's/\/hostedzone\///') \
+  --change-batch file://update-zone.json
+```
+
+We are using AWS CLI to manage our zones in this post but you are probably better off using tools like [Terraform]() or [CloudFormation]() to manage your zones. You can also use the AWS management console if you must.
+
+## IAM Permissions
+
+ExternalDNS will require the necessary IAM permissions to view and manage your hosted zone. There are a few ways you can grant these permissions depending on how you build and manage your Kubernetes installation on AWS. If you are using [Kops](https://github.com/kubernetes/kops), you can add [additional IAM policies to your nodes](https://github.com/kubernetes/kops/blob/master/docs/iam_roles.md#adding-additional-policies). If you require finer grained control, take a look at [kube2iam](https://github.com/jtblin/kube2iam). This is the policy I am using for ExternalDNS on my cluster:
+
+```json
+[
+  {
+    "Effect": "Allow",
+    "Action": [
+      "route53:ChangeResourceRecordSets",
+      "route53:ListResourceRecordSets",
+      "route53:GetHostedZone"
+    ],
+    "Resource": [
+      "arn:aws:route53:::hostedzone/<hosted-zone-id>"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "route53:GetChange"
+    ],
+    "Resource": [
+      "arn:aws:route53:::change/*"
+    ]
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "route53:ListHostedZones"
+    ],
+    "Resource": [
+      "*"
+    ]
+  }
+]
+```
+
+If you are following along, you will need to replace the `<hosted-zone-id>` in the first statement with the correct ID for your zone.
+
+## Deploy ExternalDNS
+
+Here is an example Deployment manifest we can use to deploy ExternalDNS:
+
+{{< gist ryane 620adbe00d3666119d3926910ac31046 "external-dns.yml" >}}
+
+A few things to note:
+
+* ExternalDNS is still in beta. We are using `v0.3.0-beta.0` in this example.
+* We are running it with both the `service` and `ingress` sources turned on. ExternalDNS can create DNS records for both Services and Ingresses. In this post, we are just working with Ingress resources but ExternalDNS should work with Services as well with this configuration.
+* You must tell ExternalDNS which domain to use. This is done with the `--domain-filter` argument. The Deployment is configured to read this domain from a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configmap/) that we will create in the next step.
+* We tell ExternalDNS that we are using Route 53 with the `--provider=aws` argument.
+
+No we can deploy ExternalDNS. Make sure you change the value of `domain-filter` in the `create configmap` command. And, note that it is important that the domain ends with a ".".
+
+```bash
+# create the configmap containing your domain
+kubectl create configmap external-dns --from-literal=domain-filter=extdns.immutablecorp.com.
+
+# deploy ExternalDNS
+kubectl apply -f https://gist.githubusercontent.com/ryane/620adbe00d3666119d3926910ac31046/raw/808ca3170ddf6549f39c487658eabe5b6faf9045/external-dns.yml
+```
+
+At this point, ExternalDNS should be up, running, and ready to create DNS records from Ingress resources. Let's see this work with the same example used in the [ExternalDNS documentation for GKE](https://github.com/kubernetes-incubator/external-dns/blob/master/docs/tutorials/nginx-ingress.md#deploy-a-sample-application).
+
+{{< gist ryane 620adbe00d3666119d3926910ac31046 "demo.yml" >}}
+
+You can use this manifest almost as-is but you do need to change the `host` rule in the Ingress resources to use your domain. This is what ExternalDNS will use to create the necessary DNS records. Download the file and update it with your domain name:
+
+```bash
+curl -SLO https://gist.githubusercontent.com/ryane/620adbe00d3666119d3926910ac31046/raw/c43d0e42f63948c50af672e2899858bc11ecaad3/demo.yml
+```
+
+After updating the `host` rule, we can deploy the demo application:
+
+```bash
+kubectl apply -f demo.yml
+```
+
+After a minute or two, you should see that ExternalDNS populates your zone with an [`ALIAS`]() record that points to the ELB for the nginx-ingress controller you deployed earlier. You can check the logs to verify that things or working correctly or to troubleshoot if things are not:
+
+```bash
+$ kubectl logs -f $(kubectl get po -l app=external-dns -o name)
+time="2017-05-04T11:20:39Z" level=info msg="config: &{Master: KubeConfig: Sources:[service ingress] Namespace: FqdnTemplate: Compatibility: Provider:aws GoogleProject: DomainFilter:extdns.immutablecorp.com. Policy:sync Registry:txt TXTOwnerID:default TXTPrefix: Interval:1m0s Once:false DryRun:false LogFormat:text MetricsAddress::7979 Debug:false}"
+time="2017-05-04T11:20:39Z" level=info msg="Connected to cluster at https://100.64.0.1:443"
+time="2017-05-04T11:20:39Z" level=info msg="All records are already up to date"
+time="2017-05-04T11:21:40Z" level=info msg="Changing records: CREATE {
+  Action: "CREATE",
+  ResourceRecordSet: {
+    AliasTarget: {
+      DNSName: "ad8780caf306711e7bea40a080212981-1467976998.us-east-1.elb.amazonaws.com",
+      EvaluateTargetHealth: true,
+      HostedZoneId: "Z35SXDOTRQ7X7K"
+    },
+    Name: "nginx.extdns.immutablecorp.com",
+    Type: "A"
+  }
+} ..."
+time="2017-05-04T11:21:40Z" level=info msg="Changing records: CREATE {
+  Action: "CREATE",
+  ResourceRecordSet: {
+    Name: "nginx.extdns.immutablecorp.com",
+    ResourceRecords: [{
+        Value: "\"heritage=external-dns,external-dns/owner=default\""
+      }],
+    TTL: 300,
+    Type: "TXT"
+  }
+} ..."
+time="2017-05-04T11:21:40Z" level=info msg="Record in zone extdns.immutablecorp.com. were successfully updated"
+time="2017-05-04T11:22:40Z" level=info msg="All records are already up to date"
+time="2017-05-04T11:23:40Z" level=info msg="All records are already up to date"
+time="2017-05-04T11:24:40Z" level=info msg="All records are already up to date"
+```
+
+Assuming everything worked correctly, you should now be able to access the demo application through its dynamically created domain name:
+
+```bash
+$ curl nginx.extdns.immutablecorp.com
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html
 ```
