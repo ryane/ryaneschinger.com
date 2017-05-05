@@ -414,8 +414,7 @@ the [`plan`](https://www.terraform.io/docs/commands/plan.html) command to ensure
 your changes do exactly what you want, it can be relatively safe. However, if
 you prematurely [`apply`](https://www.terraform.io/docs/commands/apply.html) an
 incorrect configuration, you can cause real damage and major outages. Also, if
-you are
-using [remote state](https://www.terraform.io/docs/state/remote/index.html)
+you are using [remote state](https://www.terraform.io/docs/state/remote.html)
 (and
 [you should be](https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#.8gpxip2yl)),
 you'll want to ensure you can rollback your state file to a known good version.
