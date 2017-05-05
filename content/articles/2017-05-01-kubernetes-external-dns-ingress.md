@@ -12,25 +12,17 @@ optin: "Interested in Kubernetes? Sign up below and I'll share more useful conte
 optinbutton: "Sign up now!"
 ---
 
-TODO: add noscript blocks
-TODO: replace immutablecorp.com
-
-For every ingress resource we add, we want to have a DNS record registered in Route 53 as well as having an SSL certifcate generated.
-
-Automatic DNS registration and SSL certificate generation for
-
 ## ExternalDNS
 
-[ExternalDNS]() is a relatively new project that makes Kubernetes Ingresses and Services available
-
+[ExternalDNS](https://github.com/kubernetes-incubator/external-dns) is a relatively new [Kubernetes Incubator](https://github.com/kubernetes/community/blob/master/incubator.md) project that makes [Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Services](https://kubernetes.io/docs/concepts/services-networking/ingress/) available via DNS. It currently supports AWS [Route 53](https://aws.amazon.com/route53/) and [Google Cloud DNS](https://cloud.google.com/dns/). There are several similar tools available like [route53-kubernetes](https://github.com/wearemolecule/route53-kubernetes), [Mate](https://github.com/zalando-incubator/mate), and the [DNS controller](https://github.com/kubernetes/kops/tree/master/dns-controller) from [Kops](https://github.com/kubernetes/kops) with varying features and capabilities. While it is not there yet, the goal is for ExternalDNS to include all of the functionality of the other options by 1.0.
 
 ## Deploying the Ingress Controller
 
-An [Ingress]() provides inbound internet access to Kubernetes Services running in your cluster. The Ingress consists of a set of rules, based on host names and paths, that define how requests are routed to a backend Service. In addition to an Ingress resource, there needs to be an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) running to actually handle the requests. There are several Ingress controller implementations available: [GCE](https://github.com/kubernetes/ingress/tree/master/controllers/gce), [Traefik](https://docs.traefik.io/user-guide/kubernetes/), [HAProxy](https://github.com/rancher/lb-controller), [Rancher](https://github.com/rancher/lb-controller), and even a shiny, brand new [AWS ALB-based controller](https://github.com/coreos/alb-ingress-controller). In this example, we are going to use the [Nginx Ingress controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx) on AWS.
+An Ingress provides inbound internet access to Kubernetes Services running in your cluster. The Ingress consists of a set of rules, based on host names and paths, that define how requests are routed to a backend Service. In addition to an Ingress resource, there needs to be an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) running to actually handle the requests. There are several Ingress controller implementations available: [GCE](https://github.com/kubernetes/ingress/tree/master/controllers/gce), [Traefik](https://docs.traefik.io/user-guide/kubernetes/), [HAProxy](https://github.com/rancher/lb-controller), [Rancher](https://github.com/rancher/lb-controller), and even a shiny, brand new [AWS ALB-based controller](https://github.com/coreos/alb-ingress-controller). In this example, we are going to use the [Nginx Ingress controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx) on AWS.
 
 Deploying the nginx-ingress controller requires creating several Kubernetes resources. First, we need to deploy a default backend server. If a request arrives that does not match any of the Ingress rules, it will be routed to the default backend which will return a 404 response. The `defaultbackend` Deployment will be backed by a [ClusterIP Service](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types) that listens on port 80.
 
-The nginx-ingress controller itself requires three Kubernetes resources. The Deployment to run the controller, a ConfigMap to hold the controller's configuration, and a backing Service. Since we are working with AWS, we will deploy a `LoadBalancer` Service. On AWS, this will create an [Elastic Load Balancer]() in front of the nginx-ingress controller. The architecture looks something like this:
+The nginx-ingress controller itself requires three Kubernetes resources. The Deployment to run the controller, a ConfigMap to hold the controller's configuration, and a backing Service. Since we are working with AWS, we will deploy a `LoadBalancer` Service. On AWS, this will create an [Elastic Load Balancer](https://aws.amazon.com/elasticloadbalancing/) in front of the nginx-ingress controller. The architecture looks something like this:
 
 ```
      internet
@@ -50,7 +42,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress/master/exa
 
 {{% note %}}
 
-At the time of this writing, this deploys a beta version (0.9.0-beta.5) of the nginx-ingress controller. The 0.9.x release of the ingress controller is necessary in order to work well with ExternalDNS.
+At the time of this writing, this deploys a beta version (0.9.0-beta.5) of the nginx-ingress controller. The 0.9.x release of the ingress controller is necessary in order to work with ExternalDNS.
 
 {{% /note %}}
 
@@ -64,13 +56,13 @@ ExternalDNS currently requires full access to a single managed zone in Route 53 
 
 {{% /warning %}}
 
-If you already have a domain registered in Route 53 that you can dedicate to use for ExternalDNS, feel free to use that. In this post, I will instead show how you can create a subdomain in its own isolated Route 53 hosted zone. I am assuming for the purposes of this post that the parent domain is also hosted in Route 53. However, it is possible to use a subdomain even if the parent domain is [not hosted in Route 53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html). In the following examples, I have a domain named `immutablecorp.com` registered in Route 53 and I will be creating a new hosted zone for `extdns.immutablecorp.com` dedicated to ExternalDNS.
+If you already have a domain registered in Route 53 that you can dedicate to use for ExternalDNS, feel free to use that. In this post, I will instead show how you can create a subdomain in its own isolated Route 53 hosted zone. I am assuming for the purposes of this post that the parent domain is also hosted in Route 53. However, it is possible to use a subdomain even if the parent domain is [not hosted in Route 53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html). In the following examples, I have a domain named `ryaneschinger.com` registered in Route 53 and I will be creating a new hosted zone for `extdns.ryaneschinger.com` dedicated to ExternalDNS.
 
 Here is a small script we can use to configure the zone for our subdomain. Note that it depends on the indispensable [`jq` utility](https://stedolan.github.io/jq/).
 
 ```bash
-export PARENT_ZONE=immutablecorp.com
-export ZONE=extdns.immutablecorp.com
+export PARENT_ZONE=ryaneschinger.com
+export ZONE=extdns.ryaneschinger.com
 
 # create the hosted zone for the subdomain
 aws route53 create-hosted-zone --name ${ZONE} --caller-reference "$ZONE-$(uuidgen)"
@@ -105,11 +97,11 @@ aws route53 change-resource-record-sets \
   --change-batch file://update-zone.json
 ```
 
-We are using AWS CLI to manage our zones in this post but you are probably better off using tools like [Terraform]() or [CloudFormation]() to manage your zones. You can also use the AWS management console if you must.
+We are using the AWS CLI to manage our zones in this post but you are probably better off using tools like [Terraform](https://www.terraform.io/) or [CloudFormation](https://aws.amazon.com/cloudformation/) to manage your zones. You can also use the AWS management console if you must.
 
 ## IAM Permissions
 
-ExternalDNS will require the necessary IAM permissions to view and manage your hosted zone. There are a few ways you can grant these permissions depending on how you build and manage your Kubernetes installation on AWS. If you are using [Kops](https://github.com/kubernetes/kops), you can add [additional IAM policies to your nodes](https://github.com/kubernetes/kops/blob/master/docs/iam_roles.md#adding-additional-policies). If you require finer grained control, take a look at [kube2iam](https://github.com/jtblin/kube2iam). This is the policy I am using for ExternalDNS on my cluster:
+ExternalDNS will require the necessary IAM permissions to view and manage your hosted zone. There are a few ways you can grant these permissions depending on how you build and manage your Kubernetes installation on AWS. If you are using Kops, you can add [additional IAM policies to your nodes](https://github.com/kubernetes/kops/blob/master/docs/iam_roles.md#adding-additional-policies). If you require finer grained control, take a look at [kube2iam](https://github.com/jtblin/kube2iam). This is the policy I am using for ExternalDNS on my cluster:
 
 ```json
 [
@@ -151,6 +143,41 @@ If you are following along, you will need to replace the `<hosted-zone-id>` in t
 
 Here is an example Deployment manifest we can use to deploy ExternalDNS:
 
+<noscript>
+
+```yaml
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: external-dns
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: external-dns
+    spec:
+      containers:
+      - name: external-dns
+        image: registry.opensource.zalan.do/teapot/external-dns:v0.3.0-beta.0
+        imagePullPolicy: Always
+        args:
+        - --domain-filter=$(DOMAIN_FILTER)
+        - --source=service
+        - --source=ingress
+        - --provider=aws
+        env:
+        - name: DOMAIN_FILTER
+          valueFrom:
+            configMapKeyRef:
+              name: external-dns
+              key: domain-filter
+```
+
+</noscript>
+
 {{< gist ryane 620adbe00d3666119d3926910ac31046 "external-dns.yml" >}}
 
 A few things to note:
@@ -160,17 +187,71 @@ A few things to note:
 * You must tell ExternalDNS which domain to use. This is done with the `--domain-filter` argument. The Deployment is configured to read this domain from a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configmap/) that we will create in the next step.
 * We tell ExternalDNS that we are using Route 53 with the `--provider=aws` argument.
 
-No we can deploy ExternalDNS. Make sure you change the value of `domain-filter` in the `create configmap` command. And, note that it is important that the domain ends with a ".".
+Now we can deploy ExternalDNS. Make sure you change the value of `domain-filter` in the `create configmap` command. And, note that it is important that the domain ends with a ".".
 
 ```bash
 # create the configmap containing your domain
-kubectl create configmap external-dns --from-literal=domain-filter=extdns.immutablecorp.com.
+kubectl create configmap external-dns --from-literal=domain-filter=extdns.ryaneschinger.com.
 
 # deploy ExternalDNS
 kubectl apply -f https://gist.githubusercontent.com/ryane/620adbe00d3666119d3926910ac31046/raw/808ca3170ddf6549f39c487658eabe5b6faf9045/external-dns.yml
 ```
 
 At this point, ExternalDNS should be up, running, and ready to create DNS records from Ingress resources. Let's see this work with the same example used in the [ExternalDNS documentation for GKE](https://github.com/kubernetes-incubator/external-dns/blob/master/docs/tutorials/nginx-ingress.md#deploy-a-sample-application).
+
+<noscript>
+
+```yaml
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: nginx.extdns.ryaneschinger.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+```
+
+</noscript>
 
 {{< gist ryane 620adbe00d3666119d3926910ac31046 "demo.yml" >}}
 
@@ -186,11 +267,11 @@ After updating the `host` rule, we can deploy the demo application:
 kubectl apply -f demo.yml
 ```
 
-After a minute or two, you should see that ExternalDNS populates your zone with an [`ALIAS`]() record that points to the ELB for the nginx-ingress controller you deployed earlier. You can check the logs to verify that things or working correctly or to troubleshoot if things are not:
+After a minute or two, you should see that ExternalDNS populates your zone with an ALIAS record that points to the ELB for the nginx-ingress controller you deployed earlier. You can check the logs to verify that things or working correctly or to troubleshoot if things are not:
 
 ```bash
 $ kubectl logs -f $(kubectl get po -l app=external-dns -o name)
-time="2017-05-04T11:20:39Z" level=info msg="config: &{Master: KubeConfig: Sources:[service ingress] Namespace: FqdnTemplate: Compatibility: Provider:aws GoogleProject: DomainFilter:extdns.immutablecorp.com. Policy:sync Registry:txt TXTOwnerID:default TXTPrefix: Interval:1m0s Once:false DryRun:false LogFormat:text MetricsAddress::7979 Debug:false}"
+time="2017-05-04T11:20:39Z" level=info msg="config: &{Master: KubeConfig: Sources:[service ingress] Namespace: FqdnTemplate: Compatibility: Provider:aws GoogleProject: DomainFilter:extdns.ryaneschinger.com. Policy:sync Registry:txt TXTOwnerID:default TXTPrefix: Interval:1m0s Once:false DryRun:false LogFormat:text MetricsAddress::7979 Debug:false}"
 time="2017-05-04T11:20:39Z" level=info msg="Connected to cluster at https://100.64.0.1:443"
 time="2017-05-04T11:20:39Z" level=info msg="All records are already up to date"
 time="2017-05-04T11:21:40Z" level=info msg="Changing records: CREATE {
@@ -201,14 +282,14 @@ time="2017-05-04T11:21:40Z" level=info msg="Changing records: CREATE {
       EvaluateTargetHealth: true,
       HostedZoneId: "Z35SXDOTRQ7X7K"
     },
-    Name: "nginx.extdns.immutablecorp.com",
+    Name: "nginx.extdns.ryaneschinger.com",
     Type: "A"
   }
 } ..."
 time="2017-05-04T11:21:40Z" level=info msg="Changing records: CREATE {
   Action: "CREATE",
   ResourceRecordSet: {
-    Name: "nginx.extdns.immutablecorp.com",
+    Name: "nginx.extdns.ryaneschinger.com",
     ResourceRecords: [{
         Value: "\"heritage=external-dns,external-dns/owner=default\""
       }],
@@ -216,16 +297,16 @@ time="2017-05-04T11:21:40Z" level=info msg="Changing records: CREATE {
     Type: "TXT"
   }
 } ..."
-time="2017-05-04T11:21:40Z" level=info msg="Record in zone extdns.immutablecorp.com. were successfully updated"
+time="2017-05-04T11:21:40Z" level=info msg="Record in zone extdns.ryaneschinger.com. were successfully updated"
 time="2017-05-04T11:22:40Z" level=info msg="All records are already up to date"
 time="2017-05-04T11:23:40Z" level=info msg="All records are already up to date"
 time="2017-05-04T11:24:40Z" level=info msg="All records are already up to date"
 ```
 
-Assuming everything worked correctly, you should now be able to access the demo application through its dynamically created domain name:
+Assuming everything worked correctly, and allowing for propagation time, you should now be able to access the demo application through its dynamically created domain name:
 
 ```bash
-$ curl nginx.extdns.immutablecorp.com
+$ curl nginx.extdns.ryaneschinger.com
 <!DOCTYPE html>
 <html>
 <head>
