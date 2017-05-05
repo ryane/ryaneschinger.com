@@ -1,10 +1,10 @@
 ---
 date: 2017-05-01T21:26:09-04:00
-title: ExternalDNS, Let's Encrypt, and Nginx Ingress on Kubernetes and AWS
+title: Automatic DNS for Kubernetes Ingresses with ExternalDNS
 tags:
 - kubernetes
 - aws
-url: /blog/kubernetes-external-dns-ingress
+url: /blog/automatic-dns-kubernetes-ingresses-externaldns
 menu:
   header:
     parent: 'articles'
@@ -12,9 +12,9 @@ optin: "Interested in Kubernetes? Sign up below and I'll share more useful conte
 optinbutton: "Sign up now!"
 ---
 
-## ExternalDNS
+[ExternalDNS](https://github.com/kubernetes-incubator/external-dns) is a relatively new [Kubernetes Incubator](https://github.com/kubernetes/community/blob/master/incubator.md) project that makes [Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Services](https://kubernetes.io/docs/concepts/services-networking/ingress/) available via DNS. It currently supports AWS [Route 53](https://aws.amazon.com/route53/) and [Google Cloud DNS](https://cloud.google.com/dns/). There are several similar tools available with varying features and capabilities like [route53-kubernetes](https://github.com/wearemolecule/route53-kubernetes), [Mate](https://github.com/zalando-incubator/mate), and the [DNS controller](https://github.com/kubernetes/kops/tree/master/dns-controller) from [Kops](https://github.com/kubernetes/kops). While it is not there yet, the goal is for ExternalDNS to include all of the functionality of the other options by 1.0.
 
-[ExternalDNS](https://github.com/kubernetes-incubator/external-dns) is a relatively new [Kubernetes Incubator](https://github.com/kubernetes/community/blob/master/incubator.md) project that makes [Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Services](https://kubernetes.io/docs/concepts/services-networking/ingress/) available via DNS. It currently supports AWS [Route 53](https://aws.amazon.com/route53/) and [Google Cloud DNS](https://cloud.google.com/dns/). There are several similar tools available like [route53-kubernetes](https://github.com/wearemolecule/route53-kubernetes), [Mate](https://github.com/zalando-incubator/mate), and the [DNS controller](https://github.com/kubernetes/kops/tree/master/dns-controller) from [Kops](https://github.com/kubernetes/kops) with varying features and capabilities. While it is not there yet, the goal is for ExternalDNS to include all of the functionality of the other options by 1.0.
+In this post, we will use ExternalDNS to automatically create DNS records for Ingress resources on AWS.
 
 ## Deploying the Ingress Controller
 
@@ -22,7 +22,7 @@ An Ingress provides inbound internet access to Kubernetes Services running in yo
 
 Deploying the nginx-ingress controller requires creating several Kubernetes resources. First, we need to deploy a default backend server. If a request arrives that does not match any of the Ingress rules, it will be routed to the default backend which will return a 404 response. The `defaultbackend` Deployment will be backed by a [ClusterIP Service](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types) that listens on port 80.
 
-The nginx-ingress controller itself requires three Kubernetes resources. The Deployment to run the controller, a ConfigMap to hold the controller's configuration, and a backing Service. Since we are working with AWS, we will deploy a `LoadBalancer` Service. On AWS, this will create an [Elastic Load Balancer](https://aws.amazon.com/elasticloadbalancing/) in front of the nginx-ingress controller. The architecture looks something like this:
+The nginx-ingress controller itself requires three Kubernetes resources. The Deployment to run the controller, a ConfigMap to hold the controller's configuration, and a backing Service. Since we are working with AWS, we will deploy a `LoadBalancer` Service. This will create an [Elastic Load Balancer](https://aws.amazon.com/elasticloadbalancing/) in front of the nginx-ingress controller. The architecture looks something like this:
 
 ```
      internet
@@ -267,7 +267,7 @@ After updating the `host` rule, we can deploy the demo application:
 kubectl apply -f demo.yml
 ```
 
-After a minute or two, you should see that ExternalDNS populates your zone with an ALIAS record that points to the ELB for the nginx-ingress controller you deployed earlier. You can check the logs to verify that things or working correctly or to troubleshoot if things are not:
+After a minute or two, you should see that ExternalDNS populates your zone with an ALIAS record that points to the ELB for the nginx-ingress controller you deployed earlier. You can check the logs to verify that things are working correctly or to troubleshoot if things are not:
 
 ```bash
 $ kubectl logs -f $(kubectl get po -l app=external-dns -o name)
@@ -333,3 +333,5 @@ Commercial support is available at
 </body>
 </html
 ```
+
+Very nice. In the next post, we will build upon this and generate TLS certificates for our Ingress resources with [Let's Encrypt](https://letsencrypt.org/).
