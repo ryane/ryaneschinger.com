@@ -233,12 +233,10 @@ are:
 To see all the changes, check out this
 [diff](https://gist.github.com/ryane/391de65e7c28f958b2f98ad9bd444513).
 
-Let's perform the update! We will use
-[`kubectl rolling-update`](http://kubernetes.io/docs/user-guide/kubectl/kubectl_rolling-update/)
-to specify that we want to update our running
-`k8s-deployment-demo-controller-v1` Replication Controller to
-`k8s-deployment-demo-controller-v2` (the above yaml is saved in a file called
-`demo-rc-v02.yml`).
+Let's perform the update! We will use `kubectl rolling-update` to specify that
+we want to update our running `k8s-deployment-demo-controller-v1` Replication
+Controller to `k8s-deployment-demo-controller-v2` (the above yaml is saved in a
+file called `demo-rc-v02.yml`).
 
 {{< highlight bash >}}
 $ kubectl rolling-update k8s-deployment-demo-controller-v1 --update-period=10s -f demo-rc-v0.2.yml

@@ -128,10 +128,9 @@ $ kubectl --namespace=dev patch serviceaccount default \
 "default" patched
 {{< /highlight >}}
 
-We use the
-[`kubectl patch`](http://kubernetes.io/docs/user-guide/kubectl/kubectl_patch/)
-command to configure the `ImagePullSecrets` on the default service account with
-the name of the secret we just created. Let's verify that it is set correctly:
+We use the `kubectl patch` command to configure the `ImagePullSecrets` on the
+default service account with the name of the secret we just created. Let's
+verify that it is set correctly:
 
 {{< highlight bash >}}
 $ kubectl --namespace=dev get serviceaccount default -o yaml
