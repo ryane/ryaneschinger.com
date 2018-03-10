@@ -1,3 +1,4 @@
+dist: trusty
 sudo: required
 
 services:
@@ -10,9 +11,9 @@ addons:
   apt:
     packages:
     - nodejs
-    - python
-    - python-pip
-    - python-pygments
+    - python3
+    - python3-pip
+    - python3-pygments
 
 script:
 - gulp prod
@@ -20,7 +21,7 @@ script:
 install:
 - npm install
 - npm install -g gulp
-- pip install awscli
+- pip3 install awscli --user
 
 deploy:
   provider: s3

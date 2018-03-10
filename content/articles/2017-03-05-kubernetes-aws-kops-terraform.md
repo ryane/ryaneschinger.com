@@ -143,7 +143,7 @@ Gateways, routes, and security groups. One thing to note is the
 *KubernetesCluster* tag that we are setting on our resources. This tag is
 required by some of
 the
-[Kubernetes AWS integration](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/aws_under_the_hood.md#tagging) features
+[Kubernetes AWS integration](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/aws/aws_under_the_hood.md#tagging) features
 (such as creating
 a
 [*LoadBalancer* service](https://kubernetes.io/docs/user-guide/services/#type-loadbalancer) that
