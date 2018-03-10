@@ -21,7 +21,7 @@ script:
 install:
 - npm install
 - npm install -g gulp
-- pip3 install awscli
+- pip3 install awscli --user
 
 deploy:
   provider: s3
