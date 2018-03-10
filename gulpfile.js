@@ -77,6 +77,7 @@ gulp.task('watch', ['scss', 'build', 'images', 'icons', 'server'], function(done
     '-v',
     __dirname + ':/src',
     hugoImage,
+    'hugo',
     '--buildDrafts'
   ];
 
