@@ -16,11 +16,11 @@ resume.html: style_chmduquesne.css resume.md
 
 docx: resume.docx
 resume.docx: resume.md
-	pandoc -s -S resume.md -o resume.docx
+	pandoc -s -f markdown+smart resume.md -o resume.docx
 
 rtf: resume.rtf
 resume.rtf: resume.md
-	pandoc -s -S resume.md -o resume.rtf
+	pandoc -s -f markdown+smart resume.md -o resume.rtf
 
 deploy: html
 	mkdir -p ../static/resume/
