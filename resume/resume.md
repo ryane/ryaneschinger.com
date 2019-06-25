@@ -16,7 +16,7 @@ Ryan Eschinger
 Experience
 ----------
 
-2008-2017
+2008-2019
 :   *Founder [Jossware LLC](http://ryaneschinger.com/)* (Brooklyn, NY)
 
     Software consultancy focused on cloud-native technologies, devops, custom
@@ -25,6 +25,19 @@ Experience
     * Provided in-depth consulting, training, and development services to a
       range of companies in the realms of container technologies, programmable
       infrastructure, and devops.
+    * Consulted with a financial services enterprise on cloud migration,
+      [Kubernetes](http://kubernetes.io/), service mesh, and other cloud native
+      technologies. Evaluated options, developed proof of concepts, and helped
+      build and operationalize an on-premise Kubernetes platform.
+    * Embedded with a cloud architecture team in an enterprise delivering
+      accounting and HR software solutions. Mentored team, provided guidance,
+      and delivered code to help migrate a legacy, VM-based architecture to a
+      modern architecture based on Docker and Kubernetes.
+    * Software development for an early stage ad-tech startup. Built Go-based
+      microservices to handle analytics and billing in an event-driven
+      architecture. Also responsible for the cloud infrastructure using [Google
+      Cloud](https://cloud.google.com/) and
+      [GKE](https://cloud.google.com/kubernetes-engine/).
     * Core contributor and release manager for [Mantl](http://mantl.io/), a
       modern platform for deploying microservices, and its ecosystem of
       supporting APIs and tools. Mantl integrates technologies
@@ -106,9 +119,10 @@ Open Source
 
 :   Contributor to various open source projects including
     [**Mantl**](https://github.com/CiscoCloud/mantl),
-    [**Terraform**](https://github.com/hashicorp/terraform),
+    [**Kustomize**](https://github.com/kubernetes-sigs/kustomize),
+    [**Terraform**](https://github.com/terraform-providers/terraform-provider-docker),
     [**Converge**](https://github.com/asteris-llc/converge),
-    [**zookeepercli**](https://github.com/ryane/zookeepercli), and many
+    [**zookeepercli**](https://github.com/ryane/zookeepercli), and
     [others](https://github.com/ryane).
 
 Programming Languages and Technologies
