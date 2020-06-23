@@ -20,13 +20,10 @@ application would likely experience downtime. In addition, performing a rolling
 update allows you to catch errors during the process so that you can rollback
 before it affects all of your users.
 
-Historically, rolling updates could be performed using Kubernetes
-[Replication Controllers](http://kubernetes.io/docs/user-guide/replication-controller/)
-and the
-[kubectl rolling-update command](http://kubernetes.io/docs/user-guide/rolling-updates/).
-In Kubernetes 1.2, the
-[Deployment](http://kubernetes.io/docs/user-guide/rolling-updates/) object API
-was released in beta. Deployments operate at a higher level than Replication
+Historically, rolling updates could be performed using Kubernetes [Replication
+Controllers](http://kubernetes.io/docs/user-guide/replication-controller/) and
+the `kubectl rolling-update` command. In Kubernetes 1.2, the Deployment object
+API was released in beta. Deployments operate at a higher level than Replication
 Controllers and are the preferred mechanism going forward.
 
 We'll look at how to do rolling updates with Kubernetes. First, we'll go through
