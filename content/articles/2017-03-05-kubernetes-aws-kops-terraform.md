@@ -170,10 +170,9 @@ resource "aws_route53_zone" "public" {
 
 {{< gist ryane 2e27124cc68340a550e39d8cd93ea0d5 "main-zone.tf" >}}
 
-Finally, Kops also requires an S3 bucket for storing
-the
-[state](https://github.com/kubernetes/kops/blob/master/docs/aws.md#cluster-state-storage) of
-the cluster. We create this bucket as part of our Terraform configuration:
+Finally, Kops also requires an S3 bucket for storing the
+[state](https://github.com/kubernetes/kops/blob/master/docs/state.md) of the
+cluster. We create this bucket as part of our Terraform configuration:
 
 <noscript>
 

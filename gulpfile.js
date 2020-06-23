@@ -114,8 +114,10 @@ gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
       __dirname + '/public:/public',
       '18fgsa/html-proofer',
       '/public',
+      '--log-level',
+      'debug',
       '--url-ignore',
-      'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg,http://www.mamajamas.com/,http://mantl.io/,https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx'
+      'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg,http://www.mamajamas.com/,http://mantl.io/,https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx,http://practicalops.com/my-first-5-minutes-on-a-server-with-ansible.html,https://www.crunchbase.com/organization/open-places#/entity,https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#.8gpxip2yl'
     ], { stdio: 'inherit' }).on('close', done);
   });
 });

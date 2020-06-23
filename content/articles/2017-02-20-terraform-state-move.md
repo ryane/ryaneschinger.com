@@ -409,14 +409,14 @@ corresponding resource it wants to create using `terraform state mv`.
 {{% warning %}}
 
 Be careful when refactoring a Terraform configuration against live
-infrastructure. If you are diligent about using
-the [`plan`](https://www.terraform.io/docs/commands/plan.html) command to ensure
+infrastructure. If you are diligent about using the
+[`plan`](https://www.terraform.io/docs/commands/plan.html) command to ensure
 your changes do exactly what you want, it can be relatively safe. However, if
 you prematurely [`apply`](https://www.terraform.io/docs/commands/apply.html) an
 incorrect configuration, you can cause real damage and major outages. Also, if
 you are using [remote state](https://www.terraform.io/docs/state/remote.html)
-(and
-[you should be](https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#.8gpxip2yl)),
+(and [you should
+be](https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#.8gpxip2yl)),
 you'll want to ensure you can rollback your state file to a known good version.
 When testing a refactor, it may be worth temporarily working with a local state
 file so that you can more easily abandon your changes if they are not working
