@@ -3,9 +3,7 @@ Ryan Eschinger
 
 ---
 
-> Software consultant specializing in cloud-native technologies, Go programming,
-> container orchestration, infrastructure automation, and other *Devops*
-> practices.
+> Software engineer specializing in Kubernetes and cloud-native technologies.
 
 > [ryanesc@gmail.com](mailto:ryanesc@gmail.com) • (561) 704-0082 •
 > [\@ryanesc](https://twitter.com/ryanesc) • [Github](https://github.com/ryane)
@@ -16,15 +14,31 @@ Ryan Eschinger
 Experience
 ----------
 
+2019-Present
+:   *Senior Consultant Software Engineering
+    [MasterCard](https://www.mastercard.us/en-us.html)* (New York, NY)
+
+    * Core member of a team responsible for designing and implementing a modern
+      Infrastructure API based on [Kubernetes
+      CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+      and custom
+      [controllers](https://kubernetes.io/docs/concepts/architecture/controller/).
+    * Chief architect of an internal tool to simplify the developer experience
+      when onboarding onto [Kubernetes](http://kubernetes.io/).
+    * Provided guidance and support for a migration from an on-premise platform
+      to [Azure](https://azure.microsoft.com/en-us/).
+      <br/>
+      <br/>
+
 2008-2019
 :   *Founder [Jossware LLC](http://ryaneschinger.com/)* (Brooklyn, NY)
 
-    Software consultancy focused on cloud-native technologies, devops, custom
+    Software consultancy focused on cloud-native technologies, DevOps, custom
     software integrations, and application development.
 
     * Provided in-depth consulting, training, and development services to a
       range of companies in the realms of container technologies, programmable
-      infrastructure, and devops.
+      infrastructure, and DevOps.
     * Consulted with a financial services enterprise on cloud migration,
       [Kubernetes](http://kubernetes.io/), service mesh, and other cloud native
       technologies. Evaluated options, developed proof of concepts, and helped
@@ -32,7 +46,8 @@ Experience
     * Embedded with a cloud architecture team in an enterprise delivering
       accounting and HR software solutions. Mentored team, provided guidance,
       and delivered code to help migrate a legacy, VM-based architecture to a
-      modern architecture based on Docker and Kubernetes.
+      modern architecture based on Docker and Kubernetes and running in
+      [AWS](https://aws.amazon.com/).
     * Software development for an early stage ad-tech startup. Built Go-based
       microservices to handle analytics and billing in an event-driven
       architecture. Also responsible for the cloud infrastructure using [Google
@@ -50,27 +65,26 @@ Experience
       like [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/),
       and [DigitalOcean](https://www.digitalocean.com/). Worked in all layers of
       the stack and primary developer of the Go API. Sponsored by Cisco.
-    * Extended
-      the
-      [Terraform Docker provider](https://www.terraform.io/docs/providers/docker/index.html) to
-      fully support
-      the [Triton Docker Remote API](https://apidocs.joyent.com/docker).
-      Sponsored by Joyent.
+    * Extended the [Terraform Docker
+      provider](https://www.terraform.io/docs/providers/docker/index.html) to
+      fully support the [Triton Docker Remote
+      API](https://apidocs.joyent.com/docker). Sponsored by Joyent.
     * Contributor to [Converge](http://converge.aster.is/), an open-source,
       API-first configuration management tool built using Go and gRPC and
       powered by a graph engine.
-    * Provided software consulting and development services to companies such
-      as [Checkmate](http://www.checkmate.io/) (built an algorithmic pricing
+    * Provided software consulting and development services to companies such as
+      [Checkmate](http://www.checkmate.io/) (built an algorithmic pricing
       system, inventory and optimization platform, and several 3rd-party API
       integrations), [Mamajamas](http://www.mamajamas.com/) (built and
-      maintained the application and distributed web infrastructure),
-      and
-      [Open Places](https://www.crunchbase.com/organization/open-places#/entity)
+      maintained the application and distributed web infrastructure), and [Open
+      Places](https://www.crunchbase.com/organization/open-places#/entity)
       (provided application development and infrastructure automation).
-    * Consulted on other application development and devops projects for
+    * Consulted on other application development and DevOps projects for
       companies large and small.
     * Experienced working remotely with teams around the world, as well as
       on-site.
+      <br/>
+      <br/>
 
 2006-2008
 :   *Solutions Developer [Avanade](https://www.avanade.com/en)* (New York, NY)
@@ -92,6 +106,8 @@ Experience
       allowed customers to scan receipt and usage of goods and manage inventory.
       Managed a team of 5 developers to build the Windows Mobile based
       application and supporting WCF-based web service.
+      <br/>
+      <br/>
 
 1999-2006
 :   *Operations Developer [NTT/VERIO](https://www.verio.com/)* (Boca Raton, FL)
@@ -99,7 +115,7 @@ Experience
     * Senior developer and 8-person team lead on the development of
       Windows-based web hosting products. Contributed to the internal hosting
       platform provisioning and monitoring systems as well as customer-facing
-      ASP.NET 2.0 web control panels that provided tools such as SSL certificate
+      ASP.NET web control panels that provided tools such as SSL certificate
       self management, user management, IIS configuration, and custom
       application installation.
     * Part of a team responsible for successful operations of a large,
@@ -117,28 +133,22 @@ Technical Experience
 
 Open Source
 
-:   Contributor to various open source projects including
-    [**Mantl**](https://github.com/CiscoCloud/mantl),
-    [**Kustomize**](https://github.com/kubernetes-sigs/kustomize),
-    [**Terraform**](https://github.com/terraform-providers/terraform-provider-docker),
-    [**Converge**](https://github.com/asteris-llc/converge),
-    [**zookeepercli**](https://github.com/ryane/zookeepercli), and
-    [others](https://github.com/ryane).
+:   Active open source [contributor](https://github.com/ryane). 
 
 Programming Languages and Technologies
 
-:   **go:** Since 2015, I have been building various CLIs, APIs, and other systems
-    integration software in [Go](https://golang.org/).
+:   **go:** Since 2015, I have been building various CLIs, APIs, and other
+    systems integration software in [Go](https://golang.org/).
+
+:   **Javascript / Typescript:** Written a large amount of Javascript for
+    frontend-web applications. Experience with
+    [React](https://facebook.github.io/react/) and other frameworks.
 
 :   **Ruby:** Extensive experience building web applications (in
     [Ruby on Rails](http://rubyonrails.org/)) and CLIs.
 
-:   **Javascript:** Written a large amount of Javascript for frontend-web
-    applications. Experience with [React](https://facebook.github.io/react/),
-    [Ember](http://emberjs.com/), and [jQuery](https://jquery.com/)
-
 :   **Infrastructure automation and configuration management tools** such as
-    [Ansible](https://www.ansible.com/), [Terraform](https://www.terraform.io/),
+    [Terraform](https://www.terraform.io/), [Ansible](https://www.ansible.com/),
     and [Chef](https://www.chef.io/).
 
 :   **Container technologies and orchestration platforms** such as
@@ -146,11 +156,12 @@ Programming Languages and Technologies
     [Mesos](http://mesos.apache.org/)
 
 :   **Cloud platforms** and their supporting APIs and tools including
-    [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/), and
+    [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/),
+    [Azure](https://azure.microsoft.com/en-us/),
     [DigitalOcean](https://www.digitalocean.com/), and
     [Heroku](https://www.heroku.com/).
 
-:   Some competence with **C**, **Scala**, **Clojure**
+:   Some competence with **Python**, **C**, and **Clojure**
 
 Education
 ---------
@@ -164,10 +175,15 @@ University of Florida (Gainesville, FL)
 Talks
 ----------------------------------------
 
-* *Converge: Apply Graphs to your Servers* (Co-speaker, [Strangeloop 2016 Unsession](https://github.com/strangeloop/StrangeLoop2016/wiki/Unsessions))
-* *Introducing Cloud Development with Project Shipped and Mantl* (Co-speaker, Cisco Live
-  Berlin 2016)
-* *Introducing Cloud Development with Mantl* (Co-speaker, Cisco Live Cancun 2015)
+* *Repeatable and standardized Kustomized based deployments** (Co-speaker, [CNCF
+  End User Partner
+  Summit](https://kccncna19.sched.com/event/U1VJ/cncf-end-user-partner-summit-additional-registration-fee-required)*
+* *Converge: Apply Graphs to your Servers* (Co-speaker, [Strangeloop 2016
+  Unsession](https://github.com/strangeloop/StrangeLoop2016/wiki/Unsessions))
+* *Introducing Cloud Development with Project Shipped and Mantl* (Co-speaker,
+  Cisco Live Berlin 2016)
+* *Introducing Cloud Development with Mantl* (Co-speaker, Cisco Live Cancun
+  2015)
 
 
 ---
