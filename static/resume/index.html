@@ -5,15 +5,12 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>resume</title>
-  <style>
+  <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
   <style type="text/css">
   /*
    * Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
@@ -103,7 +100,7 @@
 <h1 id="ryan-eschinger">Ryan Eschinger</h1>
 <hr />
 <blockquote>
-<p>Software consultant specializing in cloud-native technologies, Go programming, container orchestration, infrastructure automation, and other <em>Devops</em> practices.</p>
+<p>Software engineer specializing in Kubernetes and cloud-native technologies.</p>
 </blockquote>
 <blockquote>
 <p><a href="mailto:ryanesc@gmail.com">ryanesc@gmail.com</a> • (561) 704-0082 • <a href="https://twitter.com/ryanesc">@ryanesc</a> • <a href="https://github.com/ryane">Github</a> • <a href="http://ryaneschinger.com/">ryaneschinger.com</a></p>
@@ -111,71 +108,56 @@
 <hr />
 <h2 id="experience">Experience</h2>
 <dl>
-<dt>2008-2019</dt>
-<dd><p><em>Founder <a href="http://ryaneschinger.com/">Jossware LLC</a></em> (Brooklyn, NY)</p>
-<p>Software consultancy focused on cloud-native technologies, devops, custom software integrations, and application development.</p>
+<dt>2019-Present</dt>
+<dd><p><strong>Senior Software Engineer <a href="https://www.mastercard.us/en-us.html">MasterCard</a></strong> (New York, NY)</p>
 <ul>
-<li>Provided in-depth consulting, training, and development services to a range of companies in the realms of container technologies, programmable infrastructure, and devops.</li>
-<li>Consulted with a financial services enterprise on cloud migration, <a href="http://kubernetes.io/">Kubernetes</a>, service mesh, and other cloud native technologies. Evaluated options, developed proof of concepts, and helped build and operationalize an on-premise Kubernetes platform.</li>
-<li>Embedded with a cloud architecture team in an enterprise delivering accounting and HR software solutions. Mentored team, provided guidance, and delivered code to help migrate a legacy, VM-based architecture to a modern architecture based on Docker and Kubernetes.</li>
-<li>Software development for an early stage ad-tech startup. Built Go-based microservices to handle analytics and billing in an event-driven architecture. Also responsible for the cloud infrastructure using <a href="https://cloud.google.com/">Google Cloud</a> and <a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</li>
-<li>Core contributor and release manager for <a href="http://mantl.io/">Mantl</a>, a modern platform for deploying microservices, and its ecosystem of supporting APIs and tools. Mantl integrates technologies like <a href="http://docker.com/">Docker</a>, <a href="http://mesos.apache.org/">Mesos</a>, and <a href="http://kubernetes.io/">Kubernetes</a>. Built with <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.ansible.com/">Ansible</a>, <a href="https://golang.org/">Go</a>, and supported on various cloud platforms like <a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>, and <a href="https://www.digitalocean.com/">DigitalOcean</a>. Worked in all layers of the stack and primary developer of the Go API. Sponsored by Cisco.</li>
-<li>Extended the <a href="https://www.terraform.io/docs/providers/docker/index.html">Terraform Docker provider</a> to fully support the <a href="https://apidocs.joyent.com/docker">Triton Docker Remote API</a>. Sponsored by Joyent.</li>
-<li>Contributor to <a href="http://converge.aster.is/">Converge</a>, an open-source, API-first configuration management tool built using Go and gRPC and powered by a graph engine.</li>
-<li>Provided software consulting and development services to companies such as <a href="http://www.checkmate.io/">Checkmate</a> (built an algorithmic pricing system, inventory and optimization platform, and several 3rd-party API integrations), <a href="http://www.mamajamas.com/">Mamajamas</a> (built and maintained the application and distributed web infrastructure), and <a href="https://www.crunchbase.com/organization/open-places#/entity">Open Places</a> (provided application development and infrastructure automation).</li>
-<li>Consulted on other application development and devops projects for companies large and small.</li>
-<li>Experienced working remotely with teams around the world, as well as on-site.</li>
+<li>Core member of a team responsible for designing and implementing a modern Infrastructure API. Automated the provisioning of on-premise virtual machines, network resources, and load balancers with <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">Kubernetes CRDs</a> and custom <a href="https://kubernetes.io/docs/concepts/architecture/controller/">controllers</a>.</li>
+<li>Chief architect of an internal tool that simplified <a href="https://kubernetes.io/">Kubernetes</a> onboarding for developers. Built a user-friendly interface and <a href="https://www.weave.works/blog/what-is-gitops-really">GitOps</a> pipelines that concealed the complexity of the underlying Kubernetes platform and allowed for baked-in best practices and enforcement of security policies.</li>
+<li>Provided guidance and delivered code to help migrate on-premise virtual machine deployments to <a href="https://azure.microsoft.com/en-us/">Microsoft Azure</a>. <br/> <br/></li>
+</ul>
+</dd>
+<dt>2008-2019</dt>
+<dd><p><strong>Founder <a href="http://ryaneschinger.com/">Jossware LLC</a></strong> (Brooklyn, NY)</p>
+<p><em>Jossware is a software consultancy providing in-depth consulting, training, and development services to a variety of companies, with a focus on cloud-native technologies, programmable infrastructure, DevOps, and application development.</em></p>
+<ul>
+<li>Consulted for a financial services enterprise on cloud migration, <a href="https://kubernetes.io/">Kubernetes</a>, service mesh, and other cloud native technologies. Evaluated options, developed proof of concepts, and helped build and operationalize an on-premise Kubernetes platform.</li>
+<li><a href="https://kubernetes.io/">Kubernetes</a> platform engineer for several international companies on different cloud platforms (<a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>). Delivered cloud environments as code via <a href="https://www.terraform.io/">Terraform</a>, operationalized Kubernetes with logging, monitoring, security, and service mesh capabilities, and built <a href="https://www.weave.works/blog/what-is-gitops-really">GitOps</a>-powered continuous delivery pipelines for application deployments.</li>
+<li>Embedded with a cloud architecture team in an enterprise that delivers accounting and HR software solutions. Mentored team, provided guidance, and delivered code to help migrate a legacy, VM-based architecture to a modern architecture based on <a href="https://docker.com/">Docker</a> and <a href="https://kubernetes.io/">Kubernetes</a> and running in <a href="https://aws.amazon.com/">AWS</a>.</li>
+<li>Developed software for an early stage ad-tech startup. Built <a href="https://golang.org/">Go</a>-based microservices to handle analytics and billing in an event-driven architecture. Also responsible for the cloud infrastructure, using <a href="https://cloud.google.com/">Google Cloud</a> and <a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</li>
+<li>Core contributor and release manager for <a href="https://github.com/mantl/mantl">Mantl</a> and its ecosystem of supporting APIs and tools. Mantl integrated technologies like <a href="https://docker.com/">Docker</a>, <a href="https://mesos.apache.org/">Mesos</a>, and <a href="https://kubernetes.io/">Kubernetes</a>. Built with <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.ansible.com/">Ansible</a>, <a href="https://golang.org/">Go</a>, and supported on various cloud platforms like <a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>, and <a href="https://www.digitalocean.com/">DigitalOcean</a>.</li>
+<li>Contributor to various open-source projects, both individually and sponsored (<a href="https://www.cisco.com/">Cisco</a> and <a href="https://www.joyent.com/">Joyent</a>). <br/> <br/></li>
 </ul>
 </dd>
 <dt>2006-2008</dt>
-<dd><p><em>Solutions Developer <a href="https://www.avanade.com/en">Avanade</a></em> (New York, NY)</p>
+<dd><p><strong>Solutions Developer <a href="https://www.avanade.com/en">Avanade</a></strong> (New York, NY)</p>
 <ul>
-<li>Solution Developer for a global IT consulting company co-owned by Microsoft and Accenture.</li>
-<li>Member of the core architecture team that created a mobile field data collection application for the U.S. Census Bureau. Served as the lead designer and developer of several critical components on the Windows Mobile handheld device including biometric authentication, data synchronization, network connectivity, and security auditing. Other responsibilities included design, documentation, training and support.</li>
-<li>Sole designer and developer of a Mobile Survey Solution application which demonstrated several core features that would be useful in a mobile workforce application. For example: an extensible survey engine, time and expense reporting, text messaging, mapping and GPS integration, and reporting.</li>
-<li>Technical lead on a mobile consignment inventory application, which allowed customers to scan receipt and usage of goods and manage inventory. Managed a team of 5 developers to build the Windows Mobile based application and supporting WCF-based web service.</li>
+<li>Member of the core architecture team that created mobile applications for the U.S. Census Bureau. <br/> <br/></li>
 </ul>
 </dd>
 <dt>1999-2006</dt>
-<dd><p><em>Operations Developer <a href="https://www.verio.com/">NTT/VERIO</a></em> (Boca Raton, FL)</p>
+<dd><p><strong>Operations Developer <a href="https://www.verio.com/">NTT/VERIO</a></strong> (Boca Raton, FL)</p>
 <ul>
-<li>Senior developer and 8-person team lead on the development of Windows-based web hosting products. Contributed to the internal hosting platform provisioning and monitoring systems as well as customer-facing ASP.NET 2.0 web control panels that provided tools such as SSL certificate self management, user management, IIS configuration, and custom application installation.</li>
-<li>Part of a team responsible for successful operations of a large, distributed web hosting network spanning multiple geographic regions, including 3 continents.</li>
-<li>Duties included: security, monitoring, product evaluation and deployment, tool development, automation of common tasks and routine maintenance, and change management of hardware and software upgrades.</li>
-<li>Served as the principal technical liaison between the Windows development group and the operations group and played an essential role in designing and managing product enhancements, additions and upgrades.</li>
+<li>Senior developer, team lead, and principal technical liaison on development of Windows-based products for a large, internationally distributed web hosting network.</li>
 </ul>
 </dd>
 </dl>
 <h2 id="technical-experience">Technical Experience</h2>
-<dl>
-<dt>Open Source</dt>
-<dd><p>Contributor to various open source projects including <a href="https://github.com/CiscoCloud/mantl"><strong>Mantl</strong></a>, <a href="https://github.com/kubernetes-sigs/kustomize"><strong>Kustomize</strong></a>, <a href="https://github.com/terraform-providers/terraform-provider-docker"><strong>Terraform</strong></a>, <a href="https://github.com/asteris-llc/converge"><strong>Converge</strong></a>, <a href="https://github.com/ryane/zookeepercli"><strong>zookeepercli</strong></a>, and <a href="https://github.com/ryane">others</a>.</p>
-</dd>
-<dt>Programming Languages and Technologies</dt>
-<dd><p><strong>go:</strong> Since 2015, I have been building various CLIs, APIs, and other systems integration software in <a href="https://golang.org/">Go</a>.</p>
-</dd>
-<dd><p><strong>Ruby:</strong> Extensive experience building web applications (in <a href="http://rubyonrails.org/">Ruby on Rails</a>) and CLIs.</p>
-</dd>
-<dd><p><strong>Javascript:</strong> Written a large amount of Javascript for frontend-web applications. Experience with <a href="https://facebook.github.io/react/">React</a>, <a href="http://emberjs.com/">Ember</a>, and <a href="https://jquery.com/">jQuery</a></p>
-</dd>
-<dd><p><strong>Infrastructure automation and configuration management tools</strong> such as <a href="https://www.ansible.com/">Ansible</a>, <a href="https://www.terraform.io/">Terraform</a>, and <a href="https://www.chef.io/">Chef</a>.</p>
-</dd>
-<dd><p><strong>Container technologies and orchestration platforms</strong> such as <a href="http://docker.com/">Docker</a>, <a href="http://kubernetes.io/">Kubernetes</a>, and <a href="http://mesos.apache.org/">Mesos</a></p>
-</dd>
-<dd><p><strong>Cloud platforms</strong> and their supporting APIs and tools including <a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>, and <a href="https://www.digitalocean.com/">DigitalOcean</a>, and <a href="https://www.heroku.com/">Heroku</a>.</p>
-</dd>
-<dd><p>Some competence with <strong>C</strong>, <strong>Scala</strong>, <strong>Clojure</strong></p>
-</dd>
-</dl>
+<p><strong>Programming Languages, Frameworks and Technologies</strong>: <a href="https://golang.org/">Go</a>, <a href="https://www.javascript.com/">Javascript</a>/<a href="https://www.typescriptlang.org/">Typescript</a>, <a href="https://reactjs.org/">React</a>, <a href="https://www.ruby-lang.org/en/">Ruby</a> / <a href="https://rubyonrails.org/">Ruby on Rails</a>, <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.ansible.com/">Ansible</a></p>
+<p><strong>Cloud native technologies</strong>: <a href="https://kubernetes.io/">Kubernetes</a>, <a href="https://docker.com/">Docker</a>, <a href="https://prometheus.io/">Prometheus</a>, <a href="https://thanos.io/">Thanos</a>, <a href="https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-1-fluentd-architecture-and-configuration/">EFK</a> stack, <a href="https://istio.io/">Istio</a>, <a href="https://cloud.google.com/tekton">Tekton</a>, <a href="https://argoproj.github.io/">Argo</a>, <a href="https://www.envoyproxy.io/">Envoy</a>, <a href="https://helm.sh/">Helm</a>, <a href="https://knative.dev/">Knative</a></p>
+<p><strong>Cloud platforms</strong>: <a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>, <a href="https://azure.microsoft.com/en-us/">Azure</a>, <a href="https://www.digitalocean.com/">DigitalOcean</a>, and <a href="https://www.heroku.com/">Heroku</a></p>
+<p>Active Open Source <a href="https://github.com/ryane">contributor</a>.</p>
 <h2 id="education">Education</h2>
 <p><em>Bachelor of Business Administration, Management Information Systems</em></p>
-<p>Florida Atlantic University (Boca Raton, FL)</p>
-<p>University of Florida (Gainesville, FL)</p>
-<h2 id="talks">Talks</h2>
+<p>University of Florida (Gainesville, FL), Florida Atlantic University (Boca Raton, FL)</p>
+<h2 id="speaking-engagements">Speaking Engagements</h2>
 <ul>
+<li><em>Repeatable and standardized Kustomize based deployments</em> (Co-speaker, <a href="https://kccncna19.sched.com/event/U1VJ/cncf-end-user-partner-summit-additional-registration-fee-required">CNCF End User Partner Summit</a></li>
 <li><em>Converge: Apply Graphs to your Servers</em> (Co-speaker, <a href="https://github.com/strangeloop/StrangeLoop2016/wiki/Unsessions">Strangeloop 2016 Unsession</a>)</li>
 <li><em>Introducing Cloud Development with Project Shipped and Mantl</em> (Co-speaker, Cisco Live Berlin 2016)</li>
-<li><em>Introducing Cloud Development with Mantl</em> (Co-speaker, Cisco Live Cancun 2015)</li>
+<li><em>Introducing Cloud Development with Mantl</em> (Co-speaker, Cisco Live Cancun
+<ol start="2015" type="1">
+<li></li>
+</ol></li>
 </ul>
 <hr />
 </body>

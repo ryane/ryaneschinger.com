@@ -3,9 +3,7 @@ Ryan Eschinger
 
 ---
 
-> Software consultant specializing in cloud-native technologies, Go programming,
-> container orchestration, infrastructure automation, and other *Devops*
-> practices.
+> Software engineer specializing in Kubernetes and cloud-native technologies.
 
 > [ryanesc@gmail.com](mailto:ryanesc@gmail.com) • (561) 704-0082 •
 > [\@ryanesc](https://twitter.com/ryanesc) • [Github](https://github.com/ryane)
@@ -16,158 +14,135 @@ Ryan Eschinger
 Experience
 ----------
 
+2019-Present
+:   **Senior Software Engineer
+    [MasterCard](https://www.mastercard.us/en-us.html)** (New York, NY)
+
+    * Core member of a team responsible for designing and implementing a modern
+      Infrastructure API. Automated the provisioning of on-premise virtual
+      machines, network resources, and load balancers with [Kubernetes
+      CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+      and custom
+      [controllers](https://kubernetes.io/docs/concepts/architecture/controller/).
+    * Chief architect of an internal tool that simplified
+      [Kubernetes](https://kubernetes.io/) onboarding for developers. Built a
+      user-friendly interface and
+      [GitOps](https://www.weave.works/blog/what-is-gitops-really) pipelines
+      that concealed the complexity of the underlying Kubernetes platform and
+      allowed for baked-in best practices and enforcement of security policies.
+    * Provided guidance and delivered code to help migrate on-premise virtual
+      machine deployments to [Microsoft
+      Azure](https://azure.microsoft.com/en-us/).
+      <br/>
+      <br/>
+
 2008-2019
-:   *Founder [Jossware LLC](http://ryaneschinger.com/)* (Brooklyn, NY)
+:   **Founder [Jossware LLC](http://ryaneschinger.com/)** (Brooklyn, NY)
 
-    Software consultancy focused on cloud-native technologies, devops, custom
-    software integrations, and application development.
+    *Jossware is a software consultancy providing in-depth consulting, training,
+    and development services to a variety of companies, with a focus on
+    cloud-native technologies, programmable infrastructure, DevOps, and
+    application development.*
 
-    * Provided in-depth consulting, training, and development services to a
-      range of companies in the realms of container technologies, programmable
-      infrastructure, and devops.
-    * Consulted with a financial services enterprise on cloud migration,
-      [Kubernetes](http://kubernetes.io/), service mesh, and other cloud native
+    * Consulted for a financial services enterprise on cloud migration,
+      [Kubernetes](https://kubernetes.io/), service mesh, and other cloud native
       technologies. Evaluated options, developed proof of concepts, and helped
       build and operationalize an on-premise Kubernetes platform.
-    * Embedded with a cloud architecture team in an enterprise delivering
+    * [Kubernetes](https://kubernetes.io/) platform engineer for several
+      international companies on different cloud platforms
+      ([AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/)).
+      Delivered cloud environments as code via
+      [Terraform](https://www.terraform.io/), operationalized Kubernetes with
+      logging, monitoring, security, and service mesh capabilities, and built
+      [GitOps](https://www.weave.works/blog/what-is-gitops-really)-powered
+      continuous delivery pipelines for application deployments.
+    * Embedded with a cloud architecture team in an enterprise that delivers
       accounting and HR software solutions. Mentored team, provided guidance,
       and delivered code to help migrate a legacy, VM-based architecture to a
-      modern architecture based on Docker and Kubernetes.
-    * Software development for an early stage ad-tech startup. Built Go-based
-      microservices to handle analytics and billing in an event-driven
-      architecture. Also responsible for the cloud infrastructure using [Google
-      Cloud](https://cloud.google.com/) and
+      modern architecture based on [Docker](https://docker.com/) and
+      [Kubernetes](https://kubernetes.io/) and running in
+      [AWS](https://aws.amazon.com/).
+    * Developed software for an early stage ad-tech startup. Built
+      [Go](https://golang.org/)-based microservices to handle analytics and
+      billing in an event-driven architecture. Also responsible for the cloud
+      infrastructure, using [Google Cloud](https://cloud.google.com/) and
       [GKE](https://cloud.google.com/kubernetes-engine/).
-    * Core contributor and release manager for [Mantl](http://mantl.io/), a
-      modern platform for deploying microservices, and its ecosystem of
-      supporting APIs and tools. Mantl integrates technologies
-      like [Docker](http://docker.com/), [Mesos](http://mesos.apache.org/),
-      and [Kubernetes](http://kubernetes.io/). Built
-      with
+    * Core contributor and release manager for
+      [Mantl](https://github.com/mantl/mantl) and its ecosystem of supporting
+      APIs and tools. Mantl integrated technologies like
+      [Docker](https://docker.com/), [Mesos](https://mesos.apache.org/), and
+      [Kubernetes](https://kubernetes.io/). Built with
       [Terraform](https://www.terraform.io/),
       [Ansible](https://www.ansible.com/), [Go](https://golang.org/), and
-      supported on various cloud platforms
-      like [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/),
-      and [DigitalOcean](https://www.digitalocean.com/). Worked in all layers of
-      the stack and primary developer of the Go API. Sponsored by Cisco.
-    * Extended
-      the
-      [Terraform Docker provider](https://www.terraform.io/docs/providers/docker/index.html) to
-      fully support
-      the [Triton Docker Remote API](https://apidocs.joyent.com/docker).
-      Sponsored by Joyent.
-    * Contributor to [Converge](http://converge.aster.is/), an open-source,
-      API-first configuration management tool built using Go and gRPC and
-      powered by a graph engine.
-    * Provided software consulting and development services to companies such
-      as [Checkmate](http://www.checkmate.io/) (built an algorithmic pricing
-      system, inventory and optimization platform, and several 3rd-party API
-      integrations), [Mamajamas](http://www.mamajamas.com/) (built and
-      maintained the application and distributed web infrastructure),
-      and
-      [Open Places](https://www.crunchbase.com/organization/open-places#/entity)
-      (provided application development and infrastructure automation).
-    * Consulted on other application development and devops projects for
-      companies large and small.
-    * Experienced working remotely with teams around the world, as well as
-      on-site.
+      supported on various cloud platforms like [AWS](https://aws.amazon.com/),
+      [GCP](https://cloud.google.com/), and
+      [DigitalOcean](https://www.digitalocean.com/).
+    * Contributor to various open-source projects, both individually and
+      sponsored ([Cisco](https://www.cisco.com/) and
+      [Joyent](https://www.joyent.com/)). 
+      <br/> <br/>
 
 2006-2008
-:   *Solutions Developer [Avanade](https://www.avanade.com/en)* (New York, NY)
+:   **Solutions Developer [Avanade](https://www.avanade.com/en)** (New York, NY)
 
-    * Solution Developer for a global IT consulting company co-owned by
-      Microsoft and Accenture.
-    * Member of the core architecture team that created a mobile field data
-      collection application for the U.S. Census Bureau. Served as the lead
-      designer and developer of several critical components on the Windows
-      Mobile handheld device including biometric authentication, data
-      synchronization, network connectivity, and security auditing. Other
-      responsibilities included design, documentation, training and support.
-    * Sole designer and developer of a Mobile Survey Solution application which
-      demonstrated several core features that would be useful in a mobile
-      workforce application. For example: an extensible survey engine, time and
-      expense reporting, text messaging, mapping and GPS integration, and
-      reporting.
-    * Technical lead on a mobile consignment inventory application, which
-      allowed customers to scan receipt and usage of goods and manage inventory.
-      Managed a team of 5 developers to build the Windows Mobile based
-      application and supporting WCF-based web service.
+    * Member of the core architecture team that created mobile applications for
+      the U.S. Census Bureau.
+      <br/>
+      <br/>
 
 1999-2006
-:   *Operations Developer [NTT/VERIO](https://www.verio.com/)* (Boca Raton, FL)
+:   **Operations Developer [NTT/VERIO](https://www.verio.com/)** (Boca Raton, FL)
 
-    * Senior developer and 8-person team lead on the development of
-      Windows-based web hosting products. Contributed to the internal hosting
-      platform provisioning and monitoring systems as well as customer-facing
-      ASP.NET 2.0 web control panels that provided tools such as SSL certificate
-      self management, user management, IIS configuration, and custom
-      application installation.
-    * Part of a team responsible for successful operations of a large,
-      distributed web hosting network spanning multiple geographic regions,
-      including 3 continents.
-    * Duties included: security, monitoring, product evaluation and deployment,
-      tool development, automation of common tasks and routine maintenance, and
-      change management of hardware and software upgrades.
-    * Served as the principal technical liaison between the Windows development
-      group and the operations group and played an essential role in designing
-      and managing product enhancements, additions and upgrades.
+    * Senior developer, team lead, and principal technical liaison on
+      development of Windows-based products for a large, internationally
+      distributed web hosting network.
 
 Technical Experience
 --------------------
 
-Open Source
+**Programming Languages, Frameworks and Technologies**:
+[Go](https://golang.org/),
+[Javascript](https://www.javascript.com/)/[Typescript](https://www.typescriptlang.org/),
+[React](https://reactjs.org/), [Ruby](https://www.ruby-lang.org/en/) / [Ruby on
+Rails](https://rubyonrails.org/), [Terraform](https://www.terraform.io/),
+[Ansible](https://www.ansible.com/)
 
-:   Contributor to various open source projects including
-    [**Mantl**](https://github.com/CiscoCloud/mantl),
-    [**Kustomize**](https://github.com/kubernetes-sigs/kustomize),
-    [**Terraform**](https://github.com/terraform-providers/terraform-provider-docker),
-    [**Converge**](https://github.com/asteris-llc/converge),
-    [**zookeepercli**](https://github.com/ryane/zookeepercli), and
-    [others](https://github.com/ryane).
+**Cloud native technologies**: [Kubernetes](https://kubernetes.io/),
+[Docker](https://docker.com/), [Prometheus](https://prometheus.io/),
+[Thanos](https://thanos.io/),
+[EFK](https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-1-fluentd-architecture-and-configuration/)
+stack, [Istio](https://istio.io/), [Tekton](https://cloud.google.com/tekton),
+[Argo](https://argoproj.github.io/), [Envoy](https://www.envoyproxy.io/),
+[Helm](https://helm.sh/), [Knative](https://knative.dev/)
 
-Programming Languages and Technologies
+**Cloud platforms**: [AWS](https://aws.amazon.com/),
+[GCP](https://cloud.google.com/), [Azure](https://azure.microsoft.com/en-us/),
+[DigitalOcean](https://www.digitalocean.com/), and
+[Heroku](https://www.heroku.com/)
 
-:   **go:** Since 2015, I have been building various CLIs, APIs, and other systems
-    integration software in [Go](https://golang.org/).
-
-:   **Ruby:** Extensive experience building web applications (in
-    [Ruby on Rails](http://rubyonrails.org/)) and CLIs.
-
-:   **Javascript:** Written a large amount of Javascript for frontend-web
-    applications. Experience with [React](https://facebook.github.io/react/),
-    [Ember](http://emberjs.com/), and [jQuery](https://jquery.com/)
-
-:   **Infrastructure automation and configuration management tools** such as
-    [Ansible](https://www.ansible.com/), [Terraform](https://www.terraform.io/),
-    and [Chef](https://www.chef.io/).
-
-:   **Container technologies and orchestration platforms** such as
-    [Docker](http://docker.com/), [Kubernetes](http://kubernetes.io/), and
-    [Mesos](http://mesos.apache.org/)
-
-:   **Cloud platforms** and their supporting APIs and tools including
-    [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/), and
-    [DigitalOcean](https://www.digitalocean.com/), and
-    [Heroku](https://www.heroku.com/).
-
-:   Some competence with **C**, **Scala**, **Clojure**
+Active Open Source [contributor](https://github.com/ryane).
 
 Education
 ---------
 
 *Bachelor of Business Administration, Management Information Systems*
 
-Florida Atlantic University (Boca Raton, FL)
+University of Florida (Gainesville, FL), Florida Atlantic University (Boca
+Raton, FL)
 
-University of Florida (Gainesville, FL)
 
-Talks
+Speaking Engagements
 ----------------------------------------
 
-* *Converge: Apply Graphs to your Servers* (Co-speaker, [Strangeloop 2016 Unsession](https://github.com/strangeloop/StrangeLoop2016/wiki/Unsessions))
-* *Introducing Cloud Development with Project Shipped and Mantl* (Co-speaker, Cisco Live
-  Berlin 2016)
-* *Introducing Cloud Development with Mantl* (Co-speaker, Cisco Live Cancun 2015)
+* *Repeatable and standardized Kustomize based deployments* (Co-speaker, [CNCF
+  End User Partner
+  Summit](https://kccncna19.sched.com/event/U1VJ/cncf-end-user-partner-summit-additional-registration-fee-required)
+* *Converge: Apply Graphs to your Servers* (Co-speaker, [Strangeloop 2016
+  Unsession](https://github.com/strangeloop/StrangeLoop2016/wiki/Unsessions))
+* *Introducing Cloud Development with Project Shipped and Mantl* (Co-speaker,
+  Cisco Live Berlin 2016)
+* *Introducing Cloud Development with Mantl* (Co-speaker, Cisco Live Cancun
+  2015)
 
 
 ---
