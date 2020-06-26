@@ -117,7 +117,7 @@ gulp.task('prod', ['scss', 'build', 'images', 'icons'], function(done) {
       '--log-level',
       'debug',
       '--url-ignore',
-      'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg,http://www.mamajamas.com/,http://mantl.io/,https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx,http://practicalops.com/my-first-5-minutes-on-a-server-with-ansible.html,https://www.crunchbase.com/organization/open-places#/entity,https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#.8gpxip2yl'
+      'http://d3nwzvnnqkgieg.cloudfront.net/assets/sample-0249fabde1c3a9dec561a00aa397b3ed.jpg,http://www.mamajamas.com/,http://mantl.io/,https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx,http://practicalops.com/my-first-5-minutes-on-a-server-with-ansible.html,https://www.crunchbase.com/organization/open-places#/entity,https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#.8gpxip2yl,http://www.amazon.com/gp/product/184951030X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=184951030X&linkCode=as2&tag=ryanesc-20&linkId=UPCPHBUE4JKOAP4G'
     ], { stdio: 'inherit' }).on('close', done);
   });
 });
