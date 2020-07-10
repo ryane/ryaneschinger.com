@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>resume</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+  /*
+   * Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
+   *
+   * CSS for making a resume with pandoc. Inspired by moderncv.
+   *
+   * This CSS document is delivered to you under the CC BY-SA 3.0 License.
+   * https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+   */
+  
+  /* Whole document */
+  body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      width: 800px;
+      margin: auto;
+      background: #FFFFFF;
+      padding: 10px 10px 10px 10px;
+  }
+  
+  /* Title of the resume */
+  h1 {
+      font-size: 55px;
+      color: #757575;
+      text-align:center;
+      margin-bottom:15px;
+  }
+  
+  /* Titles of categories */
+  h2 {
+      /* This is called "sectioncolor" in the ConTeXt stylesheet. */
+      color: #337ab7;
+  }
+  /* There is a bar just before each category */
+  h2:before {
+      content: "";
+      display: inline-block;
+      margin-right:1%;
+      width: 16%;
+      height: 10px;
+      /* This is called "rulecolor" in the ConTeXt stylesheet. */
+      background-color: #337ab7;
+  }
+  
+  /* Definitions */
+  dt {
+      float: left;
+      clear: left;
+      width: 17%;
+      /*font-weight: bold;*/
+  }
+  dd {
+      margin-left: 17%;
+  }
+  p {
+      margin-top:0;
+      margin-bottom:7px;
+  }
+  
+  /* Blockquotes */
+  blockquote {
+      text-align: center
+  }
+  
+  /* Links */
+  a {
+      text-decoration: none;
+      color: #337ab7;
+  }
+  a:hover, a:active {
+      background-color: #337ab7;
+      color: #FFFFFF;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px #333;
+  }
+  
+  /* Horizontal separators */
+  hr {
+      color: #A6A6A6;
+  }
+  
+  table {
+      width: 100%;
+  }
+  </style>
+</head>
+<body>
+<h1 id="ryan-eschinger">Ryan Eschinger</h1>
+<hr />
+<blockquote>
+<p>Software engineer specializing in Kubernetes and cloud-native technologies.</p>
+</blockquote>
+<blockquote>
+<p><a href="mailto:ryanesc@gmail.com">ryanesc@gmail.com</a> • (561) 704-0082 • <a href="https://twitter.com/ryanesc">@ryanesc</a> • <a href="https://github.com/ryane">Github</a> • <a href="http://ryaneschinger.com/">ryaneschinger.com</a></p>
+</blockquote>
+<hr />
+<h2 id="experience">Experience</h2>
+<dl>
+<dt>2019-Present</dt>
+<dd><p><strong>Senior Software Engineer <a href="https://www.mastercard.us/en-us.html">MasterCard</a></strong> (New York, NY)</p>
+<ul>
+<li>Core member of a team responsible for designing and implementing a modern Infrastructure API. Automated the provisioning of on-premise virtual machines, network resources, and load balancers with <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">Kubernetes CRDs</a> and custom <a href="https://kubernetes.io/docs/concepts/architecture/controller/">controllers</a>.</li>
+<li>Chief architect of an internal tool that simplified <a href="https://kubernetes.io/">Kubernetes</a> onboarding for developers. Built a user-friendly interface and <a href="https://www.weave.works/blog/what-is-gitops-really">GitOps</a> pipelines that concealed the complexity of the underlying Kubernetes platform and allowed for baked-in best practices and enforcement of security policies.</li>
+<li>Provided guidance and delivered code to help migrate on-premise virtual machine deployments to <a href="https://azure.microsoft.com/en-us/">Microsoft Azure</a>. <br/> <br/></li>
+</ul>
+</dd>
+<dt>2008-2019</dt>
+<dd><p><strong>Founder <a href="http://ryaneschinger.com/">Jossware LLC</a></strong> (Brooklyn, NY)</p>
+<p><em>Jossware is a software consultancy providing in-depth consulting, training, and development services to a variety of companies, with a focus on cloud-native technologies, programmable infrastructure, DevOps, and application development.</em></p>
+<ul>
+<li>Consulted for a financial services enterprise on cloud migration, <a href="https://kubernetes.io/">Kubernetes</a>, service mesh, and other cloud native technologies. Evaluated options, developed proof of concepts, and helped build and operationalize an on-premise Kubernetes platform.</li>
+<li><a href="https://kubernetes.io/">Kubernetes</a> platform engineer for several international companies on different cloud platforms (<a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>). Delivered cloud environments as code via <a href="https://www.terraform.io/">Terraform</a>, operationalized Kubernetes with logging, monitoring, security, and service mesh capabilities, and built <a href="https://www.weave.works/blog/what-is-gitops-really">GitOps</a>-powered continuous delivery pipelines for application deployments.</li>
+<li>Embedded with a cloud architecture team in an enterprise that delivers accounting and HR software solutions. Mentored team, provided guidance, and delivered code to help migrate a legacy, VM-based architecture to a modern architecture based on <a href="https://docker.com/">Docker</a> and <a href="https://kubernetes.io/">Kubernetes</a> and running in <a href="https://aws.amazon.com/">AWS</a>.</li>
+<li>Developed software for an early stage ad-tech startup. Built <a href="https://golang.org/">Go</a>-based microservices to handle analytics and billing in an event-driven architecture. Also responsible for the cloud infrastructure, using <a href="https://cloud.google.com/">Google Cloud</a> and <a href="https://cloud.google.com/kubernetes-engine/">GKE</a>.</li>
+<li>Core contributor and release manager for <a href="https://github.com/mantl/mantl">Mantl</a> and its ecosystem of supporting APIs and tools. Mantl integrated technologies like <a href="https://docker.com/">Docker</a>, <a href="https://mesos.apache.org/">Mesos</a>, and <a href="https://kubernetes.io/">Kubernetes</a>. Built with <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.ansible.com/">Ansible</a>, <a href="https://golang.org/">Go</a>, and supported on various cloud platforms like <a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>, and <a href="https://www.digitalocean.com/">DigitalOcean</a>.</li>
+<li>Contributor to various open-source projects, both individually and sponsored (<a href="https://www.cisco.com/">Cisco</a> and <a href="https://www.joyent.com/">Joyent</a>). <br/> <br/></li>
+</ul>
+</dd>
+<dt>2006-2008</dt>
+<dd><p><strong>Solutions Developer <a href="https://www.avanade.com/en">Avanade</a></strong> (New York, NY)</p>
+<ul>
+<li>Member of the core architecture team that created mobile applications for the U.S. Census Bureau. <br/> <br/></li>
+</ul>
+</dd>
+<dt>1999-2006</dt>
+<dd><p><strong>Operations Developer <a href="https://www.verio.com/">NTT/VERIO</a></strong> (Boca Raton, FL)</p>
+<ul>
+<li>Senior developer, team lead, and principal technical liaison on development of Windows-based products for a large, internationally distributed web hosting network.</li>
+</ul>
+</dd>
+</dl>
+<h2 id="technical-experience">Technical Experience</h2>
+<p><strong>Programming Languages, Frameworks and Technologies</strong>: <a href="https://golang.org/">Go</a>, <a href="https://www.javascript.com/">Javascript</a>/<a href="https://www.typescriptlang.org/">Typescript</a>, <a href="https://reactjs.org/">React</a>, <a href="https://www.ruby-lang.org/en/">Ruby</a> / <a href="https://rubyonrails.org/">Ruby on Rails</a>, <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.ansible.com/">Ansible</a></p>
+<p><strong>Cloud native technologies</strong>: <a href="https://kubernetes.io/">Kubernetes</a>, <a href="https://docker.com/">Docker</a>, <a href="https://prometheus.io/">Prometheus</a>, <a href="https://thanos.io/">Thanos</a>, <a href="https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-1-fluentd-architecture-and-configuration/">EFK</a> stack, <a href="https://istio.io/">Istio</a>, <a href="https://cloud.google.com/tekton">Tekton</a>, <a href="https://argoproj.github.io/">Argo</a>, <a href="https://www.envoyproxy.io/">Envoy</a>, <a href="https://helm.sh/">Helm</a>, <a href="https://knative.dev/">Knative</a></p>
+<p><strong>Cloud platforms</strong>: <a href="https://aws.amazon.com/">AWS</a>, <a href="https://cloud.google.com/">GCP</a>, <a href="https://azure.microsoft.com/en-us/">Azure</a>, <a href="https://www.digitalocean.com/">DigitalOcean</a>, and <a href="https://www.heroku.com/">Heroku</a></p>
+<p>Active Open Source <a href="https://github.com/ryane">contributor</a>.</p>
+<h2 id="education">Education</h2>
+<p><em>Bachelor of Business Administration, Management Information Systems</em></p>
+<p>University of Florida (Gainesville, FL), Florida Atlantic University (Boca Raton, FL)</p>
+<h2 id="speaking-engagements">Speaking Engagements</h2>
+<ul>
+<li><em>Repeatable and standardized Kustomize based deployments</em> (Co-speaker, <a href="https://kccncna19.sched.com/event/U1VJ/cncf-end-user-partner-summit-additional-registration-fee-required">CNCF End User Partner Summit</a></li>
+<li><em>Converge: Apply Graphs to your Servers</em> (Co-speaker, <a href="https://github.com/strangeloop/StrangeLoop2016/wiki/Unsessions">Strangeloop 2016 Unsession</a>)</li>
+<li><em>Introducing Cloud Development with Project Shipped and Mantl</em> (Co-speaker, Cisco Live Berlin 2016)</li>
+<li><em>Introducing Cloud Development with Mantl</em> (Co-speaker, Cisco Live Cancun
+<ol start="2015" type="1">
+<li></li>
+</ol></li>
+</ul>
+<hr />
+</body>
+</html>

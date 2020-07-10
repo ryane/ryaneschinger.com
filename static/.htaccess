@@ -1,0 +1,10 @@
+# custom error pages
+ErrorDocument 404 /404.html
+
+#Gzip
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript
+</ifmodule>
+#End Gzip
+
+Redirect 301 /services/heroku-to-aws/ /services/aws-power-up/

@@ -1,10 +1,4 @@
 public/
-/npm-debug.log
-/node_modules/
-.tern-port
-/static/
-/mailing-list-broadcasts.org.txt
-/TODO.org
 
 # resume
 /resume/*.docx
