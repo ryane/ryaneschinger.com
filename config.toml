@@ -1,0 +1,28 @@
+baseURL = "https://ryaneschinger.com/"
+languageCode = "en-us"
+title = "Ryan Eschinger"
+theme = "hugo-notepadium"
+copyright = "©2020 Ryan Eschinger."
+googleAnalytics = "UA-4116022-11"
+
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
+
+[params]
+style = "auto"
+fullRss = true
+
+[params.assets]
+css = ["css/fonts.css", "css/notes.css", "css/social-icons.css", "css/optin-form.css"]
+js = ["js/getdrip.js"]
+
+[params.share]
+enable = false # TODO: should I enable this?
+
+[[params.nav.custom]]
+title = "About"
+url = "/about"
+
+[[params.nav.custom]]
+title = "Contact"
+url = "mailto:ryan@ryaneschinger.com"

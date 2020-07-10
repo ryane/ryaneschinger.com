@@ -1,0 +1,18 @@
+<hr />
+<form action="https://www.getdrip.com/forms/1176915/submissions" method="post" data-drip-embedded-form="1176915" class="optin-form">
+    <input type="hidden" name="fields[optinpage]" value="{{ .Page.RelPermalink }}" />
+    <div class="form-group">
+        {{ if isset .Page.Params "optin" }}
+        {{ .Page.Params.optin | markdownify }}
+        {{ else }}
+        Are you interested in topics like this? Drop your email below to receive regular updates.
+        {{ end }}
+    </div>
+    <div class="form-group">
+        <input type="email" name="fields[email]" value="" class="form-control" placeholder="Email Address" />
+    </div>
+    <div class="form-group button-group">
+        <input type="submit" name="submit" value="{{ or .Page.Params.optinbutton "Send me the good stuff!" }}" class="btn btn-danger" />
+
+    </div>
+</form>
