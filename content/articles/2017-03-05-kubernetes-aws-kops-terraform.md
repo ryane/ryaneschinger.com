@@ -98,9 +98,7 @@ at
 [**main.tf**](https://github.com/ryane/kubernetes-aws-vpc-kops-terraform/blob/master/main.tf).
 Here is how we define our VPC:
 
-<noscript>
-
-```
+```terraform
 module "vpc" {
   source   = "./modules/vpc"
   name     = "${var.name}"
@@ -133,10 +131,6 @@ module "subnet_pair" {
 }
 ```
 
-</noscript>
-
-{{< gist ryane 2e27124cc68340a550e39d8cd93ea0d5 "main-vpc.tf" >}}
-
 Most of the heavy lifting is done in the *vpc* and *subnet-pair* modules. Those
 modules are responsible for creating the VPC, private and public subnets, NAT
 Gateways, routes, and security groups. One thing to note is the
@@ -156,9 +150,7 @@ for our cluster domain name in Route53. If you are following along and already
 have your domain name registered in Route53, you can remove this resource from
 your local configuration.
 
-<noscript>
-
-```
+```terraform
 resource "aws_route53_zone" "public" {
   name          = "${var.name}"
   force_destroy = true
@@ -166,17 +158,11 @@ resource "aws_route53_zone" "public" {
 }
 ```
 
-</noscript>
-
-{{< gist ryane 2e27124cc68340a550e39d8cd93ea0d5 "main-zone.tf" >}}
-
 Finally, Kops also requires an S3 bucket for storing the
 [state](https://github.com/kubernetes/kops/blob/master/docs/state.md) of the
 cluster. We create this bucket as part of our Terraform configuration:
 
-<noscript>
-
-```
+```terraform
 resource "aws_s3_bucket" "state_store" {
   bucket        = "${var.name}-state"
   acl           = "private"
@@ -188,10 +174,6 @@ resource "aws_s3_bucket" "state_store" {
   ...
 }
 ```
-
-</noscript>
-
-{{< gist ryane 2e27124cc68340a550e39d8cd93ea0d5 "main-state.tf" >}}
 
 Let's go ahead and create our infrastructure. You will need to provide
 credentials for an IAM user that has sufficient privileges to create all of
@@ -344,8 +326,6 @@ kops edit cluster ${NAME}
 
 Your *subnets* map should look something like this:
 
-<noscript>
-
 ```yaml
 subnets:
 - cidr: 10.20.32.0/19
@@ -374,17 +354,11 @@ subnets:
   zone: us-east-1d
 ```
 
-</noscript>
-
-{{< gist ryane 2e27124cc68340a550e39d8cd93ea0d5 "subnets-pre.yml" >}}
-
 There should be one *Private* type subnet and one *Utility* (public) type subnet
 in each availability zone. We need to modify this section by replacing each
 *cidr* with the corresponding existing subnet ID for that region. For the
 *Private* subnets, we also need to specify our NAT gateway ID in an *egress*
 key. Modify your subnets section to look like this:
-
-<noscript>
 
 ```yaml
 subnets:
@@ -416,10 +390,6 @@ subnets:
   type: Utility
   zone: us-east-1d
 ```
-
-</noscript>
-
-{{< gist ryane 2e27124cc68340a550e39d8cd93ea0d5 "subnets-post.yml" >}}
 
 Of course the IDs will be different for you if you are following along. You can
 use `terraform output` (or the AWS console/api) to find the correct IDs.
@@ -522,4 +492,4 @@ rest of the infrastructure.
 There is a lot more to Kops than we covered here. I encourage you to check out
 the [documentation](https://github.com/kubernetes/kops/tree/master/docs).
 
-{{% optinform %}}
+{{< optinform >}}

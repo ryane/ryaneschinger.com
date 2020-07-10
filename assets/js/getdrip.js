@@ -1,5 +1,3 @@
-<!-- Drip -->
-<script type="text/javascript">
   var _dcq = _dcq || [];
   var _dcs = _dcs || {};
   _dcs.account = '3658443';
@@ -10,4 +8,3 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(dc, s);
   })();
-</script>

@@ -601,4 +601,4 @@ capabilities continue to improve. The new Deployment feature in 1.2+ is an
 elegant way to manage your application deployments. I hope this was helpful.
 Thanks for reading!
 
-{{% optinform %}}
+{{< optinform >}}

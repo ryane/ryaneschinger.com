@@ -68,4 +68,4 @@ For those of us not using [Heroku](https://www.heroku.com/), [Capistrano](http:/
 
 Did I miss anything? **What plugins or other techniques are you using in your Capistrano deployments?**
 
-{{% optinform %}}
+{{< optinform >}}

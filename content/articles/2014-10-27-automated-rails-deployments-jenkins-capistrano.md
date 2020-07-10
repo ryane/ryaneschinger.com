@@ -53,4 +53,4 @@ In order to run Capistrano from your Jenkins server, you do need to make sure th
 
 And, that's it. Now, as soon as a developer pushes code, Jenkins will pull from the Github repository and run the build. If all of the tests pass, the Deploy job will be triggered and the application will be deployed based on the Capistrano recipes.
 
-{{% optinform %}}
+{{< optinform >}}

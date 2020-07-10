@@ -34,7 +34,7 @@ The nginx-ingress controller itself requires three Kubernetes resources. The Dep
    [ Services ]
 ```
 
-We will deploy the nginx-ingress controller using the example manifests in the [kubernetes/ingress](https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx) repository.
+We will deploy the nginx-ingress controller using the example manifests in the [kubernetes/ingress](https://github.com/kubernetes/ingress-nginx/tree/master/deploy/static/provider/aws) repository.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress/master/examples/aws/nginx/nginx-ingress-controller.yaml
@@ -143,8 +143,6 @@ If you are following along, you will need to replace the `<hosted-zone-id>` in t
 
 Here is an example Deployment manifest we can use to deploy ExternalDNS:
 
-<noscript>
-
 ```yaml
 ---
 apiVersion: extensions/v1beta1
@@ -176,10 +174,6 @@ spec:
               key: domain-filter
 ```
 
-</noscript>
-
-{{< gist ryane 620adbe00d3666119d3926910ac31046 "external-dns.yml" >}}
-
 A few things to note:
 
 * ExternalDNS is still in beta. We are using `v0.3.0-beta.0` in this example.
@@ -198,8 +192,6 @@ kubectl apply -f https://gist.githubusercontent.com/ryane/620adbe00d3666119d3926
 ```
 
 At this point, ExternalDNS should be up, running, and ready to create DNS records from Ingress resources. Let's see this work with the same example used in the [ExternalDNS documentation for GKE](https://github.com/kubernetes-incubator/external-dns/blob/master/docs/tutorials/nginx-ingress.md#deploy-a-sample-application).
-
-<noscript>
 
 ```yaml
 ---
@@ -250,10 +242,6 @@ spec:
         ports:
         - containerPort: 80
 ```
-
-</noscript>
-
-{{< gist ryane 620adbe00d3666119d3926910ac31046 "demo.yml" >}}
 
 You can use this manifest almost as-is but you do need to change the `host` rule in the Ingress resources to use your domain. This is what ExternalDNS will use to create the necessary DNS records. Download the file and update it with your domain name:
 
@@ -336,4 +324,4 @@ Commercial support is available at
 
 Very nice. In the next post, we will build upon this and generate TLS certificates for our Ingress resources with [Let's Encrypt](https://letsencrypt.org/).
 
-{{% optinform %}}
+{{< optinform >}}

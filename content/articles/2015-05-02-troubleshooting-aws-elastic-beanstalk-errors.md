@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting AWS Elastic Beanstalk Errors"
 date: "2015-05-02"
-tags: 
+tags:
   - aws
   - elastic-beanstalk
 url: /blog/troubleshooting-aws-elastic-beanstalk-errors/
@@ -45,11 +45,7 @@ the first 100 lines will let me track down the problem, whatever it might be.
 
 {{% note %}}
 **Note** that you must run the `eb logs` command from an already initialized Elastic
-Beanstalk project directory. If you are not yet using EB or are just getting
-started, you can download <a
-href="https://www.getdrip.com/forms/1176915/submissions/new" target="_blank"> my
-guide</a> on migrating a Rails application to Elastic Beanstalk by signing up
-for my mailing list.
+Beanstalk project directory.
 {{% /note %}}
 
-{{% optinform %}}
+{{< optinform >}}

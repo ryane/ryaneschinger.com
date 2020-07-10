@@ -200,4 +200,4 @@ bought into Docker and how are you using it in your day-to-day work? Please
     container. There is some work going on to make working with
     volumes [easier](https://github.com/docker/docker/pull/8484).
 
-{{% optinform %}}
+{{< optinform >}}

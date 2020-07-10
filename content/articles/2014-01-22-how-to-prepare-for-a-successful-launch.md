@@ -56,4 +56,4 @@ All of these things require you to be available during your launch. Set aside so
 
 While you can do your best to have a scalable, bug-free launch, it is hard to anticipate every potential issue. Having a plan in place and some tools available is the best way to resolve these issues quickly and with as little negative impact to your new users as possible. Good luck on your launch!
 
-{{% optinform %}}
+{{< optinform >}}

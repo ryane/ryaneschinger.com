@@ -1,31 +1,28 @@
-baseurl = "https://ryaneschinger.com/"
+baseURL = "https://ryaneschinger.com/"
 languageCode = "en-us"
-title = "Ryan Eschinger Consulting"
+title = "Ryan Eschinger"
+theme = "hugo-notepadium"
+copyright = "©2020 Ryan Eschinger."
+googleAnalytics = "UA-4116022-11"
 
-pygmentsuseclasses = false
-pygmentsstyle = "colorful"
-PygmentsCodeFences = true
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
 
 [params]
-  enable_analytics = true
+style = "auto"
+fullRss = true
 
-# [[menu.header]]
-#   name = "Home"
-#   identifier = "home"
-#   url = "/"
-#   weight = -100
-# [[menu.header]]
-#   name = "Services"
-#   identifier = "services"
-#   url = "/services/"
-#   weight = 100
-[[menu.header]]
-  name = "Articles"
-  identifier = "articles"
-  url = "/articles/"
-  weight = 200
-[[menu.header]]
-  name = "Contact"
-  identifier = "contact"
-  url = "mailto:ryan@ryaneschinger.com"
-  weight = 300
+[params.assets]
+css = ["css/fonts.css", "css/notes.css", "css/social-icons.css", "css/optin-form.css"]
+js = ["js/getdrip.js"]
+
+[params.share]
+enable = false # TODO: should I enable this?
+
+[[params.nav.custom]]
+title = "About"
+url = "/about/"
+
+[[params.nav.custom]]
+title = "Contact"
+url = "mailto:ryan@ryaneschinger.com"

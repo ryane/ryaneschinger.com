@@ -42,4 +42,4 @@ $ brew update
 $ brew upgrade ruby-build
     {{< /highlight >}}
 
-{{% optinform %}}
+{{< optinform >}}

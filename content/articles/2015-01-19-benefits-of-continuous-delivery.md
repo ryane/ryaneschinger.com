@@ -206,4 +206,4 @@ often easier said than done. However, I believe that if you are
 committed to building high quality software, the return on investment
 will be well worth it.
 
-{{% optinform %}}
+{{< optinform >}}

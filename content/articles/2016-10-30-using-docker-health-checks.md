@@ -146,4 +146,4 @@ For more options, see the
 [HEALTHCHECK instruction](https://docs.docker.com/engine/reference/builder/#healthcheck)
 documentation.
 
-{{% optinform %}}
+{{< optinform >}}

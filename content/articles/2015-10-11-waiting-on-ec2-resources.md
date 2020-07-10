@@ -44,4 +44,4 @@ There are a variety of conditions you can wait on. Many of the various `aws` com
 
 If you are working a lot with the AWS CLI, you will quickly find the `wait` command invaluable and wonder how you managed without it.
 
-{{% optinform %}}
+{{< optinform >}}

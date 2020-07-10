@@ -1,0 +1,21 @@
+.social-icons {
+    padding: 10px;
+}
+
+.social-icons a {
+}
+
+.social-icons a:hover {
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .social-icons a {
+        color: #fff;
+    }
+}
+
+.social-icons .fa {
+    font-size: 2em;
+    padding: 0 6px;
+}

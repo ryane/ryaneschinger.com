@@ -31,4 +31,4 @@ There are a lot of other options but that is really all you need to get going. W
 
 I am not convinced that using S3 as your CloudFront origin is always a huge advantage. For one thing, it can slow down your deployments. However, there are some reasons to consider doing so. With this setup, CloudFront should never have to hit your server to check for updated assets. And, in some cases, it can make handling things like [serving font assets](/blog/web-fonts-cloudfront/) simpler when you are hosted on a service like Heroku. Let me know if you know of any other reasons why it is preferable to use S3 as a CloudFront origin.
 
-{{% optinform %}}
+{{< optinform >}}

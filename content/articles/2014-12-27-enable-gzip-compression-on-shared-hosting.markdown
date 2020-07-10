@@ -29,4 +29,4 @@ Of course, you can change the list of content types to best fit your site. Typic
 
 Now run [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or [YSlow](http://yslow.org/) and see your improved performance scores!
 
-{{% optinform %}}
+{{< optinform >}}

@@ -18,4 +18,4 @@ optinbutton: "Sign me up!"
 
 {{< youtube vabmtVbZDSc>}}
 
-{{% optinform %}}
+{{< optinform >}}

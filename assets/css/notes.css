@@ -1,0 +1,32 @@
+.rae-note {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem 1rem 1rem;
+    line-height: 1.4;
+    border-left: 4px solid #4670d8;
+    background-color: #d0dbf5; /* lightend by 75% */
+
+}
+
+.rae-warning {
+    border-left: 4px solid #dc3c3c;
+    background-color: #f6cece; /* lightend by 75% */
+}
+
+@media (prefers-color-scheme: dark) {
+    .rae-note {
+        background-color: #222831;
+        /* background-color: #0c193b; */ /* darkened by 75% */
+    }
+
+    .rae-warning {
+        background-color: #222831;
+        /* background-color: #3b0a0a; /\* darkened by 75% *\/ */
+    }
+}
+
+.regret {
+    font-size: smaller;
+    color: #9aa3ad;
+}

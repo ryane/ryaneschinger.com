@@ -111,4 +111,4 @@ When Rails renders the view, it should output something like:
 
 And, that's all there is to it. Using a CDN like CloudFront is a no-brainer. It is simple, inexpensive, and can noticeably improve the performance of your site.
 
-{{% optinform %}}
+{{< optinform >}}

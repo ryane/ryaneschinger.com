@@ -45,10 +45,7 @@ support EC2-Classic.
 
 Let's look at our initial Terraform configuration:
 
-<noscript>
-
-{{< highlight json >}}
-
+```terraform
 variable "region" {
   default = "us-east-1"
 }
@@ -177,12 +174,7 @@ resource "aws_elb" "weblb" {
 output "elb_dns_name" {
   value = "${aws_elb.weblb.dns_name}"
 }
-
-{{< /highlight >}}
-
-</noscript>
-
-{{< gist ryane 017da418ff44d1071e34f51d0b94ca98 "main.tf" >}}
+```
 
 {{% note %}}
 
@@ -263,10 +255,7 @@ infrastructure. However, we soon realize that we'd like to be able to reuse this
 infrastructure and decide to refactor it into a Terraform module. Here is what
 our main.tf file looks after the refactor:
 
-<noscript>
-
-{{< highlight json >}}
-
+```terraform
 variable "region" {
   default = "us-east-1"
 }
@@ -286,13 +275,7 @@ module "web" {
 output "elb_dns_name" {
   value = "${module.web.elb_dns_name}"
 }
-
-{{< /highlight >}}
-
-</noscript>
-
-{{< gist ryane 017da418ff44d1071e34f51d0b94ca98 "main-module.tf" >}}
-
+```
 
 {{% note %}}
 
@@ -500,4 +483,4 @@ much more complicated Terraform configurations, this process seems to work well
 if you are careful and deliberate about the process. I'd love to hear your
 experiences with manipulating Terraform state &mdash; let me know!
 
-{{% optinform %}}
+{{< optinform >}}

@@ -327,4 +327,4 @@ There is a lot more to Ansible than I can cover in this introduction. We really 
 * [Ansible Galaxy](https://galaxy.ansible.com/) - Find pre-built playbook roles from the community.
 * [Mailing List](https://groups.google.com/forum/#!forum/ansible-project)
 
-{{% optinform %}}
+{{< optinform >}}

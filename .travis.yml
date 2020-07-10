@@ -1,8 +1,7 @@
-dist: trusty
-sudo: required
+language: bash
 
 services:
-  - docker
+- docker
 
 os:
 - linux
@@ -10,17 +9,16 @@ os:
 addons:
   apt:
     packages:
-    - nodejs
     - python3
     - python3-pip
-    - python3-pygments
+    - python3-setuptools
+    - python3-wheel
 
 script:
-- gulp prod
+- make build
+- make htmltest
 
 install:
-- npm install
-- npm install -g gulp
 - pip3 install awscli --user
 
 deploy:

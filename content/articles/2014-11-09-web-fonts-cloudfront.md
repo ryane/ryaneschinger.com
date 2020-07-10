@@ -65,4 +65,4 @@ In all of the examples above I used an origin of **\***. For additional security
 
 I actually haven't had the opportunity to test this yet but the [font_assets](https://github.com/ericallam/font_assets) gem seems to be a common solution. The other option would be to use S3 as the origin instead. What techniques are people using to solve this problem on Heroku (or other host that may not give you access to customize CORS headers)?
 
-{{% optinform %}}
+{{< optinform >}}

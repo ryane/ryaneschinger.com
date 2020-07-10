@@ -30,4 +30,4 @@ If you work with AWS across regions, you may find this useful. As someone who wo
 <!--  LocalWords:  mykey
  -->
 
-{{% optinform %}}
+{{< optinform >}}

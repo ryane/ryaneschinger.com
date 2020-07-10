@@ -54,4 +54,4 @@ skipping: [104.131.3.142]
 
 Many Ansible modules have idempotence baked in. But, when you are using some of the lower level modules like [command](http://docs.ansible.com/command_module.html) or [shell](http://docs.ansible.com/shell_module.html), you do have to be careful that you write your tasks in such a way that they are idempotent and safe to repeat. Thankfully, Ansible gives us some tools to make this easier.
 
-{{% optinform %}}
+{{< optinform >}}
