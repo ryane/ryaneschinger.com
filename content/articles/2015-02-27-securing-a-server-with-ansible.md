@@ -23,7 +23,7 @@ A while back, Bryan Kennedy wrote a [post](http://plusbryan.com/my-first-5-minut
 * firewall settings
 * log monitoring
 
-There were a couple of [blog](http://practicalops.com/my-first-5-minutes-on-a-server-with-ansible.html) [posts](https://lattejed.com/first-five-and-a-half-minutes-on-a-server-with-ansible.html) in response that took this one step further and demonstrated how to accomplish the same things in a more automated fashion using [Ansible](http://www.ansible.com/home). Things move pretty fast and I found both posts were a little outdated. So this post continues the tradition and automates the process using an Ansible playbook. It takes care of the basic things described in these posts with a couple of additions and enhancements.
+There were a couple of <a href="http://practicalops.com/my-first-5-minutes-on-a-server-with-ansible.html" data-proofer-ignore>blog</a> [posts](https://lattejed.com/first-five-and-a-half-minutes-on-a-server-with-ansible.html) in response that took this one step further and demonstrated how to accomplish the same things in a more automated fashion using [Ansible](http://www.ansible.com/home). Things move pretty fast and I found both posts were a little outdated. So this post continues the tradition and automates the process using an Ansible playbook. It takes care of the basic things described in these posts with a couple of additions and enhancements.
 
 {{% note %}}
 ***Note**: This is tailored to Ubuntu servers and has been tested on Precise (12.04) and Trusty (14.04).*

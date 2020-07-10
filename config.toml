@@ -21,7 +21,7 @@ enable = false # TODO: should I enable this?
 
 [[params.nav.custom]]
 title = "About"
-url = "/about"
+url = "/about/"
 
 [[params.nav.custom]]
 title = "Contact"

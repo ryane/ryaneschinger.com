@@ -34,7 +34,7 @@ The nginx-ingress controller itself requires three Kubernetes resources. The Dep
    [ Services ]
 ```
 
-We will deploy the nginx-ingress controller using the example manifests in the [kubernetes/ingress](https://github.com/kubernetes/ingress/tree/master/examples/aws/nginx) repository.
+We will deploy the nginx-ingress controller using the example manifests in the [kubernetes/ingress](https://github.com/kubernetes/ingress-nginx/tree/master/deploy/static/provider/aws) repository.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress/master/examples/aws/nginx/nginx-ingress-controller.yaml
