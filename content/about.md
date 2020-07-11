@@ -3,7 +3,7 @@ title: About
 single: true
 ---
 
-My name is Ryan Eschinger. I am software engineer specializing in Kubernetes and other cloud-native technologies. With extensive experience in both operations and software development, here are some of the things I work on:
+My name is Ryan Eschinger. I am software engineer specializing in Kubernetes and other cloud-native technologies. With extensive [experience](/resume/) in both operations and software development, here are some of the things I work on:
 
 * Kubernetes platform engineering
 * Custom controller and operator development
