@@ -1,7 +1,3 @@
 DirectoryPath: public
-OutputDir: public/tmp/.htmltest
+OutputDir: tmp/.htmltest
 LogLevel: 3
-IgnoreURLs:
-# TODO: might be able to remove these after first successful deployment
-- https://ryaneschinger.com/tags/
-- https://ryaneschinger.com/categories/
