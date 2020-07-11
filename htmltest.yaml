@@ -1,3 +1,4 @@
 DirectoryPath: public
 OutputDir: tmp/.htmltest
 LogLevel: 3
+CacheExpires: 72h
